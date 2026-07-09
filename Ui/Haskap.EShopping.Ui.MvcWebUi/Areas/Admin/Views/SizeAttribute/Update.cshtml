@@ -1,0 +1,96 @@
+﻿@using Modules.Catalog.Application.Backoffice.Dtos.SizeAttribute
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model OutputDto
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Beden Güncelle"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Beden Güncelle</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <input type="hidden" id="idInput" value="@Model.Id" />
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="displayNameInput" class="form-label">Beden Adı</label>
+                                <input type="text" class="form-control" id="displayNameInput" value="@Model.DisplayName" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="valueInput" class="form-label">Beden Değeri</label>
+                                <input type="text" class="form-control" id="valueInput" value="@Model.Value" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="descriptionInput" class="form-label">Beden Açıklaması</label>
+                                <input type="text" class="form-control" id="descriptionInput" value="@Model.Description" />
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="updateButton">Güncelle</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+@section Scripts {
+    <script>
+
+        $('#updateButton').on("click", function () {
+            let id = $('#idInput').val();
+            let displayName = $('#displayNameInput').val();
+            let value = $('#valueInput').val();
+            let description = $('#descriptionInput').val();
+
+            $.ajax({
+                url: '@Url.Action("Update", "SizeAttribute", new { area = "Admin" })',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    id: id,
+                    displayName: displayName,
+                    value: value,
+                    description: description
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Beden başarıyla güncellendi.', 'success');
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,267 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Kategoriler"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Kategori Arama Parametreleri</h3>
+
+                        <div class="card-tools">
+                            <button type="button"
+                                    class="btn btn-tool"
+                                    data-lte-toggle="card-collapse"
+                                    title="Collapse">
+                                <i data-lte-icon="expand" class="bi bi-plus-lg"></i>
+                                <i data-lte-icon="collapse" class="bi bi-dash-lg"></i>
+                            </button>
+                            @* <button type="button"
+                                class="btn btn-tool"
+                                data-lte-toggle="card-remove"
+                                title="Remove">
+                            <i class="bi bi-x-lg"></i>
+                        </button> *@
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="searchTermInput" class="form-label">Arama İfadesi</label>
+                                <input class="form-control" id="searchTermInput" aria-describedby="Arama İfadesi" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="isActiveInput" class="form-label">Aktiflik</label>
+                                <select class="form-control" id="isActiveInput">
+                                    <option value="">Tümü</option>
+                                    <option value="true">Aktif olanlar</option>
+                                    <option value="false">Aktif olmayanlar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button id="searchButton" type="button" class="btn btn-primary">Ara</button>
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+            </div>
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Arama Sonucu</h3>
+
+                        <div class="card-tools">
+                            <a id="createCategoryButton" class="btn btn-primary btn-sm" asp-action="Create" asp-controller="Category" asp-area="Admin">Kategori Oluştur</a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <table id="searchResultTable" class="table table-bordered table-striped compact">
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+@section Styles {
+    <link href='~/lib/DataTables-2.3.8/datatables.min.css' rel='stylesheet' />
+}
+
+@section Scripts {
+    <script src="~/lib/DataTables-2.3.8/datatables.min.js"></script>
+
+    <script>
+
+        let searchResultTable;
+
+        $(document).ready(function () {
+            searchResultTable = $("#searchResultTable").DataTable({
+                responsive: true,
+                //"lengthChange": true,
+                lengthMenu: [
+                    [10, 25, 50, 100],
+                    ['10', '25', '50', '100']
+                ],
+                //"autoWidth": false,
+
+                //dom: 'Bfrtip',
+                //dom: "lBfrtip",
+                dom: "ltip",
+                //"buttons": ["excelHtml5", "pdfHtml5"],
+                //buttons: [
+                //    {
+                //        extend: 'colvis',
+                //        text: 'Sütun Göster-Gizle',
+                //        titleAttr: 'Sütun Göster-Gizle'
+                //    },
+                //    {
+                //        extend: 'collection',
+                //        text: 'Dışarı Aktar',
+                //        buttons: [
+                //            {
+                //                extend: "copy",
+                //                text: "Kopyala",
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //            },
+                //            {
+                //                extend: 'excelHtml5',
+                //                text: '<i class="fa fa-file-excel-o text-success"> Excel</i>',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //                //action: function(e, dt, button, config) {
+                //                //    //alert(JSON.stringify(e));
+                //                //}
+                //                //buttons: [
+                //                //    'copy',
+                //                //    'excel',
+                //                //    'csv',
+                //                //    'pdf',
+                //                //    'print'
+                //                //]
+                //            },
+                //            {
+                //                extend: 'pdfHtml5',
+                //                text: '<i class="fa fa-file-pdf-o text-danger"> PDF</i>',
+                //                titleAttr: 'PDF-e Aktar',
+                //                //message: 'Liste', //PDF Mesajı=Başlığın altında soldan başlıktan küçük fontla görünür
+                //                //title: 'Veriler',// Save File Name
+                //                //download: 'open',//PDF'i Browserda Yeni Sekmede  Pencere açar
+                //                'orientation': 'landscape',
+                //                //'pageSize':  'LETTER',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12] //columns: [ 0, 1, 2, 5 ] //= Columnları sabitlemek her halukarda görntülenmesini sağlamak için
+                //                },
+                //                customize: function (doc) {
+                //                    doc.pageMargins = [10, 10, 10, 10];
+                //                }
+                //            },
+                //            'print'
+                //        ]
+                //    }
+                //],
+                // "processing": true,
+                "serverSide": true,
+                // "deferLoading": 0,
+                rowId: 'id',
+                //"ajax": "/CreditCardTypeManagement/G",
+                "ajax": {
+                    type: 'POST',
+                    headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                    },
+                    url: "@Url.Action("Search", "Category", new { area = "Admin" })",
+                    data: function (d) {
+                        d.searchTerm = $("#searchTermInput").val();
+                        d.isActive = $("#isActiveInput").val();
+
+                        return d;
+                    },
+                    //dataSrc: ''
+                },
+                columns: [
+                    {
+                        title: 'İşlemler',
+                        orderable: false,
+                        data: "id",
+                        render: function (data, type, row, meta) {
+                            if (type === 'display') {
+                                return `<div class="dropdown">
+                                            <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                İşlemler
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="btn-primary dropdown-item" href="/Admin/Category/Update/${data}"><i class="bi bi-pencil-square"></i> Güncelle</a></li>
+                                                <li><a class="bg-danger dropdown-item" href="#" onclick="deleteCategory('${data}');"><i class="bi bi-trash"></i> Sil</a></li>
+                                            </ul>
+                                        </div>`;
+                            }
+
+                            return data;
+                        }
+                    },
+                    { title: 'Kategori Adı', data: "name" },
+                    { title: 'Slug', data: "slugValue" },
+                    {
+                        title: 'Aktiflik',
+                        data: "isActive",
+                        render: function (data, type, row, meta) {
+                            if (type === 'display') {
+                                return data == true ? '<i class="bi bi-check2 text-success"></i>' : '<i class="bi bi-x text-danger"></i>';
+                            }
+
+                            return data;
+                        }
+                    }
+                ],
+                "language": {
+                    "url": "/lib/DataTables-2.3.8/plugins/language/Turkish.json"
+                }
+            });
+        });
+
+        $("#searchButton").on("click", function () {
+            searchResultTable.draw();
+        });
+
+        function deleteCategory(id) {
+            Swal.fire({
+                title: 'Emin misiniz?',
+                text: "Silme işlemi geri alınamaz!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Evet, Sil!',
+                cancelButtonText: 'Hayır, İptal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("Delete", "Category", new { area = "Admin" })',
+                        headers: {
+                            'RequestVerificationToken': '@antiforgeryToken'
+                        },
+                        data: { id: id }
+                    }).done(function (result, status, xhr) {
+                        Swal.fire('Silindi!', 'Kategori başarıyla silindi.', 'success');
+                        searchResultTable.draw();
+                    });
+                }
+            });
+        }
+
+    </script>
+}

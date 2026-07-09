@@ -1,0 +1,87 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<vc:hero-section title="Giriş"></vc:hero-section>
+
+<section class="bg0 p-t-104 p-b-116">
+	<div class="container">
+		<div class="flex-w flex-tr">
+            <div class="size-210 bor10 p-lr-70 p-t-55 p-b-55 p-lr-15-lg w-full-md align-content-center">
+                <h4 class="mtext-105 cl2 txt-center">
+                    Giriş Yap <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </h4>
+			</div>
+
+			<div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
+
+                <form id="loginForm" method="post">
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="Kullanıcı Adı" aria-label="Kullanıcı Adı" name="username" id="username">
+                        <div class="how-pos4 pointer-none"><span class="fas fa-user"></span></div>
+                    </div>
+
+                    <div class="bor8 m-b-20 how-pos4-parent">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" placeholder="Parola" aria-label="Parola" name="password" id="password">
+                        <div class="how-pos4 pointer-none"><span class="fas fa-lock"></span></div>
+                    </div>
+
+                    <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer g-recaptcha"
+                        @* data-sitekey="@GoogleReCaptchaSettingsOptions.Value.SiteKey" *@
+                        data-callback='onSubmit'
+                        data-action='login'>
+                        Giriş Yap
+                    </button>
+                </form>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+	
+
+@section Scripts {
+
+    <script>
+
+        $("#loginForm").on("submit", function (event) {
+            redirectStarted = false;
+
+            let username = $("#username").val();
+            let password = $("#password").val();
+
+            if (!username || !password) {
+                Swal.fire('Hata', 'Kullanıcı Adı ve Şifre girilmelidir!', 'error');
+
+                event.preventDefault();
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("SignIn", "Account")',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    username: username,
+                    password: password,
+                    //reCaptchaToken: token,
+                }
+            }).done(function (result, status, xhr) {
+                redirectStarted = true;
+                window.location.href = '@ViewBag.ReturnUrl';
+            });
+
+            event.preventDefault();
+            return false;
+        });
+
+    </script>
+
+}

@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Modules.Order.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Modules.Order.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Domain">
+      <HintPath>..\..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Utilities">
+      <HintPath>..\..\..\References\Haskap.DddBase.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.ModuleManagement.Application.Contracts">
+      <HintPath>..\..\..\References\Modules.ModuleManagement.Application.Contracts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Haskap.EShopping.Application.Dtos\Haskap.EShopping.Application.Dtos.csproj" />
+    <ProjectReference Include="..\Haskap.EShopping.Domain.Shared\Haskap.EShopping.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Domain">
+      <HintPath>..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

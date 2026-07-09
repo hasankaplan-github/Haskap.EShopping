@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Modules.Basket.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Modules.Basket.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Haskap.EShopping.Application\Haskap.EShopping.Application.csproj" />
+    <ProjectReference Include="..\..\..\Domain\Haskap.EShopping.Domain\Haskap.EShopping.Domain.csproj" />
+    <ProjectReference Include="..\..\Catalog\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Discount\Application.Dtos\Application.Dtos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Domain">
+      <HintPath>..\..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿@if (User.Identity?.IsAuthenticated == true)
+{
+	if (ViewBag.HasAdminPanelAccess == true)
+	{
+		<a class="flex-c-m trans-04 p-lr-10" asp-area="Admin" asp-controller="Product" asp-action="Index">
+			Admin Panel
+		</a>
+	}
+
+	<a href="#" class="flex-c-m p-lr-10 trans-04">
+		Hesabım
+	</a>
+
+	<a class="flex-c-m trans-04 p-lr-10" asp-action="Logout" asp-controller="Account" asp-route-returnUrl="/@Context.GetRouteValue("controller")?.ToString()/@Context.GetRouteValue("action")?.ToString()">
+		Çıkış Yap
+	</a>
+}
+else
+{
+	<a class="flex-c-m p-lr-10 trans-04" asp-action="Login" asp-controller="Account" asp-route-returnUrl="/@Context.GetRouteValue("controller")?.ToString()/@Context.GetRouteValue("action")?.ToString()">
+		Giriş Yap
+	</a>
+}

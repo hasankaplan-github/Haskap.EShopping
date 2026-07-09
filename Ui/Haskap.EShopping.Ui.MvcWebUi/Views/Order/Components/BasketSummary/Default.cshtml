@@ -1,0 +1,75 @@
+﻿@using Haskap.EShopping.Domain.Common
+@using Modules.Basket.Application.Dtos
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model BasketOutputDto
+
+@{
+}
+
+<div class="col-md-2">
+    <span class="stext-110 cl2">
+        Sepetinizdeki Ürünler:
+    </span>
+</div>
+
+<div class="col-md-10">
+    <div class="row gx-4">
+        <div class="bg0 m-b-22 col-12">
+			<div class="wrap-table-shopping-cart">
+				<table class="table-shopping-cart">
+					<tr class="table_head">
+						<th class="column-1">Product</th>
+						<th class="column-2"></th>
+						<th class="column-3">Price</th>
+						<th class="column-4">Quantity</th>
+						<th class="column-5">Total</th>
+					</tr>
+
+					@foreach (var item in Model.Items.OrderBy(i => i.VariantSkuValue))
+					{
+						<tr class="table_row">
+							<td class="column-1">
+								<div class="how-itemcart2">
+									<img src="@Url.Action("GetProductPhotoPhysicalFile", "Catalog", new { VariantId = item.VariantId, FileName = item.PrimaryPicture.PhotoFile.NewName + item.PrimaryPicture.PhotoFile.Extension })" alt="IMG">
+								</div>
+							</td>
+							<td class="column-2">@item.ProductName</td>
+							<td class="column-3">@item.Price.StringRepresentation</td>
+							<td class="column-4">
+								<div class="m-r-auto m-r-0">
+									<span class="mtext-104 cl3">
+										@item.Quantity
+									</span>
+								</div>
+							</td>
+							<td class="column-5">@(item.Total.Value != item.TotalWithDiscount.Value ? Html.Raw($"<s>{item.Total.StringRepresentation}</s><br/>{item.TotalWithDiscount.StringRepresentation}") : item.Total.StringRepresentation)</td>
+						</tr>
+					}
+
+				</table>
+			</div>
+        
+			<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+				<div class="flex-w flex-m m-r-20 m-tb-5">
+					<div class="stext-101 cl2">
+						<div>
+							Kargo Ücreti: @Model.ShippingFee.StringRepresentation
+						</div>
+						<div>
+							Toplam: @(new Money(Model.TotalWithDiscount.Value + Model.ShippingFee.Value).ToString())
+						</div>
+					</div>
+				</div>
+
+				@* <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+								Update Cart
+							</div> *@
+			</div>
+		</div>
+    </div>
+
+</div>

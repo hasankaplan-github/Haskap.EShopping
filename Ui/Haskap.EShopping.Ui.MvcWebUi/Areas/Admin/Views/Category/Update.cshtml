@@ -1,0 +1,85 @@
+﻿@using Modules.Catalog.Application.Backoffice.Dtos.Category
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model OutputDto
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Kategori Güncelle"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Kategori Güncelle</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <input type="hidden" id="idInput" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Kategori Adı</label>
+                            <input type="text" class="form-control" id="nameInput" value="@Model.Name" />
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="isActiveInput" @(Model.IsActive ? "checked" : "") />
+                            <label class="form-check-label" for="isActiveInput">Aktif</label>
+                        </div>
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="updateButton">Güncelle</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+@section Scripts {
+    <script>
+
+        $('#updateButton').on("click", function () {
+            let id = $('#idInput').val();
+            let name = $('#nameInput').val();
+            let isActive = $('#isActiveInput').is(':checked');
+
+            $.ajax({
+                url: '@Url.Action("Update", "Category", new { area = "Admin" })',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    id: id,
+                    name: name,
+                    isActive: isActive
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Kategori başarıyla güncellendi.', 'success');
+            });
+        });
+
+    </script>
+}

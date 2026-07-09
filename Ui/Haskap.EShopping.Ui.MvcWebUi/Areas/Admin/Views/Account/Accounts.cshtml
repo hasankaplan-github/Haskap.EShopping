@@ -1,0 +1,234 @@
+﻿@using Haskap.DddBase.Domain.Providers;
+
+@inject ICurrentTenantProvider currentTenantProvider
+@inject ICurrentUserIdProvider CurrentUserIdProvider
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="userUpdatePermissionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div id="userUpdatePermissionsModalContent" class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="userUpdateRolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div id="userUpdateRolesModalContent" class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <h5 class="card-title">Kullanıcı Arama Parametreleri</h5>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <label for="searchUserFirstNameInput" class="form-label">İsim</label>
+                <input type="text" maxlength="100" class="form-control" id="searchUserFirstNameInput" aria-describedby="searchUserFirstNameInput">
+            </div>
+
+            <div class="col-md-3">
+                <label for="searchUserLastNameInput" class="form-label">Soyisim</label>
+                <input type="text" maxlength="100" class="form-control" id="searchUserLastNameInput" aria-describedby="searchUserLastNameInput">
+            </div>
+
+            <div class="col-md-3">
+                <label for="searchUserUsernameInput" class="form-label">Kullanıcı Adı</label>
+                <input type="text" maxlength="100" class="form-control" id="searchUserUsernameInput" aria-describedby="searchUserUsernameInput">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button id="searchButton" type="button" class="btn btn-primary float-right">Ara</button>
+    </div>
+    <!-- /.card-footer -->
+</div>
+<!-- /.card -->
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Arama Sonuçları</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <table id="searchResultTable" class="table table-bordered table-striped compact">
+            </table>
+        </div>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+
+
+@section Styles{
+    <link href='~/lib/DataTables-2.3.8/datatables.min.css' rel='stylesheet' />
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/lib/DataTables-2.3.8/datatables.min.js"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('.select2').select2();
+        })
+
+        $(document).ready(function () {
+            searchResultTable = $("#searchResultTable").DataTable({
+                responsive: true,
+                //"lengthChange": true,
+                lengthMenu: [
+                    [10, 25, 50, 100],
+                    ['10', '25', '50', '100']
+                ],
+                //"autoWidth": false,
+
+                //dom: 'Bfrtip',
+                //dom: "lBfrtip",
+                dom: "ltip",
+                //"buttons": ["excelHtml5", "pdfHtml5"],
+                //buttons: [
+                //    {
+                //        extend: 'colvis',
+                //        text: 'Sütun Göster-Gizle',
+                //        titleAttr: 'Sütun Göster-Gizle'
+                //    },
+                //    {
+                //        extend: 'collection',
+                //        text: 'Dışarı Aktar',
+                //        buttons: [
+                //            {
+                //                extend: "copy",
+                //                text: "Kopyala",
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //            },
+                //            {
+                //                extend: 'excelHtml5',
+                //                text: '<i class="fa fa-file-excel-o text-success"> Excel</i>',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //                //action: function(e, dt, button, config) {
+                //                //    //alert(JSON.stringify(e));
+                //                //}
+                //                //buttons: [
+                //                //    'copy',
+                //                //    'excel',
+                //                //    'csv',
+                //                //    'pdf',
+                //                //    'print'
+                //                //]
+                //            },
+                //            {
+                //                extend: 'pdfHtml5',
+                //                text: '<i class="fa fa-file-pdf-o text-danger"> PDF</i>',
+                //                titleAttr: 'PDF-e Aktar',
+                //                //message: 'Liste', //PDF Mesajı=Başlığın altında soldan başlıktan küçük fontla görünür
+                //                //title: 'Veriler',// Save File Name
+                //                //download: 'open',//PDF'i Browserda Yeni Sekmede  Pencere açar
+                //                'orientation': 'landscape',
+                //                //'pageSize':  'LETTER',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12] //columns: [ 0, 1, 2, 5 ] //= Columnları sabitlemek her halukarda görntülenmesini sağlamak için
+                //                },
+                //                customize: function (doc) {
+                //                    doc.pageMargins = [10, 10, 10, 10];
+                //                }
+                //            },
+                //            'print'
+                //        ]
+                //    }
+                //],
+                //"processing": true,
+                "serverSide": true,
+                //"deferLoading": 0,
+                rowId: 'id',
+                //"ajax": "/CreditCardTypeManagement/G",
+                "ajax": {
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': '@antiforgeryToken'
+                    },
+                    url: "@Url.Action("Search", "Account")",
+                    data: function (d) {
+                        d.firstName = $("#searchUserFirstNameInput").val();
+                        d.lastName = $("#searchUserLastNameInput").val();
+                        d.username = $("#searchUserUsernameInput").val();
+
+                        return d;
+                    }
+                    //contentType: "application/json"
+                },
+                columns: [
+                    { title: 'İsim', searchable: false, visible: true, data: "firstName" },
+                    { title: 'Soyisim', data: "lastName" },
+                    { title: 'Kullanıcı Adı', data: "username" },
+                    {
+                        title: 'İşlemler', orderable: false,
+                        data: "id",
+                        render: function (data, type, row, meta) {
+                            if (type === 'display') {
+                                
+                                return '<div class="dropdown">' +
+                                    '<button type="button" class="btn btn-primary btn-sm dropdown-toggle dropdown-icon" data-bs-toggle="dropdown">İşlemler</button>' +
+                                    '<ul class="dropdown-menu">' +
+                                        '<li><a class="dropdown-item" href="/Admin/Account/Profile?userId=' + data + '"><i class="fa-solid fa-id-card"></i> Profil</a></li>' +
+                                    '</ul>' +
+                                    '</div>';
+                            }
+
+                            return data;
+                        }
+                    }
+                ],
+                "language": {
+                    @if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        @:"url": ''
+                    }
+                    else
+                    {
+                        @:"url": "/lib/DataTables-2.0.7/plugins/language/Turkish.json"
+                    }
+                }
+                //,
+                //"columnDefs": [
+                //    {
+                //        "targets": [ 0 ],
+                //        "visible": false,
+                //        "searchable": false
+                //    }
+                //]
+            });
+        })
+
+        $("#searchButton").click(function () {
+            searchResultTable.draw();
+        })
+
+    </script>
+}

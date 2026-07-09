@@ -1,0 +1,122 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+
+    var categories = (ViewBag.Categories as IReadOnlyList<Modules.Catalog.Application.Backoffice.Dtos.Category.OutputDto>) ?? [];
+}
+
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Ürün Oluştur"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Ürün Oluştur</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="nameInput" class="form-label">Ürün Adı</label>
+                                <input type="text" class="form-control" id="nameInput" />
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="descriptionInput" class="form-label">Ürün Açıklaması</label>
+                                <input type="text" class="form-control" id="descriptionInput" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label for="categoriesSelect" class="form-label">Ürün Kategorileri</label>
+                                <select id="categoriesSelect" class="select2" multiple="multiple" style="width: 100%;">
+                                    @foreach (var category in categories)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Aktiflik</label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="isActiveInput" />
+                                    <label class="form-check-label" for="isActiveInput">Aktif</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="saveButton">Kaydet</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+
+@section Styles {
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script>
+       
+        $('#saveButton').on("click", function () {
+            let name = $('#nameInput').val();
+            let description = $('#descriptionInput').val();
+            let categoryIds = $('#categoriesSelect').val();
+            let isActive = $('#isActiveInput').is(':checked');
+
+            $.ajax({
+                url: '@Url.Action("Create", "Product", new { area = "Admin" })',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    name: name,
+                    description: description,
+                    categoryIds: categoryIds,
+                    isActive: isActive
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Ürün başarıyla kaydedildi.<br/>SKU: ' + result.skuValue, 'success');
+
+                $('#nameInput').val('');
+                $('#descriptionInput').val('');
+                $('#categoriesSelect').val(null).trigger('change');
+                $('#isActiveInput').prop('checked', false);
+            });
+        });
+
+        $(document).ready(function () {
+            $("#categoriesSelect").select2();
+        });
+
+    </script>
+}

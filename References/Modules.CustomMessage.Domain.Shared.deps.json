@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Modules.CustomMessage.Domain.Shared/1.0.0": {
+        "runtime": {
+          "Modules.CustomMessage.Domain.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Modules.CustomMessage.Domain.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

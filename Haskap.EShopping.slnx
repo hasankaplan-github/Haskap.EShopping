@@ -1,0 +1,74 @@
+<Solution>
+  <Folder Name="/Application/">
+    <Project Path="Application/Haskap.EShopping.Application.Dtos/Haskap.EShopping.Application.Dtos.csproj" />
+    <Project Path="Application/Haskap.EShopping.Application/Haskap.EShopping.Application.csproj" Id="e13fb282-536b-4103-860b-a89d3e66be13" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Domain/Haskap.EShopping.Domain.Shared/Haskap.EShopping.Domain.Shared.csproj" />
+    <Project Path="Domain/Haskap.EShopping.Domain/Haskap.EShopping.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infra/">
+    <Project Path="Infra/Haskap.EShopping.Infra/Haskap.EShopping.Infra.csproj" Id="f046ca83-7829-446e-8eba-5deb223429e5" />
+  </Folder>
+  <Folder Name="/Modules/">
+    <Project Path="Modules/AuditLogMigrations/AuditLogMigrations.csproj" Id="6fdbcc1f-6eb5-447f-8245-8e1c87fe6611" />
+    <Project Path="Modules/ModuleManagementMigrations/ModuleManagementMigrations.csproj" Id="ce966da2-3bae-4df9-b64a-2801cecba967" />
+  </Folder>
+  <Folder Name="/Modules/Account/">
+    <Project Path="Modules/Account/Application.Contracts/Application.Contracts.csproj" />
+    <Project Path="Modules/Account/Application.Dtos/Application.Dtos.csproj" />
+    <Project Path="Modules/Account/Application/Application.csproj" />
+    <Project Path="Modules/Account/Domain.Shared/Domain.Shared.csproj" Id="7d073769-bad1-4ca9-85d0-b531a69ffe40" />
+    <Project Path="Modules/Account/Domain/Domain.csproj" />
+    <Project Path="Modules/Account/Infra/Infra.csproj" />
+    <Project Path="Modules/Account/Module/Module.csproj" />
+  </Folder>
+  <Folder Name="/Modules/Basket/">
+    <Project Path="Modules/Basket/Application.Contracts/Application.Contracts.csproj" Id="bd47bd31-1975-4195-86a0-ce1dc14faed5" />
+    <Project Path="Modules/Basket/Application.Dtos/Application.Dtos.csproj" Id="4cae49af-b519-46cf-a5ac-344182255675" />
+    <Project Path="Modules/Basket/Application/Application.csproj" Id="6835b793-22d1-45af-9f0b-dcb0ed1b29e7" />
+    <Project Path="Modules/Basket/Domain.Shared/Domain.Shared.csproj" Id="033ba4cd-eda4-4fbc-8bb3-a36932e73faf" />
+    <Project Path="Modules/Basket/Domain/Domain.csproj" Id="a44d22ae-1b7c-4403-88e3-0cf7204c30ae" />
+    <Project Path="Modules/Basket/Infra/Infra.csproj" Id="512601e9-acf8-4f60-85fc-df5e50c19749" />
+    <Project Path="Modules/Basket/Module/Module.csproj" Id="56d567c2-55bf-45f8-89d6-ea208a575e3d" />
+  </Folder>
+  <Folder Name="/Modules/Catalog/">
+    <Project Path="Modules/Catalog/Application.Backoffice.Contracts/Application.Backoffice.Contracts.csproj" Id="4d8a0b2b-aab4-4615-ad4f-785f10d7619b" />
+    <Project Path="Modules/Catalog/Application.Backoffice.Dtos/Application.Backoffice.Dtos.csproj" Id="7dd7c2ba-68be-4f43-b5c2-a67868424834" />
+    <Project Path="Modules/Catalog/Application.Backoffice/Application.Backoffice.csproj" Id="7d7e1764-a71c-4222-8782-1ae62e97ffa2" />
+    <Project Path="Modules/Catalog/Application.Contracts/Application.Contracts.csproj" Id="4e4b659a-abf5-443f-903c-38202cdb01ed" />
+    <Project Path="Modules/Catalog/Application.Dtos/Application.Dtos.csproj" Id="7510f5b4-882d-43a3-b6b6-a0b56b915f52" />
+    <Project Path="Modules/Catalog/Application/Application.csproj" Id="5620e6f3-a221-44ab-9c33-65923bcaa6fd" />
+    <Project Path="Modules/Catalog/Domain.Shared/Domain.Shared.csproj" />
+    <Project Path="Modules/Catalog/Domain/Domain.csproj" />
+    <Project Path="Modules/Catalog/Infra/Infra.csproj" Id="8040ae0a-a960-490b-af8c-8fc7c919c510" />
+    <Project Path="Modules/Catalog/Module/Module.csproj" Id="8c43ec9b-1558-4cf4-8fa4-1508235ca1a0" />
+  </Folder>
+  <Folder Name="/Modules/Discount/">
+    <Project Path="Modules/Discount/Application.Contracts/Application.Contracts.csproj" Id="8d2780b8-a23f-45bf-83a6-2f1bfc2fdabb" />
+    <Project Path="Modules/Discount/Application.Dtos/Application.Dtos.csproj" Id="6f33de84-67b8-4e5d-a4f8-18fbf41bebed" />
+    <Project Path="Modules/Discount/Application/Application.csproj" Id="34b38980-4d1f-48f8-ab80-986aacf7c5cc" />
+    <Project Path="Modules/Discount/Domain/Domain.csproj" Id="6b6e1b86-5c99-41c0-a4be-74b2555ccf20" />
+    <Project Path="Modules/Discount/Infra/Infra.csproj" Id="f8bd20a1-df50-49f2-877b-0eb4c0a30d79" />
+    <Project Path="Modules/Discount/Module/Module.csproj" Id="ecffa6aa-76e2-40b2-bffb-53eeb96703fe" />
+  </Folder>
+  <Folder Name="/Modules/Order/">
+    <Project Path="Modules/Order/Application.Contracts/Application.Contracts.csproj" Id="f599a9a5-17cb-46db-9393-dcac38602f63" />
+    <Project Path="Modules/Order/Application.Dtos/Application.Dtos.csproj" Id="55519f1b-c159-40ef-8d8b-3744a60d59d3" />
+    <Project Path="Modules/Order/Application/Application.csproj" Id="71c68474-ef45-493f-8126-5613c7141dc0" />
+    <Project Path="Modules/Order/Domain/Domain.csproj" Id="127ca8c7-76f4-421d-b113-676b6b2c2d73" />
+    <Project Path="Modules/Order/Infra/Infra.csproj" Id="b7f4cab0-149e-42a8-8507-e1b762b61630" />
+    <Project Path="Modules/Order/Module/Module.csproj" Id="ec65a281-bf59-4e78-bb63-13101b893826" />
+  </Folder>
+  <Folder Name="/Modules/Shipping/">
+    <Project Path="Modules/Shipping/Application.Contracts/Application.Contracts.csproj" Id="50b06a26-6296-4268-bf9c-315c2b8fc2e9" />
+    <Project Path="Modules/Shipping/Application.Dtos/Application.Dtos.csproj" Id="f0ca8503-c49f-43d5-bff4-db5b39050615" />
+    <Project Path="Modules/Shipping/Application/Application.csproj" Id="6a5212ce-5fdd-4bd0-8dca-9b98e102e782" />
+    <Project Path="Modules/Shipping/Domain/Domain.csproj" Id="829cdf45-dc8d-4bd4-ab93-ed10c900800a" />
+    <Project Path="Modules/Shipping/Infra/Infra.csproj" Id="1273b1b6-896c-4463-9016-67eef9c79dda" />
+    <Project Path="Modules/Shipping/Module/Module.csproj" Id="18ebedac-7b5f-432d-a8d2-a8b38394d167" />
+  </Folder>
+  <Folder Name="/Ui/">
+    <Project Path="Ui/Haskap.EShopping.Ui.MvcWebUi/Haskap.EShopping.Ui.MvcWebUi.csproj" />
+  </Folder>
+</Solution>

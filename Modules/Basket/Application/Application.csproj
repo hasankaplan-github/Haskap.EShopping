@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Modules.Basket.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Modules.Basket.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Haskap.EShopping.Application\Haskap.EShopping.Application.csproj" />
+    <ProjectReference Include="..\..\Catalog\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Catalog\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Discount\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Shipping\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Application">
+      <HintPath>..\..\..\References\Haskap.DddBase.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Application.Contracts">
+      <HintPath>..\..\..\References\Haskap.DddBase.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Domain">
+      <HintPath>..\..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

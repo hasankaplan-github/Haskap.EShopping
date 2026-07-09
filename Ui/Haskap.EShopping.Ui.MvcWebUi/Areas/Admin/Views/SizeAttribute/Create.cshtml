@@ -1,0 +1,94 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Yeni Beden"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Yeni Beden Kaydet</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="displayNameInput" class="form-label">Beden Adı</label>
+                                <input type="text" class="form-control" id="displayNameInput" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="valueInput" class="form-label">Beden Değeri</label>
+                                <input type="text" class="form-control" id="valueInput" />
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="descriptionInput" class="form-label">Beden Açıklaması</label>
+                                <input type="text" class="form-control" id="descriptionInput" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="saveButton">Kaydet</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').on("click", function () {
+                let displayName = $('#displayNameInput').val();
+                let value = $('#valueInput').val();
+                let description = $('#descriptionInput').val();
+
+                $.ajax({
+                    url: '@Url.Action("Create", "SizeAttribute", new { area = "Admin" })',
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': '@antiforgeryToken'
+                    },
+                    data:{
+                        displayName: displayName,
+                        value: value,
+                        description: description
+                    },
+                }).done(function (result, status, xhr) {
+                    Swal.fire('Başarılı', 'Beden başarıyla kaydedildi.', 'success');
+
+                    $("#displayNameInput").val("");
+                    $("#valueInput").val("");
+                    $("#descriptionInput").val("");
+                });
+            });
+        });
+    </script>
+}

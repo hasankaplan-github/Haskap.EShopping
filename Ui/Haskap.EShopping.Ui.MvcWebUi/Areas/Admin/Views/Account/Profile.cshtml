@@ -1,0 +1,519 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Modules.Account.Application.Dtos.Account
+@using Modules.Account.Domain.Shared.Enums
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@inject IAuthorizationService AuthorizationService
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model AccountOutputDto
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="userUpdateNewsSourcesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div id="userUpdateNewsSourcesModalContent" class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="userUpdatePermissionsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div id="userUpdatePermissionsModalContent" class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="userUpdateRolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div id="userUpdateRolesModalContent" class="modal-content">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle"
+                        src="~/default_user.png"
+                        alt="User profile picture">
+                    </div>
+
+                    <h3 class="profile-username text-center">@Model.FirstName @Model.LastName</h3>
+
+                    <p class="text-muted text-center">@Model.Username</p>
+
+                    @*  <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>Followers</b> <a class="float-right">1,322</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Following</b> <a class="float-right">543</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Friends</b> <a class="float-right">13,287</a>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> *@
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon btn-block" data-bs-toggle="dropdown">İşlemler</button>
+                        <ul class="dropdown-menu">
+                            @if (ViewBag.UserOptionsEditType == UserOptionsEditType.UserSelfEdit)
+                            {
+                                <li><a class="dropdown-item" href="#" onclick="showUpdatePermissionsModal();"><i class="fa-solid fa-shield-halved"></i> İzinler</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUpdateRolesModal();"><i class="fa-solid fa-user-tag"></i> Roller</a></li>
+                            }
+                            else if (ViewBag.UserOptionsEditType == UserOptionsEditType.EditWithinSameTenant)
+                            {
+                                <li><a class="bg-danger dropdown-item" href="#" onclick="resetFailedLoginAttemptsAndUnlock('@Model.Id');"><i class="fa-solid fa-lock-open"></i> Hatalı Giriş İşlemlerini Sıfırla Ve Kilidi Kaldır</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUpdatePermissionsModalWithSameTenant('@Model.Id');"><i class="fa-solid fa-shield-halved"></i> İzinler</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUpdateRolesModalWithSameTenant('@Model.Id');"><i class="fa-solid fa-user-tag"></i> Roller</a></li>
+                                <li><a class="bg-danger dropdown-item" href="#" onclick="deleteUser('@Model.Id');"><i class="fa-solid fa-trash-can"></i> Sil</a></li>
+                            }
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <!-- About Me Box -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Bilgilerim</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <strong><i class="fa-solid fa-envelope mr-1"></i> Eposta Adresi</strong>
+
+                    <p class="text-muted">
+                        @Model.EmailAddress
+                    </p>
+
+                    <hr>
+
+                    <strong><i class="fa-solid fa-user-lock mr-1"></i> Hesap Kilit Durumu</strong>
+
+                    <p class="text-muted">
+                        @(Model.IsLocked ? "Kilitli" : "Kilitli Değil")
+                    </p>
+                    <p class="text-muted">
+                        Hatalı Giriş Sayısı: @Model.FailedAttemptCount
+                    </p>
+                    <p class="text-muted">
+                        Son Hatalı Giriş Tarihi: @Model.LastFailedAttemptUtcDateTime?.ToString(Thread.CurrentThread.CurrentUICulture)
+                    </p>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header p-2">
+
+                    <div class="nav nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="horizontal">
+                        <button class="nav-link active" id="v-pills-update-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updateAccount" type="button" role="tab" aria-controls="v-pills-updateAccount" aria-selected="true">Hesap Bilgilerini Güncelle</button>
+                        <button class="nav-link" id="v-pills-change-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-changePassword" type="button" role="tab" aria-controls="v-pills-changePassword" aria-selected="true">Şifre Değiştir</button>
+                        <button class="nav-link" id="v-pills-open-logins-tab" data-bs-toggle="pill" data-bs-target="#v-pills-openLogins" type="button" role="tab" aria-controls="v-pills-openLogins" aria-selected="true">Açık Girişler</button>
+                    </div>
+
+                    @* <div class="d-flex align-items-start">
+
+                    </div> *@
+
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-updateAccount" role="tabpanel" aria-labelledby="v-pills-updateAccount-tab">
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="updateAccountFirstNameInput" class="form-label">İsim</label>
+                                    <input type="text" required class="form-control" id="updateAccountFirstNameInput" aria-describedby="İsim" value="@Model?.FirstName" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="updateAccountLastNameInput" class="form-label">Soyisim</label>
+                                    <input type="text" required class="form-control" id="updateAccountLastNameInput" aria-describedby="Soyisim" value="@Model?.LastName" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="updateAccountUsernameInput" class="form-label">Kullanıcı Adı</label>
+                                    <input type="text" required class="form-control" id="updateAccountUsernameInput" aria-describedby="Kullanıcı Adı" value="@Model?.Username" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="updateAccountCurrentPasswordInput" class="form-label">Mevcut Şifre</label>
+                                    <input type="password" required class="form-control" id="updateAccountCurrentPasswordInput" aria-describedby="Mevcut Şifre" />
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <button class="btn btn-primary float-end" id="updateAccountSaveButton">Kaydet</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-changePassword" role="tabpanel" aria-labelledby="v-pills-changePassword-tab">
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="changePasswordCurrentPasswordInput" class="form-label">Mevcut Şifre</label>
+                                    <input type="password" required class="form-control" id="changePasswordCurrentPasswordInput" aria-describedby="Mevcut Şifre" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="changePasswordNewPasswordInput" class="form-label">Yeni Şifre</label>
+                                    <input type="password" required class="form-control" id="changePasswordNewPasswordInput" aria-describedby="Yeni Şifre" />
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <label for="changePasswordNewPasswordConfirmationInput" class="form-label">Yeni Şifre Onayı</label>
+                                    <input type="password" required class="form-control" id="changePasswordNewPasswordConfirmationInput" aria-describedby="Yeni Şifre Onayı" />
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-9 col-lg-8 col-xl-6">
+                                    <button class="btn btn-primary float-end" id="changePasswordSaveButton">Kaydet</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-openLogins" role="tabpanel" aria-labelledby="v-pills-openLogins-tab">
+                            <table id="openLoginsTable" class="table table-bordered table-striped compact">
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- /.tab-content -->
+                </div><!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div><!-- /.container-fluid -->
+
+
+@section Styles {
+<link href='~/lib/DataTables-2.3.8/datatables.min.css' rel='stylesheet' />
+}
+
+@section Scripts{
+    <script src="~/lib/DataTables-2.3.8/datatables.min.js"></script>
+
+    <script src="~/js/modalOperations.js" asp-append-version="true"></script>
+    <script src="~/js/accountOperations.js" asp-append-version="true"></script>
+
+    <script>
+
+        let openLoginsTable;
+
+        $(document).ready(function () {
+            openLoginsTable = $("#openLoginsTable").DataTable({
+                responsive: true,
+                //"lengthChange": true,
+                lengthMenu: [
+                    [10, 25, 50, 100],
+                    ['10', '25', '50', '100']
+                ],
+                //"autoWidth": false,
+
+                //dom: 'Bfrtip',
+                //dom: "lBfrtip",
+                dom: "ltip",
+                //"buttons": ["excelHtml5", "pdfHtml5"],
+                //buttons: [
+                //    {
+                //        extend: 'colvis',
+                //        text: 'Sütun Göster-Gizle',
+                //        titleAttr: 'Sütun Göster-Gizle'
+                //    },
+                //    {
+                //        extend: 'collection',
+                //        text: 'Dışarı Aktar',
+                //        buttons: [
+                //            {
+                //                extend: "copy",
+                //                text: "Kopyala",
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //            },
+                //            {
+                //                extend: 'excelHtml5',
+                //                text: '<i class="fa fa-file-excel-o text-success"> Excel</i>',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12]
+                //                },
+                //                //action: function(e, dt, button, config) {
+                //                //    //alert(JSON.stringify(e));
+                //                //}
+                //                //buttons: [
+                //                //    'copy',
+                //                //    'excel',
+                //                //    'csv',
+                //                //    'pdf',
+                //                //    'print'
+                //                //]
+                //            },
+                //            {
+                //                extend: 'pdfHtml5',
+                //                text: '<i class="fa fa-file-pdf-o text-danger"> PDF</i>',
+                //                titleAttr: 'PDF-e Aktar',
+                //                //message: 'Liste', //PDF Mesajı=Başlığın altında soldan başlıktan küçük fontla görünür
+                //                //title: 'Veriler',// Save File Name
+                //                //download: 'open',//PDF'i Browserda Yeni Sekmede  Pencere açar
+                //                'orientation': 'landscape',
+                //                //'pageSize':  'LETTER',
+                //                exportOptions: {
+                //                    columns: ":visible" //[2,3,4,5,6,7,8,9,10,11,12] //columns: [ 0, 1, 2, 5 ] //= Columnları sabitlemek her halukarda görntülenmesini sağlamak için
+                //                },
+                //                customize: function (doc) {
+                //                    doc.pageMargins = [10, 10, 10, 10];
+                //                }
+                //            },
+                //            'print'
+                //        ]
+                //    }
+                //],
+                // "processing": true,
+                // "serverSide": true,
+                // "deferLoading": 0,
+                rowId: 'id',
+                //"ajax": "/CreditCardTypeManagement/G",
+                "ajax": {
+                    type: 'GET',
+                    headers: {
+                        'RequestVerificationToken': '@antiforgeryToken'
+                    },
+                    @if (ViewBag.UserOptionsEditType == UserOptionsEditType.UserSelfEdit)
+                    {
+                        @:url: "@Url.Action("GetOpenLoginsOfCurrentUser", "Account", new { area = "Admin" })",
+                    }
+                    else  @if (ViewBag.UserOptionsEditType == UserOptionsEditType.EditWithinSameTenant)
+                    {
+                        <text>
+                            url: "@Url.Action("GetOpenLoginsOfUserWithinSameTenant", "Account", new { area = "Admin" })",
+                            data: {
+                                userId: '@Model.Id'
+                            },
+                        </text>
+                    }
+                    dataSrc: ''
+                },
+                columns: [
+                    {
+                        title: 'Giriş Tarihi', data: "utcLoginDateTime",
+                        render: function (data, type){
+                            let utcDate = new Date(data);
+
+                            return utcDate.toLocaleString('@Thread.CurrentThread.CurrentUICulture.Name');
+                        }
+                    },
+                    {
+                        title: 'Son Görülme Tarihi', data: "utcLastSeenDateTime",
+                        render: function (data, type){
+                            let utcDate = new Date(data);
+
+                            return utcDate.toLocaleString('@Thread.CurrentThread.CurrentUICulture.Name');
+                        }
+                    },
+                    { title: 'Platform', data: "platform" },
+                    { title: 'Tarayıcı', data: "browser" },
+                    { title: 'IP Adresi', data: "remoteIpAddress" },
+                    @if (ViewBag.UserOptionsEditType == UserOptionsEditType.UserSelfEdit)
+                    {
+                        <text>
+                        {
+                            title: 'İşlemler', orderable: false,
+                            data: "id",
+                            render: function(data, type, row, meta) {
+                                if (type === 'display')
+                                {
+                                    return '<button type="button" class="btn btn-primary btn-sm" onclick="signOutOfOpenLogin(\'' + data + '\')">Çıkış Yap</button>';
+                                }
+
+                                return data;
+                            }
+                        }
+                        </text>
+                    }
+                ],
+                "language": {
+                    @if (Thread.CurrentThread.CurrentUICulture.Name == "en-US")
+                    {
+                        @:"url": ''
+                    }
+                    else
+                    {
+                        @:"url": "/lib/DataTables-2.0.7/plugins/language/Turkish.json"
+                    }
+                }
+            });
+        })
+
+        function signOutOfOpenLogin(openLoginId) {
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                url: '@Url.Action("SignOutOfOpenLoginOfCurrentUser", "Account", new { area = "Admin" })',
+                data: {
+                    openLoginId: openLoginId
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Başarıyla çıkış yapıldı', 'success');
+
+                openLoginsTable.ajax.reload();
+            });
+        }
+
+        $("#changePasswordSaveButton").click(function () {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ChangePassword", "Account", new { area = "Admin" })',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    currentPassword: $("#changePasswordCurrentPasswordInput").val(),
+                    newPassword: $("#changePasswordNewPasswordInput").val(),
+                    newPasswordConfirmation: $("#changePasswordNewPasswordConfirmationInput").val()
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Şifre başarıyla değiştirildi', 'success');
+
+                $("#changePasswordCurrentPasswordInput").val('');
+                $("#changePasswordNewPasswordInput").val('');
+                $("#changePasswordNewPasswordConfirmationInput").val('');
+            });
+        })
+
+        $("#updateAccountSaveButton").click(function () {
+            $.ajax({
+                type: "PUT",
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                url: '@Url.Action("Update", "Account", new { area = "Admin" })',
+                data: {
+                    firstName: $("#updateAccountFirstNameInput").val(),
+                    lastName: $("#updateAccountLastNameInput").val(),
+                    username: $("#updateAccountUsernameInput").val(),
+                    currentPassword: $("#updateAccountCurrentPasswordInput").val()
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Hesap başarıyla güncellendi', 'success')
+                    .then(() => {
+                        location.reload(true);
+                    });
+
+            });
+        })
+
+        function deleteUser(userId) {
+            Swal.fire({
+                icon: 'question',
+                title: 'Kullanıcıyı silmek istediğinizden emin misiniz?',
+                //showDenyButton: true,
+                showCancelButton: true,
+                cancelButtonText: 'İptal',
+                confirmButtonText: 'Sil',
+                //denyButtonText: `Don't save`,
+            }).then((confirmation) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (confirmation.isConfirmed) {
+                    $.ajax({
+                        type: "DELETE",
+                        headers: {
+                            'RequestVerificationToken': '@antiforgeryToken'
+                        },
+                        @if (ViewBag.UserOptionsEditType == UserOptionsEditType.EditWithinSameTenant)
+                        {
+                            <text>
+                                url: "@Url.Action("DeleteWithinSameTenant", "Account", new { area = "Admin" })",
+                                data: {
+                                    userId: userId
+                                }
+                            </text>
+                        }
+                    }).done(function (result, status, xhr) {
+                        Swal.fire('Başarılı', 'Kullanıcı başarıyla silindi', 'success');
+
+                        history.back();
+                    });
+                }
+            });
+        }
+
+        function resetFailedLoginAttemptsAndUnlock(userId) {
+            $.ajax({
+                type: "PUT",
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                @if (ViewBag.UserOptionsEditType == UserOptionsEditType.EditWithinSameTenant)
+                {
+                    <text>
+                        url: "@Url.Action("ResetFailedLoginAttemptsAndUnlockWithinSameTenant", "Account", new { area = "Admin" })",
+                        data: {
+                            userId: userId
+                        }
+                    </text>
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Başarıyla güncellendi.', 'success')
+                    .then(() => {
+                        location.reload(true);
+                    });
+            });
+        }
+
+    </script>
+
+}

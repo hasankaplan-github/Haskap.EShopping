@@ -1,0 +1,45 @@
+﻿@using Modules.Account.Application.Dtos.Account
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model AccountOutputDto
+
+@{
+}
+
+
+<div class="col-md-2">
+    <span class="stext-110 cl2">
+        Kişisel Bilgiler:
+    </span>
+</div>
+
+<div class="col-md-10">
+    <div class="row gx-4">
+        <div class="bg0 m-b-22 col-md-6">
+            <span class="bor8 stext-112 cl8">
+                Ad: @Model.FirstName
+            </span>
+        </div>
+
+        <div class="bg0 m-b-22 col-md-6">
+            <span class="bor8 stext-112 cl8">
+                Soyad: @Model.LastName
+            </span>
+        </div>
+
+        <div class="bg0 m-b-22 col-md-6">
+            <span class="bor8 stext-112 cl8">
+                Telefon: @Model.PhoneNumber
+            </span>
+        </div>
+
+        <div class="bg0 m-b-22 col-md-6">
+            <span class="bor8 stext-112 cl8">
+                E-Posta: @Model.EmailAddress
+            </span>
+        </div>
+    </div>
+</div>

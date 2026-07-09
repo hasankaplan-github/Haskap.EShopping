@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Modules.Localization.Application.Dtos/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Application.Dtos": "1.0.0"
+        },
+        "runtime": {
+          "Modules.Localization.Application.Dtos.dll": {}
+        }
+      },
+      "Haskap.DddBase.Application.Dtos/1.0.0": {
+        "runtime": {
+          "Haskap.DddBase.Application.Dtos.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Modules.Localization.Application.Dtos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Haskap.DddBase.Application.Dtos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

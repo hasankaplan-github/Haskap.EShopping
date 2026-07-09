@@ -1,0 +1,152 @@
+﻿@using System.Collections.ObjectModel
+@using Haskap.DddBase.Domain.Shared.Consts
+@using Haskap.DddBase.Presentation.CustomAuthorization
+@using Microsoft.AspNetCore.Authorization
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@inject IAuthorizationService AuthorizationService
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model ReadOnlyDictionary<string, HashSet<PermissionRequirement>>
+
+@{
+    var hasAppAdminPermission = (await AuthorizationService.AuthorizeAsync(User, AdminPermissions.App.Admin)).Succeeded;
+    var selectedPermissions = (ViewBag.SelectedPermissions as HashSet<string>) ?? new HashSet<string>();
+    var selected = false;
+
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<div class="modal-header bg-primary">
+    <h5 class="modal-title" id="staticBackdropLabel"><i class="fa-solid fa-shield-halved"></i> İzinler</h5>
+    <button type="button" class="btn-close cancelRoleUpdatePermission" @*data-bs-dismiss="modal"*@ aria-label="Close"></button>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+
+        <table class="table table-hover">
+            <tbody>
+
+                @foreach (var groupKey1 in Model.Keys.DistinctBy(x => x.Substring(0, x.IndexOf('.'))))
+                {
+                    var groupName1 = groupKey1.Substring(0, groupKey1.IndexOf('.'));
+
+                    if (hasAppAdminPermission == false && groupName1.Equals(nameof(AdminPermissions)))
+                    {
+                        continue;
+                    }
+
+                    <tr data-widget="expandable-table" aria-expanded="true">
+                        <td>
+                            <i class="expandable-table-caret fas fa-caret-right fa-fw"></i> @groupName1
+                        </td>
+                    </tr>
+                    <tr class="expandable-body">
+                        <td>
+                            <div class="">
+
+                                <div class="d-flex align-items-start">
+                                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @{
+                                            var isFirstPermissionGroup = true;
+                                        }
+                                        @foreach (var groupKey2 in Model.Keys.Where(x => groupName1.Equals(x.Substring(0, x.IndexOf('.')))))
+                                        {
+                                            var groupName2 = groupKey2.Substring(groupKey2.IndexOf('.') + 1).Replace('.', '-');
+
+                                            <button class="nav-link @Html.Raw(isFirstPermissionGroup ? "active" : string.Empty)" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-@groupName1-@groupName2" type="button" role="tab" aria-controls="v-pills-@groupName1-@groupName2" aria-selected="true">@groupName2</button>
+
+                                            isFirstPermissionGroup = false;
+                                        }
+                                    </div>
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        @{
+                                            isFirstPermissionGroup = true;
+                                        }
+                                        @foreach (var groupKey2 in Model.Keys.Where(x => groupName1.Equals(x.Substring(0, x.IndexOf('.')))))
+                                        {
+                                            var groupName2 = groupKey2.Substring(groupKey2.IndexOf('.') + 1).Replace('.', '-');
+                                            var permissions = Model[groupKey2];
+
+                                            <div class="tab-pane fade @Html.Raw(isFirstPermissionGroup ? "show active" : string.Empty)" id="v-pills-@groupName1-@groupName2" role="tabpanel" aria-labelledby="v-pills-@groupName1-@groupName2-tab">
+                                                @foreach (var permission in permissions)
+                                                {
+                                                    selected = false;
+                                                    if (selectedPermissions.Contains(permission.Name))
+                                                    {
+                                                        selected = true;
+                                                    }
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" type="checkbox" @Html.Raw(selected ? "checked=\"checked\"" : string.Empty) id="@permission.Name" value="@permission.Name">
+                                                        <label for="@permission.Name" class="custom-control-label">@(permission.DisplayText ?? permission.Name)</label>
+                                                    </div>
+                                                }
+                                            </div>
+
+                                            isFirstPermissionGroup = false;
+                                        }
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary cancelRoleUpdatePermission" @*data-bs-dismiss="modal"*@ id="cancelRoleUpdatePermissionButton">İptal</button>
+    <button type="button" class="btn btn-primary" @*data-bs-dismiss="modal"*@ id="saveRoleUpdatePermissionButton"><i class="fas fa-save"></i> Kaydet</button>
+</div>
+
+<script type="text/javascript">
+
+    $(".cancelRoleUpdatePermission").click(function () {
+        hideRoleUpdatePermissionsModal();
+    })
+
+    $("#saveRoleUpdatePermissionButton").click(function () {
+        let checkedPermissions = $("input:checked").map(function () {
+            return this.value;
+        }).get();
+
+        let uncheckedPermissions = $("input:checkbox:not(:checked)").map(function () {
+            return this.value;
+        }).get();
+
+
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'RequestVerificationToken': '@antiforgeryToken'
+            },
+            url: '@Url.Action("UpdatePermissions", "Role", new { area = "Admin" })',
+            data: {
+                roleId: '@ViewBag.RoleId',
+                checkedPermissions: checkedPermissions,
+                uncheckedPermissions: uncheckedPermissions
+            }
+        }).done(function (data, status, xhr) {
+            Swal.fire(
+                'Başarılı',
+                'İzinler başarıyla güncellendi',
+                'success'
+            );
+
+            hideRoleUpdatePermissionsModal();
+        });
+    })
+
+</script>

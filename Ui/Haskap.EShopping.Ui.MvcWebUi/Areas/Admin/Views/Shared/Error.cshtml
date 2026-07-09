@@ -1,0 +1,49 @@
+﻿@using Haskap.DddBase.Domain
+
+@model Envelope?
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Hata Oluştu"></vc:content-header>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2>
+					@((int)(Model?.HttpStatusCode ?? 0)) (@Model?.HttpStatusCode)
+				</h2>
+
+				<hr />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2>
+					@Model?.ExceptionMessage
+				</h2>
+
+				<hr />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					@Model?.ExceptionStackTrace
+				</p>
+
+				<hr />
+			</div>
+		</div>
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->

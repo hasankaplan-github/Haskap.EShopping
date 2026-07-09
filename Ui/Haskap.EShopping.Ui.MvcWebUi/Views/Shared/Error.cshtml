@@ -1,0 +1,43 @@
+﻿@using Haskap.DddBase.Domain
+
+@model Envelope?
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<vc:hero-section title="Hata Oluştu"></vc:hero-section>
+
+<section class="bg0 p-t-62 p-b-60">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>
+					@((int)(Model?.HttpStatusCode ?? 0)) (@Model?.HttpStatusCode)
+				</h2>
+
+				<hr />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2>
+					@Model?.ExceptionMessage
+				</h2>
+
+				<hr />
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					@Model?.ExceptionStackTrace
+				</p>
+
+				<hr />
+			</div>
+		</div>
+	</div>
+</section>

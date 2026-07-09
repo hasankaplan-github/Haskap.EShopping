@@ -1,0 +1,31 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Haskap.DddBase.Domain.Shared/1.0.0": {
+        "runtime": {
+          "Haskap.DddBase.Domain.Shared.dll": {}
+        },
+        "resources": {
+          "en-US/Haskap.DddBase.Domain.Shared.resources.dll": {
+            "locale": "en-US"
+          },
+          "tr-TR/Haskap.DddBase.Domain.Shared.resources.dll": {
+            "locale": "tr-TR"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Haskap.DddBase.Domain.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

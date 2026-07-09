@@ -1,0 +1,164 @@
+﻿@using Modules.Catalog.Application.Backoffice.Dtos.Product
+@using Modules.Catalog.Domain.Shared.Enums
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model VariantOutputDto
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+
+    var colorAttributes = (ViewBag.ColorAttributes as List<Modules.Catalog.Application.Backoffice.Dtos.ColorAttribute.OutputDto>) ?? [];
+    var sizeAttributes = (ViewBag.SizeAttributes as List<Modules.Catalog.Application.Backoffice.Dtos.SizeAttribute.OutputDto>) ?? [];
+
+    var selectedColor = Model.Attributes.FirstOrDefault(x => x.AttributeType == AttributeType.Color);
+    var selectedColorAttributeId = colorAttributes.Where(x => x.DisplayName == selectedColor?.DisplayName && x.Value == selectedColor?.Value).Select(x => x.Id).FirstOrDefault();
+
+    var selectedSize = Model.Attributes.FirstOrDefault(x => x.AttributeType == AttributeType.Size);
+    var selectedSizeAttributeId = sizeAttributes.Where(x => x.DisplayName == selectedSize?.DisplayName && x.Value == selectedSize?.Value).Select(x => x.Id).FirstOrDefault();
+}
+
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Ürün Variantı Güncelle"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Ürün Variantı Güncelle</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="colorAttributesSelect" class="form-label">Renk Seç</label>
+                                <select id="colorAttributesSelect" class="select2" style="width: 100%;">
+                                    <option value="">Renk Seç</option>
+                                    @foreach (var colorAttribute in colorAttributes)
+                                    {
+                                        <option value="@colorAttribute.Id">
+                                            <span style="color: @(colorAttribute.Value);">
+                                                <i class="zmdi zmdi-circle"></i>
+                                            </span> - @colorAttribute.DisplayName - @colorAttribute.Description
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="sizeAttributesSelect" class="form-label">Beden Seç</label>
+                                <select id="sizeAttributesSelect" class="select2" style="width: 100%;">
+                                    <option value="">Beden Seç</option>
+                                    @foreach (var sizeAttribute in sizeAttributes)
+                                    {
+                                        <option value="@sizeAttribute.Id">@sizeAttribute.DisplayName - @sizeAttribute.Description</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="priceInput" class="form-label">Ürün Fiyatı</label>
+                                <input type="number" class="form-control" id="priceInput" value="@Model.Price.Value" />
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="stockQuantityInput" class="form-label">Stok Miktarı</label>
+                                <input type="number" class="form-control" id="stockQuantityInput" value="@Model.StockQuantityValue" />
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Aktiflik</label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="isActiveInput" @(Model.IsActive ? "checked" : "") />
+                                    <label class="form-check-label" for="isActiveInput">Aktif</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Birincillik</label>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="isPrimaryInput" @(Model.IsPrimary ? "checked" : "") />
+                                    <label class="form-check-label" for="isPrimaryInput">Birincil</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="updateButton">Güncelle</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+
+@section Styles {
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script>
+
+        $('#updateButton').on("click", function () {
+            let colorAttributeId = $('#colorAttributesSelect').val();
+            let sizeAttributeId = $('#sizeAttributesSelect').val();
+            let priceValue = $('#priceInput').val();
+            let stockQuantityValue = $('#stockQuantityInput').val();
+            let isActive = $('#isActiveInput').is(':checked');
+            let isPrimary = $('#isPrimaryInput').is(':checked');
+
+            $.ajax({
+                url: '@Url.Action("UpdateVariant", "Product", new { area = "Admin" })',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    id: '@Model.Id',
+                    productId: '@Model.ProductId',
+                    colorAttributeId: colorAttributeId,
+                    sizeAttributeId: sizeAttributeId,
+                    priceValue: priceValue,
+                    stockQuantityValue: stockQuantityValue,
+                    isActive: isActive,
+                    isPrimary: isPrimary
+                }
+            }).done(function (result, status, xhr) {
+                Swal.fire('Başarılı', 'Ürün variantı başarıyla güncellendi.', 'success');
+            });
+        });
+
+        $(document).ready(function () {
+            $(".select2").select2();
+
+            $('#colorAttributesSelect').val('@selectedColorAttributeId');
+            $('#sizeAttributesSelect').val('@selectedSizeAttributeId');
+            $('.select2').trigger('change'); // Notify any JS components that the value changed
+        });
+
+    </script>
+}

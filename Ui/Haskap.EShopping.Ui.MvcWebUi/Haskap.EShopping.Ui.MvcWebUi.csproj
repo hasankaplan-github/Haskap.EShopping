@@ -1,0 +1,98 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.17.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Haskap.EShopping.Domain\Haskap.EShopping.Domain.csproj" />
+    <ProjectReference Include="..\..\Infra\Haskap.EShopping.Infra\Haskap.EShopping.Infra.csproj" />
+    <ProjectReference Include="..\..\Modules\Account\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Account\Module\Module.csproj" />
+    <ProjectReference Include="..\..\Modules\AuditLogMigrations\AuditLogMigrations.csproj" />
+    <ProjectReference Include="..\..\Modules\Basket\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Basket\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Modules\Basket\Module\Module.csproj" />
+    <ProjectReference Include="..\..\Modules\Catalog\Module\Module.csproj" />
+    <ProjectReference Include="..\..\Modules\Discount\Module\Module.csproj" />
+    <ProjectReference Include="..\..\Modules\ModuleManagementMigrations\ModuleManagementMigrations.csproj" />
+    <ProjectReference Include="..\..\Modules\Order\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Order\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Modules\Order\Module\Module.csproj" />
+    <ProjectReference Include="..\..\Modules\Shipping\Application.Contracts\Application.Contracts.csproj" />
+    <ProjectReference Include="..\..\Modules\Shipping\Application.Dtos\Application.Dtos.csproj" />
+    <ProjectReference Include="..\..\Modules\Shipping\Module\Module.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Application.Contracts">
+      <HintPath>..\..\References\Haskap.DddBase.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Application.Dtos">
+      <HintPath>..\..\References\Haskap.DddBase.Application.Dtos.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Domain">
+      <HintPath>..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Domain.Shared">
+      <HintPath>..\..\References\Haskap.DddBase.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Infra">
+      <HintPath>..\..\References\Haskap.DddBase.Infra.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Presentation">
+      <HintPath>..\..\References\Haskap.DddBase.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Utilities">
+      <HintPath>..\..\References\Haskap.DddBase.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.AuditLog.Module">
+      <HintPath>..\..\References\Modules.AuditLog.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.CustomMessage.Application.Contracts">
+      <HintPath>..\..\References\Modules.CustomMessage.Application.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.CustomMessage.Domain.Shared">
+      <HintPath>..\..\References\Modules.CustomMessage.Domain.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.CustomMessage.Module">
+      <HintPath>..\..\References\Modules.CustomMessage.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.CustomMessage.Presentation">
+      <HintPath>..\..\References\Modules.CustomMessage.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.Email.Module">
+      <HintPath>..\..\References\Modules.Email.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.GlobalExceptionHandling.Module">
+      <HintPath>..\..\References\Modules.GlobalExceptionHandling.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.GlobalExceptionHandling.Presentation">
+      <HintPath>..\..\References\Modules.GlobalExceptionHandling.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Modules.ModuleManagement.Module">
+      <HintPath>..\..\References\Modules.ModuleManagement.Module.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Assets\ProductPhoto\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,80 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+
+<!--begin::App Content-->
+<div class="app-content">
+    <!--begin::Container-->
+    <div class="container-fluid">
+
+        <vc:content-header title="Yeni Kategori"></vc:content-header>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-primary card-outline mb-4">
+                    <!--begin::Header-->
+                    <div class="card-header">
+                        <div class="card-title">Yeni Kategori Kaydet</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Kategori Adı</label>
+                            <input type="text" class="form-control" id="nameInput" />
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="isActiveInput" />
+                            <label class="form-check-label" for="isActiveInput">Aktif</label>
+                        </div>
+                    </div>
+                    <!--end::Body-->
+                    <!--begin::Footer-->
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" id="saveButton">Kaydet</button>
+                    </div>
+                    <!--end::Footer-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::App Content-->
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#saveButton').on("click", function () {
+                let name = $('#nameInput').val();
+                let isActive = $('#isActiveInput').is(':checked');
+
+                $.ajax({
+                    url: '@Url.Action("Create", "Category", new { area = "Admin" })',
+                    type: 'POST',
+                    headers: {
+                        'RequestVerificationToken': '@antiforgeryToken'
+                    },
+                    data:{
+                        name: name,
+                        isActive: isActive
+                    },
+                }).done(function (result, status, xhr) {
+                    Swal.fire('Başarılı', 'Kategori başarıyla kaydedildi.', 'success');
+
+                    $("#nameInput").val("");
+                    $("#isActiveInput").prop("checked", false);
+                });
+            });
+        });
+    </script>
+}

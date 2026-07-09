@@ -1,0 +1,149 @@
+﻿@using Modules.CustomMessage.Application.Contracts
+
+@inject ICustomMessageService CustomMessageService
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Haskap.EShopping.Ui.MvcWebUi</title>
+    @* <script type="importmap"></script> *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome_6.5.2/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/vendor/css-hamburgers/hamburgers.min.css">
+
+    @await RenderSectionAsync("Styles", required: false)
+
+    <link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/cozastore-1.0.0/css/main.css">
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@@1.13.1/font/bootstrap-icons.min.css"
+          crossorigin="anonymous" />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+</head>
+<body>
+	
+	<vc:header></vc:header>
+@* 
+    <vc:cart></vc:cart>
+	 *@
+	@RenderBody()
+    
+	<vc:footer></vc:footer>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/sweetalert_11.11.0/dist/sweetalert2.all.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+	<script src="~/lib/cozastore-1.0.0/js/main.js"></script>
+
+    <script src="~/js/basketoperations.js" asp-append-version="true"></script>
+
+	<script>
+
+		$(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+            let envelope = $.parseJSON(jqxhr.responseText);
+
+            if (envelope && envelope.hasError) {
+                let exceptionStackTrace = envelope.exceptionStackTrace ? envelope.exceptionStackTrace : '';
+                Swal.fire(
+                    'Hata (' + envelope.httpStatusCode + ')',
+                    envelope.exceptionMessage + "<br /><br />" + exceptionStackTrace,
+                    'error'
+                );
+            } else {
+                Swal.fire(
+                    'Beklenmedik Hata',
+                    jqxhr.responseText,
+                    'error'
+                );
+            }
+        });
+
+		$(document).on("ajaxStart", function() {
+            $("#overlayer").show();
+            $(".loader").show();
+		});
+       
+		$(document).on("ajaxStop", function() {
+            $(".loader").fadeOut("slow");
+            $("#overlayer").fadeOut("slow");
+		});
+        
+        $(this).submit(function (e) {
+            $("#overlayer").show();
+            $(".loader").show();
+        });
+
+        $(document).ready(function(){
+            updateBasketItemCountNotify();
+
+            $(".loader").fadeOut();
+            $("#overlayer").fadeOut();
+        });
+
+        $(document).on("ajaxSuccess", function(event, jqxhr, settings, data) {
+            if (!jqxhr.responseText) {
+                return;
+            }
+
+            if (jqxhr.getResponseHeader("ResponseContainsCustomMessages") != "true") {
+                return;
+            }
+
+            if(Swal.isVisible()){
+                const currentSwal = Swal.getPopup();
+                const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        let response = JSON.parse(jqxhr.responseText);
+
+                        showCustomMessages(response.customMessages);
+                    }
+                });
+                }, { threshold: 0 }); // 0 means triggers as soon as 1 pixel is gone
+
+                observer.observe(currentSwal);
+            }else{
+                let response = JSON.parse(jqxhr.responseText);
+
+                showCustomMessages(response.customMessages);
+            }
+        });
+
+        async function showCustomMessages(customMessages) {
+            for (let index = 0; index < customMessages.length; ++index) {
+                const customMessage = customMessages[index];
+                await Swal.fire({
+                    title: customMessage.Title,
+                    text: customMessage.Text,
+                    icon: customMessage.Icon
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            const customMessages = JSON.parse('@Html.Raw(CustomMessageService.GetAllMessagesAsJson())');
+            showCustomMessages(customMessages);
+        });
+
+	</script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

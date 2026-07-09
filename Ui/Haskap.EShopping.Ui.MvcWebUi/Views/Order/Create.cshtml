@@ -1,0 +1,70 @@
+﻿@using Haskap.DddBase.Utilities.Guids
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+
+    var idempotencyKey = GuidGenerator.CreateSimpleGuid();
+}
+
+
+<div class="bg0 p-t-75 p-b-85">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                    <h4 class="mtext-109 cl2 p-b-30">
+                        Sipariş Bilgileri
+                    </h4>
+
+                    <div class="bor12 p-t-15 p-b-13 row">
+                        <vc:personal-info-summary></vc:personal-info-summary>
+                    </div>
+
+                    <div class="bor12 p-t-15 p-b-13 row">
+                        <vc:shipping-address-summary></vc:shipping-address-summary>
+                    </div>
+
+                    <div class="bor12 p-t-15 p-b-13 row">
+                        <vc:basket-summary></vc:basket-summary>
+                    </div>
+                    <div class="p-t-15 row">
+                        <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04" id="createOrderButton">
+                            Sipariş Oluştur
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        $("#createOrderButton").on("click", function(){
+            $(this).prop("disabled", true);
+
+            $.ajax({
+                url: '/Order/Create',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    idempotencyKey: '@idempotencyKey',
+                    firstName: $('#firstNameInput').val(),
+                    lastName: $('#lastNameInput').val(),
+                    phoneNumber: $('#phoneNumberInput').val(),
+                    emailAddress: $("#emailAddressInput").val()
+                }
+            }).done(async function (result, status, xhr) {
+                await Swal.fire('Başarılı', 'Sipariş başarıyla oluşturuldu. Sipariş kodu: ' + result.orderCode, 'success');
+                //location.href = "/Basket";
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,74 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Modules.SpecialDayBase.Application.Dtos/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Domain.Shared": "1.0.0",
+          "Modules.SpecialDayBase.Domain.Shared": "1.0.0",
+          "Modules.SpecialDayBase.Domain.Shared.Reference": "1.0.0.0"
+        },
+        "runtime": {
+          "Modules.SpecialDayBase.Application.Dtos.dll": {}
+        }
+      },
+      "Haskap.DddBase.Domain.Shared/1.0.0": {
+        "runtime": {
+          "Haskap.DddBase.Domain.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "resources": {
+          "en-US/Haskap.DddBase.Domain.Shared.resources.dll": {
+            "locale": "en-US"
+          },
+          "tr-TR/Haskap.DddBase.Domain.Shared.resources.dll": {
+            "locale": "tr-TR"
+          }
+        }
+      },
+      "Modules.SpecialDayBase.Domain.Shared/1.0.0": {
+        "runtime": {
+          "Modules.SpecialDayBase.Domain.Shared.dll": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Modules.SpecialDayBase.Domain.Shared.Reference/1.0.0.0": {
+        "runtime": {
+          "Modules.SpecialDayBase.Domain.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Modules.SpecialDayBase.Application.Dtos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Haskap.DddBase.Domain.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modules.SpecialDayBase.Domain.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modules.SpecialDayBase.Domain.Shared.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

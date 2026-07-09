@@ -1,0 +1,355 @@
+﻿@using Haskap.DddBase.Utilities.Paging
+@using Haskap.EShopping.Domain.Common
+@using Modules.Catalog.Application.Dtos
+@using Modules.Catalog.Application.Mappings
+@using Modules.Catalog.Domain.Shared.Enums
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@model Pagination<SearchProductOutputDto>
+
+@{
+	var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+
+    ViewData["Title"] = "Home Page";
+
+	var filterAttributes = ((IList<string>?)ViewBag.FilterAttributes).ToProductAttributeOutputDtos();
+	var filterAttributesQueryString = string.Join("&filterAttributes=", filterAttributes.Select(x => $"{x.AttributeType.ToString()}|{x.DisplayName}|{x.Value.TrimStart('#')}"));
+}
+
+
+<!-- Product -->
+<div class="bg0 m-t-23 p-b-140">
+	<div class="container">
+			
+		<div class="flex-w flex-sb-m p-b-52">
+			
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+				@*
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+						All Products
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+						Women
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+						Men
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+						Bag
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+						Shoes
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+						Watches
+					</button>
+				*@
+				</div>
+ 
+			<div class="flex-w flex-c-m m-tb-10">
+				<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+					<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+					<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+					Süz
+				</div>
+
+				<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+					<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
+					<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+					Ara
+				</div>
+			</div>
+				
+			<!-- Search product -->
+			<div class="dis-none panel-search w-full p-t-10 p-b-15">
+				<form method="get" class="w-100">
+					<div class="bor8 dis-flex p-l-15">
+						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="searchTerm" placeholder="Search" value="@ViewBag.SearchTerm">
+						
+						<input type="hidden" name="currentPageIndex" value="@ViewBag.CurrentPageIndex" />
+						<input type="hidden" name="pageSize" value="@ViewBag.PageSize" />
+						<input type="hidden" name="categorySlug" value="@ViewBag.CategorySlug" />
+
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+							<i class="zmdi zmdi-search"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+
+			<!-- Filter -->
+			<div class="dis-none panel-filter w-full p-t-10">
+				<div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
+					<div class="filter-col1 p-r-15 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Sırala
+						</div>
+
+						<ul>
+							<li class="p-b-6">
+								<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(OrderBy.Default)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+									class="filter-link stext-106 trans-04 animsition-link @(ViewBag.OrderBy == OrderBy.Default ? "filter-link-active" : "")">
+									Varsayılan
+								</a>
+							</li>
+
+							<li class="p-b-6">
+								<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(OrderBy.Newest)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+									class="filter-link stext-106 trans-04 animsition-link @(ViewBag.OrderBy == OrderBy.Newest ? "filter-link-active" : "")">
+									Yeni Eklenen
+								</a>
+							</li>
+
+							<li class="p-b-6">
+								<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(OrderBy.PriceAsc)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+									class="filter-link stext-106 trans-04 animsition-link @(ViewBag.OrderBy == OrderBy.PriceAsc ? "filter-link-active" : "")">
+									Fiyata Göre: Düşükten Yükseğe
+								</a>
+							</li>
+
+							<li class="p-b-6">
+								<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(OrderBy.PriceDesc)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+									class="filter-link stext-106 trans-04 animsition-link @(ViewBag.OrderBy == OrderBy.PriceDesc ? "filter-link-active" : "")">
+									Fiyata Göre: Yüksekten Düşüğe
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="filter-col2 p-r-15 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Fiyata Göre Süz
+						</div>
+
+						<ul>
+							<li class="p-b-6">
+								<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(filterAttributesQueryString)&categorySlug=@(ViewBag.CategorySlug)"
+									class="filter-link stext-106 trans-04 animsition-link @(ViewBag.MinPriceValue is null ? "filter-link-active" : "")">
+									Hepsi
+								</a>
+							</li>
+
+							@{
+								decimal minPriceValue = ViewBag.Filters.MinPriceValue ?? 0;
+								decimal maxPriceValue = ViewBag.Filters.MaxPriceValue ?? 0;
+								var priceStep = (maxPriceValue - minPriceValue) / 5;
+							}
+                            @if (priceStep > 0)
+							{
+								for (int i = 0; i < 5; i++)
+								{
+									var priceRangeMin = decimal.Round(minPriceValue + (priceStep * i), 2, MidpointRounding.ToZero);
+									var priceRangeMax = decimal.Round(minPriceValue + (priceStep * (i + 1)), 2, MidpointRounding.AwayFromZero);
+
+									<li class="p-b-6">
+										<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=@(ViewBag.PageSize)&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(priceRangeMin)&maxPriceValue=@(priceRangeMax)&categorySlug=@(ViewBag.CategorySlug)"
+											class="filter-link stext-106 trans-04 animsition-link @(ViewBag.MinPriceValue == priceRangeMin && ViewBag.MaxPriceValue == priceRangeMax ? "filter-link-active" : "")">
+											@(new Money(priceRangeMin).ToString() + " - " + new Money(priceRangeMax).ToString())
+										</a>
+									</li>
+								}
+							}
+						</ul>
+					</div>
+
+					@{
+						var filterIndex = 3;
+					}
+
+					@foreach (var availableFilter in ((FiltersOutputDto)ViewBag.Filters).AvailableAttributes.GroupBy(x => x.AttributeType).OrderBy(x => x.Key))
+					{
+						<div class="@($"filter-col{filterIndex++}") p-r-15 p-b-27">
+							<div class="mtext-102 cl2 p-b-15">
+								@{
+                                    var filterTypeText = availableFilter.Key switch
+                                    {
+                                        AttributeType.Color => "Renge Göre Süz",
+                                        AttributeType.Size => "Bedene Göre Süz",
+                                        _ => availableFilter.Key.ToString()
+                                    };
+								}
+								@filterTypeText
+							</div>
+
+							<ul>
+								<li class="p-b-6">
+									@* <span class="fs-15 lh-12 m-r-6" style="color: #222;">
+										<i class="zmdi zmdi-circle"></i>
+									</span>*@
+
+									@{
+                                        var allIsSelected = filterAttributes.All(x => x.AttributeType != availableFilter.Key);
+										var otherFilterAttributesQueryString = string.Join("&filterAttributes=", filterAttributes
+											.Where(x => x.AttributeType != availableFilter.Key)
+											.Select(x => $"{x.AttributeType.ToString()}|{x.DisplayName}|{x.Value.TrimStart('#')}"));
+									}
+									<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=@(ViewBag.PageSize)&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(otherFilterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+										class="filter-link stext-106 trans-04 animsition-link @(allIsSelected ? "filter-link-active" : "")">
+										Hepsi
+									</a>
+								</li>
+
+								@foreach (ProductAttributeOutputDto filterAttribute in availableFilter)
+								{
+									<li class="p-b-6">
+										
+										@if (availableFilter.Key == AttributeType.Color)
+										{
+											<span class="fs-15 lh-12 m-r-6" style="color: @(filterAttribute.Value);">
+												<i class="zmdi zmdi-circle"></i>
+											</span>
+										}
+
+										@{
+											var linkIsActive = filterAttributes.Any(x => x.AttributeType == filterAttribute.AttributeType && x.DisplayName == filterAttribute.DisplayName && x.Value == filterAttribute.Value.TrimStart('#'));
+											var tempFilterAttributes = linkIsActive ? filterAttributes.Where(x => !(x.AttributeType == filterAttribute.AttributeType && x.DisplayName == filterAttribute.DisplayName && x.Value == filterAttribute.Value.TrimStart('#'))).ToList() : [.. filterAttributes, filterAttribute];
+
+											var tempFilterAttributesQueryString = string.Join("&filterAttributes=", tempFilterAttributes.Select(x => $"{x.AttributeType.ToString()}|{x.DisplayName}|{x.Value.TrimStart('#')}"));
+										}
+
+										<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex)&pageSize=16&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(tempFilterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+											class= "filter-link stext-106 trans-04 animsition-link @(linkIsActive ? "filter-link-active" : "")">
+											@filterAttribute.DisplayName
+										</a>
+									</li>
+								}
+							</ul>
+						</div>
+					}
+
+					
+					@* 
+					<div class="filter-col4 p-b-27">
+						<div class="mtext-102 cl2 p-b-15">
+							Tags
+						</div>
+
+						<div class="flex-w p-t-4 m-r--5">
+							<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+								Fashion
+							</a>
+
+							<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+								Lifestyle
+							</a>
+
+							<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+								Denim
+							</a>
+
+							<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+								Streetstyle
+							</a>
+
+							<a href="#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+								Crafts
+							</a>
+						</div>
+					</div> *@
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			@foreach (var product in Model.CurrentPageItems)
+			{
+				var productPrimaryPhoto = product.PrimaryVariant.PrimaryPicture;
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="@Url.Action("GetProductPhotoPhysicalFile", "Catalog", new { VariantId = product.PrimaryVariant.Id, FileName = productPrimaryPhoto.PhotoFile.NewName + productPrimaryPhoto.PhotoFile.Extension })" alt="IMG-PRODUCT">
+
+							<a class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" asp-action="ProductDetails" asp-controller="Catalog" asp-route-slugValue="@product.PrimaryVariant.SlugValue">
+								Görüntüle
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									@product.Name
+								</a>
+
+								<span class="stext-105 cl3">
+									@product.PrimaryVariant.Price.StringRepresentation
+									<span class="text-decoration-line-through">@(product.PrimaryVariant.OldPrice.Value > 0 ? product.PrimaryVariant.OldPrice.StringRepresentation : "")</span>
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<button class="dis-block pos-relative hov-cl1 trans-04" onclick="addToBasket('@product.Id', '@product.PrimaryVariant.Id');">
+									<i class="bi bi-cart-plus"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+
+		<!-- Pagination -->
+		<div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
+			@if (Model.HasPreviousPage)
+			{
+				<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex - 1)&pageSize=16&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+					class="flex-c-m how-pagination1 trans-04 m-all-7 animsition-link">
+					<span>&laquo;</span>
+				</a>
+			}
+
+			@{
+				var visiblePageIndexCount = 3; // odd numbers results well
+				var firstPageIndex = Model.GetFirstPageIndex(visiblePageIndexCount);
+				var lastPageIndex = Model.GetLastPageIndex(visiblePageIndexCount);
+			}
+			@for (int i = firstPageIndex; i <= lastPageIndex; i++)
+			{
+				<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(i)&pageSize=16&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+					class="flex-c-m how-pagination1 trans-04 m-all-7 animsition-link @(i == Model.CurrentPageIndex ? "active-pagination1" : "")">
+					<span>@(i)</span>
+				</a>
+			}
+
+			@if (Model.HasNextPage)
+			{
+				<a href="?searchTerm=@(ViewBag.SearchTerm)&currentPageIndex=@(ViewBag.CurrentPageIndex + 1)&pageSize=16&orderBy=@(ViewBag.OrderBy)&filterAttributes=@(filterAttributesQueryString)&minPriceValue=@(ViewBag.MinPriceValue)&maxPriceValue=@(ViewBag.MaxPriceValue)&categorySlug=@(ViewBag.CategorySlug)"
+					class="flex-c-m how-pagination1 trans-04 m-all-7 animsition-link">
+					<span>&raquo;</span>
+				</a>
+			}
+		</div>
+
+	</div>
+</div>
+
+
+@section Scripts{
+	<script>
+
+		function addToBasket(productId, variantId) {
+			$.ajax({
+				url: '/Catalog/AddToBasket',
+				type: 'POST',
+				headers: {
+					'RequestVerificationToken': '@antiforgeryToken'
+				},
+				data: {
+					productId: productId,
+					productVariantId: variantId
+				}
+			}).done(function (result, status, xhr) {
+				Swal.fire('Başarılı', 'Ürün başarıyla sepete eklendi.', 'success');
+				updateBasketItemCountNotify();
+			});
+		}
+
+	</script>
+}

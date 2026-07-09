@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Haskap.EShopping.Ui.MvcWebUi</title>
+    <!--begin::Accessibility Features-->
+    <!-- Skip links will be dynamically added by accessibility.js -->
+    <meta name="supported-color-schemes" content="light dark" />
+    <link rel="preload" href="~/lib/AdminLTE-4.0.0-rc7/dist/css/adminlte.min.css" as="style" />
+    <!--end::Accessibility Features-->
+    <!--begin::Fonts-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@@fontsource/source-sans-3@5.0.12/index.css"
+          integrity="sha256-tXJfXfp6Ewt1ilPzLDtQnJV4hclT9XuaZUKyUvmyr+Q="
+          crossorigin="anonymous"
+          media="print"
+          onload="this.media = 'all'" />
+    <!--end::Fonts-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@@2.11.0/styles/overlayscrollbars.min.css"
+          crossorigin="anonymous" />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@@1.13.1/font/bootstrap-icons.min.css"
+          crossorigin="anonymous" />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+    @* @await RenderSectionAsync("StylesBeforeTheme", required: false) *@
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--begin::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="~/lib/AdminLTE-4.0.0-rc7/dist/css/adminlte.min.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="layout-fixed fixed-header fixed-footer sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+
+	    <vc:admin-header></vc:admin-header>
+
+        <vc:sidebar></vc:sidebar>
+
+        <!--begin::App Main-->
+        <main class="app-main">
+            
+
+            <!--begin::App Content-->
+            <div class="app-content">
+                <!--begin::Container-->
+                <div class="container-fluid">
+
+                    @RenderBody()
+
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::App Content-->
+
+        </main>
+        <!--end::App Main-->
+
+        <vc:admin-footer></vc:admin-footer>
+
+    </div>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
+            crossorigin="anonymous"></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/sweetalert_11.11.0/dist/sweetalert2.all.min.js"></script>
+
+    <script src="~/lib/AdminLTE-4.0.0-rc7/dist/js/adminlte.min.js"></script>
+
+    <!--begin::OverlayScrollbars Configure-->
+    <script>
+      const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+      const Default = {
+        scrollbarTheme: 'os-theme-light',
+        scrollbarAutoHide: 'leave',
+        scrollbarClickScroll: true,
+      };
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+
+        // Disable OverlayScrollbars on mobile devices to prevent touch interference
+        const isMobile = window.innerWidth <= 992;
+
+        if (
+          sidebarWrapper &&
+          OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined &&
+          !isMobile
+        ) {
+          OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+            scrollbars: {
+              theme: Default.scrollbarTheme,
+              autoHide: Default.scrollbarAutoHide,
+              clickScroll: Default.scrollbarClickScroll,
+            },
+          });
+        }
+      });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+
+	<script>
+
+		$(document).ajaxError(function (event, jqxhr, settings, thrownError) {
+            let envelope = $.parseJSON(jqxhr.responseText);
+
+            if (envelope && envelope.hasError) {
+                let exceptionStackTrace = envelope.exceptionStackTrace ? envelope.exceptionStackTrace : '';
+                Swal.fire(
+                    'Hata (' + envelope.httpStatusCode + ')',
+                    envelope.exceptionMessage + "<br /><br />" + exceptionStackTrace,
+                    'error'
+                );
+            } else {
+                Swal.fire(
+                    'Beklenmedik Hata',
+                    jqxhr.responseText,
+                    'error'
+                );
+            }
+        });
+
+		$(document).on("ajaxStart", function() {
+			$("#overlayer").show();
+			$(".loader").show();
+		});
+       
+		$(document).on("ajaxStop", function() {
+			$(".loader").fadeOut("slow");
+			$("#overlayer").fadeOut("slow");
+		});
+        
+        $(this).submit(function (e) {
+            $("#overlayer").show();
+            $(".loader").show();
+        });
+
+        $(document).ready(function(){
+            $(".loader").fadeOut();
+            $("#overlayer").fadeOut();
+        });
+
+	</script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+	
+</body>
+</html>

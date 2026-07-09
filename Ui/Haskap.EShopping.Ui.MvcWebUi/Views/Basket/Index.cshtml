@@ -1,0 +1,262 @@
+﻿@using Modules.CustomMessage.Domain.Shared.Consts
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var antiforgeryToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+}
+
+<div id="basketDiv">
+    <vc:basket shipping-address="@null"></vc:basket>
+</div>
+
+
+@section Styles {
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+}
+
+
+@section Scripts{
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(".js-select2").each(function () {
+                $(this).select2({
+                    minimumResultsForSearch: 20,
+                    dropdownParent: $(this).next('.dropDownSelect2')
+                });
+            });
+        });
+
+        function loadBasketViewComponent() {
+            $.ajax({
+                url: '/Basket/LoadBasketViewComponent',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken',
+                    '@CustomMessageConsts.ResponseContainsCustomMessagesHeader': 'true'
+                },
+                data: {
+                    cityId: $('#citySelect').val(),
+                    districtId: $('#districtSelect').val(),
+                    neighborhoodId: $('#neighborhoodSelect').val(),
+                    street: $("#streetInput").val(),
+                    postcode: $("#postcodeInput").val(),
+                    buildingNo: $("#buildingNoInput").val(),
+                    floor: $("#floorInput").val(),
+                    apartmentNo: $("#apartmentNoInput").val(),
+                    addressLine: $("#addressLineTextarea").val()
+                }
+            }).done(function (result, status, xhr) {
+                $('#basketDiv').html(result.data.html);
+
+                $(".js-select2").each(function () {
+                    $(this).select2({
+                        minimumResultsForSearch: 20,
+                        dropdownParent: $(this).next('.dropDownSelect2')
+                    });
+                });
+            });
+        }
+
+        let basketUpdateTimeoutId;
+
+        function updateBasket(productId, variantId, element) {
+            clearTimeout(basketUpdateTimeoutId);
+
+            let newQuantity = element.value;
+
+            basketUpdateTimeoutId = setTimeout(function () {
+                if  (newQuantity < 1) {
+                    removeItemFromBasket(productId, variantId);
+                } else {
+                    addOrUpdateItem(productId, variantId, newQuantity, element);
+                }
+            }, 500);
+        }
+
+        function removeItemFromBasket(productId, variantId) {
+            $.ajax({
+                url: '/Basket/RemoveItemFromBasket',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    productId: productId,
+                    productVariantId: variantId
+                }
+            }).done(function (result, status, xhr) {
+                loadBasketViewComponent();
+                updateBasketItemCountNotify();
+            });
+        }
+
+        function addOrUpdateItem(productId, variantId, quantity, element) {
+            $.ajax({
+                url: '/Basket/AddOrUpdateItem',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    productId: productId,
+                    productVariantId: variantId,
+                    quantity: quantity
+                }
+            }).done(function (result, status, xhr) {
+                element.dataset.previousValue = element.value;
+                loadBasketViewComponent();
+                updateBasketItemCountNotify();
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                element.value = element.dataset.previousValue;
+            });
+        }
+
+        $(document).on("click", "#applySpecialCouponDiv", function(){
+            let couponCode = $("#specialCouponCodeInput").val();
+
+            if (couponCode == null || couponCode.trim() == ''){
+                return;
+            }
+
+            $.ajax({
+                url: '/Basket/ApplySpecialCoupon',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    couponCode: couponCode
+                }
+            }).done(function (result, status, xhr) {
+                loadBasketViewComponent();
+            });
+        });
+
+        function removeSpecialCoupon(specialCouponId){
+            $.ajax({
+                url: '/Basket/RemoveSpecialCoupon',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    specialCouponId: specialCouponId
+                }
+            }).done(function (result, status, xhr) {
+                loadBasketViewComponent();
+            });
+        }
+
+        function applyRegularCoupon(regularCouponId){
+            $.ajax({
+                url: '/Basket/ApplyRegularCoupon',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    regularCouponId: regularCouponId
+                }
+            }).done(function (result, status, xhr) {
+                loadBasketViewComponent();
+            });
+        }
+
+        function removeRegularCoupon(regularCouponId){
+            $.ajax({
+                url: '/Basket/RemoveRegularCoupon',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    regularCouponId: regularCouponId
+                }
+            }).done(function (result, status, xhr) {
+                loadBasketViewComponent();
+            });
+        }
+
+        $(document).on("change", "#citySelect", function () {
+            let cityId = $(this).val();
+
+            $.ajax({
+                url: '/Basket/GetDistrictsByCityId',
+                type: 'GET',
+                data: {
+                    cityId: cityId
+                }
+            }).done(function (result, status, xhr) {
+                let $districtSelect = $('#districtSelect');
+                
+                $districtSelect.empty();
+                $districtSelect.append(new Option('İlçe Seçiniz...', '', true, true));
+
+                $.each(result, function(index, element) {
+                    $districtSelect.append($('<option>', {
+                        value: element.id,
+                        text: element.name
+                    }));
+                });
+                
+                $districtSelect.trigger('change');
+            });
+        });
+
+        $(document).on("change", "#districtSelect", function () {
+            let districtId = $(this).val();
+
+            $.ajax({
+                url: '/Basket/GetNeighborhoodsByDistrictId',
+                type: 'GET',
+                data: {
+                    districtId: districtId
+                }
+            }).done(function (result, status, xhr) {
+                let $neighborhoodSelect = $('#neighborhoodSelect');
+
+                $neighborhoodSelect.empty();
+                $neighborhoodSelect.append(new Option('Mahalle Seçiniz...', '', true, true));
+
+                $.each(result, function(index, element) {
+                    $neighborhoodSelect.append($('<option>', {
+                        value: element.id,
+                        text: element.name
+                    }));
+                });
+
+                $neighborhoodSelect.trigger('change');
+            });
+        });
+
+        $(document).on("click", "#proceedToCreatingOrderButton", function () {
+            $.ajax({
+                url: '/Basket/ProceedToCreatingOrder',
+                type: 'POST',
+                headers: {
+                    'RequestVerificationToken': '@antiforgeryToken'
+                },
+                data: {
+                    cityId: $('#citySelect').val(),
+                    districtId: $('#districtSelect').val(),
+                    neighborhoodId: $('#neighborhoodSelect').val(),
+                    street: $("#streetInput").val(),
+                    postcode: $("#postcodeInput").val(),
+                    buildingNo: $("#buildingNoInput").val(),
+                    floor: $("#floorInput").val(),
+                    apartmentNo: $("#apartmentNoInput").val(),
+                    addressLine: $("#addressLineTextarea").val()
+                }
+            }).done(function (result, status, xhr) {
+                location.href = '/Order/Create';
+            });
+        });
+
+    </script>
+}
