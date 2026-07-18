@@ -48,6 +48,7 @@
     <Project Path="Modules/Discount/Application.Contracts/Application.Contracts.csproj" Id="8d2780b8-a23f-45bf-83a6-2f1bfc2fdabb" />
     <Project Path="Modules/Discount/Application.Dtos/Application.Dtos.csproj" Id="6f33de84-67b8-4e5d-a4f8-18fbf41bebed" />
     <Project Path="Modules/Discount/Application/Application.csproj" Id="34b38980-4d1f-48f8-ab80-986aacf7c5cc" />
+    <Project Path="Modules/Discount/Domain.Shared/Domain.Shared.csproj" Id="5afdaa36-ea64-4c84-a2e6-a64fb5e5924f" />
     <Project Path="Modules/Discount/Domain/Domain.csproj" Id="6b6e1b86-5c99-41c0-a4be-74b2555ccf20" />
     <Project Path="Modules/Discount/Infra/Infra.csproj" Id="f8bd20a1-df50-49f2-877b-0eb4c0a30d79" />
     <Project Path="Modules/Discount/Module/Module.csproj" Id="ecffa6aa-76e2-40b2-bffb-53eeb96703fe" />
@@ -56,6 +57,7 @@
     <Project Path="Modules/Order/Application.Contracts/Application.Contracts.csproj" Id="f599a9a5-17cb-46db-9393-dcac38602f63" />
     <Project Path="Modules/Order/Application.Dtos/Application.Dtos.csproj" Id="55519f1b-c159-40ef-8d8b-3744a60d59d3" />
     <Project Path="Modules/Order/Application/Application.csproj" Id="71c68474-ef45-493f-8126-5613c7141dc0" />
+    <Project Path="Modules/Order/Domain.Shared/Domain.Shared.csproj" Id="f4deba6c-811b-4d98-af2a-1a4fa0c525ef" />
     <Project Path="Modules/Order/Domain/Domain.csproj" Id="127ca8c7-76f4-421d-b113-676b6b2c2d73" />
     <Project Path="Modules/Order/Infra/Infra.csproj" Id="b7f4cab0-149e-42a8-8507-e1b762b61630" />
     <Project Path="Modules/Order/Module/Module.csproj" Id="ec65a281-bf59-4e78-bb63-13101b893826" />
@@ -64,6 +66,7 @@
     <Project Path="Modules/Shipping/Application.Contracts/Application.Contracts.csproj" Id="50b06a26-6296-4268-bf9c-315c2b8fc2e9" />
     <Project Path="Modules/Shipping/Application.Dtos/Application.Dtos.csproj" Id="f0ca8503-c49f-43d5-bff4-db5b39050615" />
     <Project Path="Modules/Shipping/Application/Application.csproj" Id="6a5212ce-5fdd-4bd0-8dca-9b98e102e782" />
+    <Project Path="Modules/Shipping/Domain.Shared/Domain.Shared.csproj" Id="91a2384c-de62-472d-9ad6-b9b0f4c5bff1" />
     <Project Path="Modules/Shipping/Domain/Domain.csproj" Id="829cdf45-dc8d-4bd4-ab93-ed10c900800a" />
     <Project Path="Modules/Shipping/Infra/Infra.csproj" Id="1273b1b6-896c-4463-9016-67eef9c79dda" />
     <Project Path="Modules/Shipping/Module/Module.csproj" Id="18ebedac-7b5f-432d-a8d2-a8b38394d167" />

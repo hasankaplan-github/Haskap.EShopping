@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.EntityTypeConfigurations;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Modules.Shipping.Domain.NeighborhoodAggregate;
 
 namespace Modules.Shipping.Infra.Db.Contexts.ShippingDbContext.EntityTypeConfigurations;

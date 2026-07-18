@@ -12,4 +12,10 @@
     <Folder Include="Enums\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Utilities">
+      <HintPath>..\..\..\References\Haskap.DddBase.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

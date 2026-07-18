@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.EntityTypeConfigurations;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Modules.Discount.Domain.SpecialCouponAggregate;
 
 namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.EntityTypeConfigurations;

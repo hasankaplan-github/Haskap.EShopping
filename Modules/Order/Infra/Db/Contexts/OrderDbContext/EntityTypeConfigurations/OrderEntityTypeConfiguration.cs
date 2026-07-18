@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.EntityTypeConfigurations;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Modules.Order.Infra.Db.Contexts.OrderDbContext.EntityTypeConfigurations;

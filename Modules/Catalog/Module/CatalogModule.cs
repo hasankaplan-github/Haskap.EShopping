@@ -3,9 +3,9 @@ using Haskap.DddBase.Infra.Events;
 using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Modules.Catalog.Application.Contracts;
+using Modules.Catalog.Domain.Shared;
 using Modules.Catalog.Infra;
-using Modules.ModuleManagement.Application.Contracts.Module;
+using Modules.ModuleManagement.Application.Contracts;
 
 namespace Modules.Catalog.Module;
 

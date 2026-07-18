@@ -1,4 +1,4 @@
-﻿using Haskap.EShopping.Domain;
+﻿using Haskap.DddBase.Domain;
 
 namespace Modules.Discount.Domain.RegularCouponAggregate;
 

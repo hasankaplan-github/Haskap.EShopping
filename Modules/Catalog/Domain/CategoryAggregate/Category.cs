@@ -1,6 +1,5 @@
 ﻿using Ardalis.GuardClauses;
 using Haskap.DddBase.Domain;
-using Haskap.EShopping.Domain;
 using Haskap.EShopping.Domain.Common;
 
 namespace Modules.Catalog.Domain.CategoryAggregate;

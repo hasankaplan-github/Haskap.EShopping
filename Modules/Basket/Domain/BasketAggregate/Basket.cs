@@ -1,6 +1,5 @@
 ﻿using Haskap.DddBase.Domain;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Domain;
 using Modules.Basket.Domain.Shared.Consts;
 using Modules.Catalog.Application.Contracts;
 

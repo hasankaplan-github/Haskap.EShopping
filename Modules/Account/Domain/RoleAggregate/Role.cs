@@ -1,6 +1,6 @@
 ﻿using Ardalis.GuardClauses;
+using Haskap.DddBase.Domain;
 using Haskap.DddBase.Domain.Common;
-using Haskap.EShopping.Domain;
 using Microsoft.EntityFrameworkCore;
 using Modules.Account.Application.Dtos.Role;
 using Modules.Account.Domain.RoleAggregate.Exceptions;

@@ -4,9 +4,9 @@ using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modules.Account.Application;
-using Modules.Account.Application.Contracts;
+using Modules.Account.Domain.Shared;
 using Modules.Account.Infra;
-using Modules.ModuleManagement.Application.Contracts.Module;
+using Modules.ModuleManagement.Application.Contracts;
 
 namespace Modules.Account.Module;
 

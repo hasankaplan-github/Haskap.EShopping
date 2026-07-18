@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.EntityTypeConfigurations;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Modules.Basket.Domain.BasketAggregate;
 
 namespace Modules.Basket.Infra.Db.Contexts.BasketDbContext.EntityTypeConfigurations;

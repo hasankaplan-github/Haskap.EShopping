@@ -26,7 +26,7 @@ builder.Services.AddHostedServices();
 
 builder.Services.AddLocalization();
 
-builder.Services.AddIpAddressRateLimiterPolicy();
+builder.Services.AddIpAddressGlobalRateLimiterPolicy();
 
 builder.Services.AddControllersWithViews(options =>
 {

@@ -3,9 +3,9 @@ using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modules.Discount.Application;
-using Modules.Discount.Application.Contracts;
+using Modules.Discount.Domain.Shared;
 using Modules.Discount.Infra;
-using Modules.ModuleManagement.Application.Contracts.Module;
+using Modules.ModuleManagement.Application.Contracts;
 
 namespace Modules.Discount.Module;
 

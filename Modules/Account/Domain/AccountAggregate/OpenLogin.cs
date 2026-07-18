@@ -1,4 +1,4 @@
-﻿using Haskap.EShopping.Domain;
+﻿using Haskap.DddBase.Domain;
 using Modules.Account.Application.Dtos.Account;
 using UAParser;
 

@@ -1,6 +1,6 @@
 ﻿using Haskap.DddBase.Utilities.Module;
 
-namespace Modules.Order.Application.Contracts;
+namespace Modules.Order.Domain.Shared;
 
 public interface IOrderModule : IModule
 {

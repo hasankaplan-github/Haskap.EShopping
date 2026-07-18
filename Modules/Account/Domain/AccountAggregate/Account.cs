@@ -4,7 +4,6 @@ using Haskap.DddBase.Domain.Attributes.AuditHistoryLogAttributes;
 using Haskap.DddBase.Domain.Common;
 using Haskap.DddBase.Domain.Providers;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Domain;
 using Microsoft.EntityFrameworkCore;
 using Modules.Account.Domain.AccountAggregate.Exceptions;
 using Modules.Account.Domain.RoleAggregate;

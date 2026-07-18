@@ -1,4 +1,4 @@
-﻿using Haskap.EShopping.Domain;
+﻿using Haskap.DddBase.Domain;
 using Haskap.EShopping.Domain.Common;
 
 namespace Modules.Order.Domain.OrderAggregate;

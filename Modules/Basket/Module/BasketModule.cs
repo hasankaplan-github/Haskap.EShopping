@@ -3,10 +3,10 @@ using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modules.Basket.Application;
-using Modules.Basket.Application.Contracts;
 using Modules.Basket.Domain;
+using Modules.Basket.Domain.Shared;
 using Modules.Basket.Infra;
-using Modules.ModuleManagement.Application.Contracts.Module;
+using Modules.ModuleManagement.Application.Contracts;
 
 namespace Modules.Basket.Module;
 

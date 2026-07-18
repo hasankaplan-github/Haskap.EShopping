@@ -1,6 +1,6 @@
 ﻿using Haskap.DddBase.Utilities.Module;
 
-namespace Modules.Catalog.Application.Contracts;
+namespace Modules.Catalog.Domain.Shared;
 
 public interface ICatalogModule : IModule
 {

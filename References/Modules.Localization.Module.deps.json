@@ -16,13 +16,14 @@
           "Modules.Localization.Infra": "1.0.0",
           "Modules.Localization.Presentation": "1.0.0",
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
-          "Modules.AuditLog.Application.Contracts.Reference": "1.0.0.0",
           "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0",
           "Modules.AuditLog.Infra.Reference": "1.0.0.0",
           "Modules.Localization.Application.Contracts.Reference": "1.0.0.0",
           "Modules.Localization.Application.Reference": "1.0.0.0",
           "Modules.Localization.Application.Dtos.Reference": "1.0.0.0",
           "Modules.Localization.Domain.Reference": "1.0.0.0",
+          "Modules.Localization.Domain.Shared.Reference": "1.0.0.0",
           "Modules.Localization.Infra.Reference": "1.0.0.0",
           "Modules.Localization.Presentation.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
@@ -45,8 +46,8 @@
       },
       "EFCore.NamingConventions/10.0.1": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10"
         },
         "runtime": {
           "lib/net10.0/EFCore.NamingConventions.dll": {
@@ -55,33 +56,33 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.9": {
+      "Microsoft.EntityFrameworkCore/10.0.10": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.9"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.10"
         },
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.926.27113"
+            "assemblyVersion": "10.0.10.0",
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.10": {
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.926.27113"
+            "assemblyVersion": "10.0.10.0",
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
+      "Microsoft.EntityFrameworkCore.Relational/10.0.10": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10"
         },
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.926.27113"
+            "assemblyVersion": "10.0.10.0",
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
@@ -93,16 +94,16 @@
           }
         }
       },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.2": {
+      "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10",
           "Npgsql": "10.0.3"
         },
         "runtime": {
           "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
-            "assemblyVersion": "10.0.2.0",
-            "fileVersion": "10.0.2.0"
+            "assemblyVersion": "10.0.3.0",
+            "fileVersion": "10.0.3.0"
           }
         }
       },
@@ -110,7 +111,7 @@
         "dependencies": {
           "Haskap.DddBase.Application.Contracts": "1.0.0",
           "Haskap.DddBase.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9"
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10"
         },
         "runtime": {
           "Haskap.DddBase.Application.dll": {
@@ -144,7 +145,7 @@
           "Haskap.DddBase.Application.Dtos": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10"
         },
         "runtime": {
           "Haskap.DddBase.Domain.dll": {
@@ -184,8 +185,8 @@
       "Haskap.DddBase.Infra.Db.Contexts.EfCoreContext/1.0.0": {
         "dependencies": {
           "Haskap.DddBase.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10"
         },
         "runtime": {
           "Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.dll": {
@@ -199,9 +200,9 @@
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Infra.Db.Contexts.EfCoreContext": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2"
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3"
         },
         "runtime": {
           "Haskap.DddBase.Infra.Db.Contexts.NpgsqlDbContext.dll": {
@@ -231,26 +232,26 @@
           }
         }
       },
-      "Modules.AuditLog.Application.Contracts/1.0.0": {
-        "dependencies": {
-          "Haskap.DddBase.Utilities": "1.0.0"
-        },
-        "runtime": {
-          "Modules.AuditLog.Application.Contracts.dll": {
-            "fileVersion": "0.0.0.0"
-          }
-        }
-      },
       "Modules.AuditLog.Domain/1.0.0": {
         "dependencies": {
           "Ardalis.GuardClauses": "5.0.0",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10"
         },
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Modules.AuditLog.Domain.Shared/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Utilities": "1.0.0"
+        },
+        "runtime": {
+          "Modules.AuditLog.Domain.Shared.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
@@ -260,10 +261,10 @@
           "EFCore.NamingConventions": "10.0.1",
           "Haskap.DddBase.Infra": "1.0.0",
           "Haskap.DddBase.Infra.Db.Contexts.NpgsqlDbContext": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Modules.AuditLog.Application.Contracts": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
           "Modules.AuditLog.Domain": "1.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2"
+          "Modules.AuditLog.Domain.Shared": "1.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3"
         },
         "runtime": {
           "Modules.AuditLog.Infra.dll": {
@@ -277,6 +278,7 @@
           "Modules.Localization.Application.Contracts": "1.0.0",
           "Modules.Localization.Application.Dtos": "1.0.0",
           "Modules.Localization.Domain": "1.0.0",
+          "Modules.Localization.Domain.Shared": "1.0.0",
           "Modules.ModuleManagement.IntegrationEvents": "1.0.0",
           "Modules.Tenants.Application.Dtos": "1.0.0"
         },
@@ -312,11 +314,21 @@
       "Modules.Localization.Domain/1.0.0": {
         "dependencies": {
           "Haskap.DddBase.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
           "Modules.AuditLog.Domain": "1.0.0"
         },
         "runtime": {
           "Modules.Localization.Domain.dll": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Modules.Localization.Domain.Shared/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Utilities": "1.0.0"
+        },
+        "runtime": {
+          "Modules.Localization.Domain.Shared.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
@@ -326,13 +338,13 @@
           "EFCore.NamingConventions": "10.0.1",
           "Haskap.DddBase.Infra": "1.0.0",
           "Haskap.DddBase.Infra.Db.Contexts.NpgsqlDbContext": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10",
           "Modules.AuditLog.Domain": "1.0.0",
           "Modules.AuditLog.Infra": "1.0.0",
           "Modules.Localization.Application.Contracts": "1.0.0",
           "Modules.Localization.Domain": "1.0.0",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3"
         },
         "runtime": {
           "Modules.Localization.Infra.dll": {
@@ -348,7 +360,8 @@
           "Haskap.DddBase.Presentation": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
           "Modules.Localization.Application.Contracts": "1.0.0",
-          "Modules.Localization.Domain": "1.0.0"
+          "Modules.Localization.Domain": "1.0.0",
+          "Modules.Localization.Domain.Shared": "1.0.0"
         },
         "runtime": {
           "Modules.Localization.Presentation.dll": {
@@ -360,7 +373,7 @@
         "dependencies": {
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "10.0.9",
+          "Microsoft.EntityFrameworkCore.Relational": "10.0.10",
           "Modules.ModuleManagement.Application.Dtos": "1.0.0",
           "Modules.ModuleManagement.Domain": "1.0.0"
         },
@@ -380,7 +393,7 @@
       "Modules.ModuleManagement.Domain/1.0.0": {
         "dependencies": {
           "Haskap.DddBase.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9",
+          "Microsoft.EntityFrameworkCore": "10.0.10",
           "Modules.AuditLog.Domain": "1.0.0"
         },
         "runtime": {
@@ -406,17 +419,17 @@
           }
         }
       },
-      "Modules.AuditLog.Application.Contracts.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
-          "Modules.AuditLog.Application.Contracts.dll": {
+          "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
-          "Modules.AuditLog.Domain.dll": {
+          "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -457,6 +470,14 @@
       "Modules.Localization.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Modules.Localization.Domain.Shared.Reference/1.0.0.0": {
+        "runtime": {
+          "Modules.Localization.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -540,26 +561,26 @@
       "path": "efcore.namingconventions/10.0.1",
       "hashPath": "efcore.namingconventions.10.0.1.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/10.0.9": {
+    "Microsoft.EntityFrameworkCore/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tu85SRzOT021V7EQlViCiAE7TqldVn469Y6lt5TEn/+XC4/MeNCHgMRSxqYuWqvF4zAQZUhCmtNEZuM3ss4LeA==",
-      "path": "microsoft.entityframeworkcore/10.0.9",
-      "hashPath": "microsoft.entityframeworkcore.10.0.9.nupkg.sha512"
+      "sha512": "sha512-a0V7zj/VbYP6dTdWpUgE/r2PuLKtUGe2aJ0lVKkn/wP9ZhaxUz2kQydVfvOjCv2SKxlrqdBfHhPD4Cvlf+4ffA==",
+      "path": "microsoft.entityframeworkcore/10.0.10",
+      "hashPath": "microsoft.entityframeworkcore.10.0.10.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GRMaiPkqYna/gCsyDffYDWmefGPC3hDrdMw+2rrGcQwhs6uZOsaMQXMJnoXQ35tx9SkBV2ieRRU9N/jLOO6BZw==",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.9",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512"
+      "sha512": "sha512-bOzrFCl6uZCjaSh2bG1ToRQRdx+iXvxosCg9hFyG9OWeAzOFI4xev9OqKeWfKf/kAHyox2JnbcvLVf2ceA7sqA==",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.10",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.10.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Relational/10.0.9": {
+    "Microsoft.EntityFrameworkCore.Relational/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dEoyYKgiaZHHgOFm1WMWm1sFEsEuhPWufX4L9PekKtqd/RaIcPjkCjvbrVvJtApErb5wPSJhYvnTlxhH+p9h2g==",
-      "path": "microsoft.entityframeworkcore.relational/10.0.9",
-      "hashPath": "microsoft.entityframeworkcore.relational.10.0.9.nupkg.sha512"
+      "sha512": "sha512-wNonj40aZxia+GtuBiiD6ZqVh4h6y5Nje1bGdmzZ8/ui0QRsAN+S0SIrLHFCEGbG9cDbeaE40sh+Lr7o9rRs6g==",
+      "path": "microsoft.entityframeworkcore.relational/10.0.10",
+      "hashPath": "microsoft.entityframeworkcore.relational.10.0.10.nupkg.sha512"
     },
     "Npgsql/10.0.3": {
       "type": "package",
@@ -568,12 +589,12 @@
       "path": "npgsql/10.0.3",
       "hashPath": "npgsql.10.0.3.nupkg.sha512"
     },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.2": {
+    "Npgsql.EntityFrameworkCore.PostgreSQL/10.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PsNYgPOSW41Xx19gin7y4EdZAPteWr9Cb01XkdObxOsPzi+mgBupBEN7J7+erXFsROPOILM7MlIoO9QzL8+LGQ==",
-      "path": "npgsql.entityframeworkcore.postgresql/10.0.2",
-      "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.2.nupkg.sha512"
+      "sha512": "sha512-IPGrrZnRkuW7OlHDhUESZz4G5DLkW7Nej/O3Cx+0iTsgyU5XJxBgpsvTHLloo3WWuAKKbDHXBvWPVkX1deRh1Q==",
+      "path": "npgsql.entityframeworkcore.postgresql/10.0.3",
+      "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.3.nupkg.sha512"
     },
     "Haskap.DddBase.Application/1.0.0": {
       "type": "project",
@@ -625,12 +646,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Application.Contracts/1.0.0": {
+    "Modules.AuditLog.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain/1.0.0": {
+    "Modules.AuditLog.Domain.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -656,6 +677,11 @@
       "sha512": ""
     },
     "Modules.Localization.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modules.Localization.Domain.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -695,12 +721,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Application.Contracts.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -726,6 +752,11 @@
       "sha512": ""
     },
     "Modules.Localization.Domain.Reference/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Modules.Localization.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

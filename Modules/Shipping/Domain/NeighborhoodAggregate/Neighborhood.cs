@@ -1,5 +1,5 @@
 ﻿using Ardalis.GuardClauses;
-using Haskap.EShopping.Domain;
+using Haskap.DddBase.Domain;
 
 namespace Modules.Shipping.Domain.NeighborhoodAggregate;
 

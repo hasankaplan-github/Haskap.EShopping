@@ -1,7 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using Haskap.DddBase.Domain;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Domain;
 using Modules.Catalog.Domain.CategoryAggregate;
 using Modules.Catalog.Domain.Shared.Enums;
 using NpgsqlTypes;

@@ -1,4 +1,4 @@
-﻿using Haskap.EShopping.Domain;
+﻿using Haskap.DddBase.Domain;
 using Modules.Shipping.Domain.CityAggregate;
 using Modules.Shipping.Domain.DistrictAggregate;
 using Modules.Shipping.Domain.NeighborhoodAggregate;

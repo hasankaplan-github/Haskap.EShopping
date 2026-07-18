@@ -8,4 +8,10 @@
     <RootNamespace>Modules.Basket.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Haskap.DddBase.Utilities">
+      <HintPath>..\..\..\References\Haskap.DddBase.Utilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

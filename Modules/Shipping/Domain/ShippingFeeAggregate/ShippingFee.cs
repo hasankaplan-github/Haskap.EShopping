@@ -1,5 +1,5 @@
 ﻿using Ardalis.GuardClauses;
-using Haskap.EShopping.Domain;
+using Haskap.DddBase.Domain;
 using Haskap.EShopping.Domain.Common;
 
 namespace Modules.Shipping.Domain.ShippingFeeAggregate;

@@ -1,6 +1,6 @@
 ﻿using Haskap.DddBase.Utilities.Module;
 
-namespace Modules.Discount.Application.Contracts;
+namespace Modules.Discount.Domain.Shared;
 
 public interface IDiscountModule : IModule
 {

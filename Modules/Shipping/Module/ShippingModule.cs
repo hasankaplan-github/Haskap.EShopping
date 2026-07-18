@@ -2,9 +2,9 @@
 using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Modules.ModuleManagement.Application.Contracts.Module;
+using Modules.ModuleManagement.Application.Contracts;
 using Modules.Shipping.Application;
-using Modules.Shipping.Application.Contracts;
+using Modules.Shipping.Domain.Shared;
 using Modules.Shipping.Infra;
 
 namespace Modules.Shipping.Module;

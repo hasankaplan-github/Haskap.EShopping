@@ -11,8 +11,8 @@
           "Haskap.DddBase.Application.Contracts": "1.0.0",
           "Haskap.DddBase.Presentation": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Modules.GlobalExceptionHandling.Application.Contracts": "1.0.0",
-          "Modules.GlobalExceptionHandling.Application.Contracts.Reference": "1.0.0.0"
+          "Modules.GlobalExceptionHandling.Domain.Shared": "1.0.0",
+          "Modules.GlobalExceptionHandling.Domain.Shared.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.GlobalExceptionHandling.Presentation.dll": {}
@@ -26,22 +26,22 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/10.0.9": {
+      "Microsoft.EntityFrameworkCore/10.0.10": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.9"
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.10"
         },
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.926.27113"
+            "assemblyVersion": "10.0.10.0",
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.10": {
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "10.0.9.0",
-            "fileVersion": "10.0.926.27113"
+            "assemblyVersion": "10.0.10.0",
+            "fileVersion": "10.0.1026.32716"
           }
         }
       },
@@ -70,7 +70,7 @@
           "Haskap.DddBase.Application.Dtos": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "10.0.9"
+          "Microsoft.EntityFrameworkCore": "10.0.10"
         },
         "runtime": {
           "Haskap.DddBase.Domain.dll": {
@@ -128,21 +128,19 @@
           }
         }
       },
-      "Modules.GlobalExceptionHandling.Application.Contracts/1.0.0": {
+      "Modules.GlobalExceptionHandling.Domain.Shared/1.0.0": {
         "dependencies": {
-          "Haskap.DddBase.Application.Contracts": "1.0.0",
-          "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0"
         },
         "runtime": {
-          "Modules.GlobalExceptionHandling.Application.Contracts.dll": {
+          "Modules.GlobalExceptionHandling.Domain.Shared.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
       },
-      "Modules.GlobalExceptionHandling.Application.Contracts.Reference/1.0.0.0": {
+      "Modules.GlobalExceptionHandling.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
-          "Modules.GlobalExceptionHandling.Application.Contracts.dll": {
+          "Modules.GlobalExceptionHandling.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -163,19 +161,19 @@
       "path": "ardalis.guardclauses/5.0.0",
       "hashPath": "ardalis.guardclauses.5.0.0.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/10.0.9": {
+    "Microsoft.EntityFrameworkCore/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tu85SRzOT021V7EQlViCiAE7TqldVn469Y6lt5TEn/+XC4/MeNCHgMRSxqYuWqvF4zAQZUhCmtNEZuM3ss4LeA==",
-      "path": "microsoft.entityframeworkcore/10.0.9",
-      "hashPath": "microsoft.entityframeworkcore.10.0.9.nupkg.sha512"
+      "sha512": "sha512-a0V7zj/VbYP6dTdWpUgE/r2PuLKtUGe2aJ0lVKkn/wP9ZhaxUz2kQydVfvOjCv2SKxlrqdBfHhPD4Cvlf+4ffA==",
+      "path": "microsoft.entityframeworkcore/10.0.10",
+      "hashPath": "microsoft.entityframeworkcore.10.0.10.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.9": {
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.10": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GRMaiPkqYna/gCsyDffYDWmefGPC3hDrdMw+2rrGcQwhs6uZOsaMQXMJnoXQ35tx9SkBV2ieRRU9N/jLOO6BZw==",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.9",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.9.nupkg.sha512"
+      "sha512": "sha512-bOzrFCl6uZCjaSh2bG1ToRQRdx+iXvxosCg9hFyG9OWeAzOFI4xev9OqKeWfKf/kAHyox2JnbcvLVf2ceA7sqA==",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.10",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.10.nupkg.sha512"
     },
     "Haskap.DddBase.Application.Contracts/1.0.0": {
       "type": "project",
@@ -212,12 +210,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.GlobalExceptionHandling.Application.Contracts/1.0.0": {
+    "Modules.GlobalExceptionHandling.Domain.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.GlobalExceptionHandling.Application.Contracts.Reference/1.0.0.0": {
+    "Modules.GlobalExceptionHandling.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
