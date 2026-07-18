@@ -77,16 +77,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapStaticAssets().ShortCircuit();
 app.UseRouting();
 
 app.UseRateLimiter();
 
-
 app.UseAuthorization();
 app.UseCurrentUserIdProvider();
 app.UseAuthorization();
-
-app.MapStaticAssets();
 
 app.UseSoftDelete();
 app.UseIsActive();

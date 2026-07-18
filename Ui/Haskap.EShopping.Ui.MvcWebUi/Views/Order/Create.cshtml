@@ -41,7 +41,7 @@
     </div>
 </div>
 
-@section Scripts{
+@section Scripts {
     <script>
 
         $("#createOrderButton").on("click", function(){
@@ -62,7 +62,8 @@
                 }
             }).done(async function (result, status, xhr) {
                 await Swal.fire('Başarılı', 'Sipariş başarıyla oluşturuldu. Sipariş kodu: ' + result.orderCode, 'success');
-                //location.href = "/Basket";
+                updateBasketItemCountNotify();
+                location.href = "/Basket";
             });
         });
 
