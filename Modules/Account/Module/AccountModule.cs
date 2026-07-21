@@ -4,6 +4,7 @@ using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Modules.Account.Application;
+using Modules.Account.Domain;
 using Modules.Account.Domain.Shared;
 using Modules.Account.Infra;
 using Modules.ModuleManagement.Application.Contracts;
@@ -23,6 +24,7 @@ public class AccountModule : BaseModule<AccountModule>, IAccountModule
     {
         public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration, string connectionStringName, string? migrationAssembly)
         {
+            services.AddDomain(configuration);
             services.AddApplication(configuration);
             services.AddInfra(configuration, connectionStringName, migrationAssembly);
             services.RegisterHandlersFromAssembly(typeof(Application.DependencyInjection).Assembly);

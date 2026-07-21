@@ -3,6 +3,7 @@ using Haskap.DddBase.Infra.Events;
 using Haskap.DddBase.Utilities.Module;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Modules.Catalog.Domain;
 using Modules.Catalog.Domain.Shared;
 using Modules.Catalog.Infra;
 using Modules.ModuleManagement.Application.Contracts;
@@ -22,6 +23,7 @@ public class CatalogModule : BaseModule<CatalogModule>, ICatalogModule
     {
         public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration, string connectionStringName, string? migrationAssembly)
         {
+            services.AddDomain(configuration);
             Application.DependencyInjection.AddApplication(services, configuration);
             Application.Backoffice.DependencyInjection.AddApplication(services, configuration);
             services.AddInfra(configuration, connectionStringName, migrationAssembly);

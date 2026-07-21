@@ -11,8 +11,6 @@ public static class DependencyInjection
     {
         public IServiceCollection AddApplication(IConfiguration configuration)
         {
-            services.AddOptions<VariantPhotoSettings>().BindConfiguration(VariantPhotoSettings.SectionName);
-
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<ISizeAttributeService, SizeAttributeService>();
