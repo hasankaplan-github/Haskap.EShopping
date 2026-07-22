@@ -1,4 +1,5 @@
 ﻿@using Modules.Catalog.Application.Dtos
+@using Modules.Catalog.Domain.Shared.Enums
 
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
 @*
@@ -68,12 +69,19 @@
 
 								<div class="size-204 respon6-next">
 									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" id="@(attributeType.ToString() + "AttributeSelect")" onchange="goToVariant();">
+										<select class="@(attributeType == AttributeType.Color ? "js-select2-color" : "js-select2")" id="@(attributeType.ToString() + "AttributeSelect")" onchange="goToVariant();">
 											@foreach (var validAttribute in Model.ValidProductAttributes[attributeType].OrderBy(x => x.DisplayName))
 											{
 												var isSelected = Model.SelectedVariant.Attributes.Any(x => x.DisplayName == validAttribute.DisplayName && x.Value == validAttribute.Value);
 
-												<option value="@validAttribute.DisplayName" selected="@isSelected">@validAttribute.DisplayName - @validAttribute.Value</option>
+												if (attributeType == AttributeType.Color)
+												{
+													<option value="@validAttribute.DisplayName" selected="@isSelected" data-color="@validAttribute.Value">@validAttribute.DisplayName</option>
+												}
+                                                else
+												{
+													<option value="@validAttribute.DisplayName" selected="@isSelected">@validAttribute.DisplayName - @validAttribute.Value</option>
+												}
 											}
 										</select>
 										<div class="dropDownSelect2"></div>
@@ -332,7 +340,32 @@
 				minimumResultsForSearch: 20,
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
-		})
+		});
+
+		$(".js-select2-color").each(function() {
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2'),
+				templateResult: formatColorOption,       // Formats dropdown items
+				templateSelection: formatColorOption,    // Formats selected item
+			});
+		});
+
+		function formatColorOption(state) {
+			if (!state.id) {
+				return state.text;
+			}
+
+			// Get the data-color attribute from the original HTML option element
+			const color = $(state.element).data('color');
+
+			// Create a jQuery element with the custom inline color style
+			const $state = $(
+				`<span><i class="bi bi-circle-fill" style="color: ${color};"></i> ${state.text}</span>`
+			);
+
+			return $state;
+		}
 
 		$('.gallery-lb').each(function() { // the containers for all your galleries
 			$(this).magnificPopup({
