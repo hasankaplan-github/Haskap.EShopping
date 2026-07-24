@@ -3,8 +3,7 @@ using Haskap.DddBase.Infra.Db.Contexts.NpgsqlDbContext;
 using Microsoft.EntityFrameworkCore;
 using Modules.AuditLog.Infra.Db.Contexts.AuditLogDbContext.EntityTypeConfigurations;
 using Modules.Discount.Domain;
-using Modules.Discount.Domain.RegularCouponAggregate;
-using Modules.Discount.Domain.SpecialCouponAggregate;
+using Modules.Discount.Domain.CouponAggregate;
 
 namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext;
 public class AppDbContext : BaseEfCoreNpgsqlDbContext, IDiscountDbContext
@@ -20,8 +19,7 @@ public class AppDbContext : BaseEfCoreNpgsqlDbContext, IDiscountDbContext
     {
     }
 
-    public DbSet<SpecialCoupon> SpecialCoupon { get; set; }
-    public DbSet<RegularCoupon> RegularCoupon { get; set; }
+    public DbSet<Coupon> Coupon { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -2,7 +2,7 @@
 using Haskap.DddBase.Domain;
 using Haskap.EShopping.Domain.Common;
 
-namespace Modules.Discount.Domain.Common;
+namespace Modules.Discount.Domain.CouponAggregate;
 
 public class Discount : ValueObject
 {

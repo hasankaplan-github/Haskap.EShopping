@@ -209,7 +209,7 @@ namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.Migrations
                 {
                     b.OwnsOne("Haskap.EShopping.Domain.Common.Money", "BasketMinTotalAmount", b1 =>
                         {
-                            b1.Property<Guid>("RegularCouponId")
+                            b1.Property<Guid>("CouponId")
                                 .HasColumnType("uuid")
                                 .HasColumnName("id");
 
@@ -222,18 +222,18 @@ namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.Migrations
                                 .HasColumnType("numeric")
                                 .HasColumnName("basket_min_total_amount_value");
 
-                            b1.HasKey("RegularCouponId");
+                            b1.HasKey("CouponId");
 
                             b1.ToTable("regular_coupon", "discount");
 
                             b1.WithOwner()
-                                .HasForeignKey("RegularCouponId")
+                                .HasForeignKey("CouponId")
                                 .HasConstraintName("fk_regular_coupon_regular_coupon_id");
                         });
 
                     b.OwnsOne("Modules.Discount.Domain.Common.DateRange", "DateRange", b1 =>
                         {
-                            b1.Property<Guid>("RegularCouponId")
+                            b1.Property<Guid>("CouponId")
                                 .HasColumnType("uuid")
                                 .HasColumnName("id");
 
@@ -245,18 +245,18 @@ namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.Migrations
                                 .HasColumnType("timestamp with time zone")
                                 .HasColumnName("date_range_utc_start_date_time");
 
-                            b1.HasKey("RegularCouponId");
+                            b1.HasKey("CouponId");
 
                             b1.ToTable("regular_coupon", "discount");
 
                             b1.WithOwner()
-                                .HasForeignKey("RegularCouponId")
+                                .HasForeignKey("CouponId")
                                 .HasConstraintName("fk_regular_coupon_regular_coupon_id");
                         });
 
                     b.OwnsOne("Modules.Discount.Domain.Common.Discount", "Discount", b1 =>
                         {
-                            b1.Property<Guid>("RegularCouponId")
+                            b1.Property<Guid>("CouponId")
                                 .HasColumnType("uuid")
                                 .HasColumnName("id");
 
@@ -276,18 +276,18 @@ namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.Migrations
                                 .HasColumnType("integer")
                                 .HasColumnName("discount_quantity_divider");
 
-                            b1.HasKey("RegularCouponId");
+                            b1.HasKey("CouponId");
 
                             b1.ToTable("regular_coupon", "discount");
 
                             b1.WithOwner()
-                                .HasForeignKey("RegularCouponId")
+                                .HasForeignKey("CouponId")
                                 .HasConstraintName("fk_regular_coupon_regular_coupon_id");
                         });
 
                     b.OwnsOne("Modules.Discount.Domain.Common.UsageCount", "UsageCount", b1 =>
                         {
-                            b1.Property<Guid>("RegularCouponId")
+                            b1.Property<Guid>("CouponId")
                                 .HasColumnType("uuid")
                                 .HasColumnName("id");
 
@@ -299,12 +299,12 @@ namespace Modules.Discount.Infra.Db.Contexts.DiscountDbContext.Migrations
                                 .HasColumnType("integer")
                                 .HasColumnName("usage_count_value");
 
-                            b1.HasKey("RegularCouponId");
+                            b1.HasKey("CouponId");
 
                             b1.ToTable("regular_coupon", "discount");
 
                             b1.WithOwner()
-                                .HasForeignKey("RegularCouponId")
+                                .HasForeignKey("CouponId")
                                 .HasConstraintName("fk_regular_coupon_regular_coupon_id");
                         });
 
