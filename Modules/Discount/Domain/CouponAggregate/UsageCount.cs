@@ -1,6 +1,6 @@
 ﻿using Haskap.DddBase.Domain;
 
-namespace Modules.Discount.Domain.Common;
+namespace Modules.Discount.Domain.CouponAggregate;
 
 public class UsageCount : ValueObject
 {

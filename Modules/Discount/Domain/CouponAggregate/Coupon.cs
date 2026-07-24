@@ -2,18 +2,23 @@
 using Haskap.DddBase.Domain;
 using Haskap.EShopping.Domain.Common;
 
-namespace Modules.Discount.Domain.Common;
+namespace Modules.Discount.Domain.CouponAggregate;
 
 public class Coupon : AggregateRoot, IIsActive
 {
+    public string? Code { get; private set; }
+    public IReadOnlyList<CouponCategory> Categories => _categories.AsReadOnly();
+    private List<CouponCategory> _categories = [];
+    public IReadOnlyList<CouponSelectedProductVariant> SelectedProductVariants => _selectedProductVariants.AsReadOnly();
+    private List<CouponSelectedProductVariant> _selectedProductVariants = [];
     public string? Description { get; set; }
     public Money BasketMinTotalAmount { get; private set; }
     public UsageCount UsageCount { get; private set; }
-    public Common.Discount Discount { get; private set; }
+    public Discount Discount { get; private set; }
     public DateRange DateRange { get; private set; }
     public bool IsActive { get; set; }
 
-    protected Coupon()
+    private Coupon()
     { }
 
     public Coupon(
@@ -21,7 +26,7 @@ public class Coupon : AggregateRoot, IIsActive
         string? description,
         Money basketMinTotalAmount,
         UsageCount usageCount,
-        Common.Discount discount,
+        Discount discount,
         DateRange dateRange,
         bool isActive)
         : base(id)
@@ -32,6 +37,24 @@ public class Coupon : AggregateRoot, IIsActive
         SetDiscount(discount);
         SetDateRange(dateRange);
         IsActive = isActive;
+    }
+
+    public bool IsValid(IList<Guid> categoryIds, IList<(Guid productId, Guid variantId)> productVariantIds, Money basketTotalAmount)
+    {
+        return
+            IsActive &&
+            UsageCount.CanIncrement() &&
+            DateRange.IsInRange(DateTime.UtcNow) &&
+            BasketMinTotalAmount.Value <= basketTotalAmount.Value &&
+            (_categories.Count == 0 || _categories.Any(c => categoryIds.Contains(c.CategoryId))) &&
+            (_selectedProductVariants.Count == 0 || _selectedProductVariants.Any(p => productVariantIds.Contains((p.ProductId, p.VariantId))));
+    }
+
+    public void SetCode(string code)
+    {
+        Guard.Against.NullOrWhiteSpace(code, nameof(code));
+
+        Code = code;
     }
 
     public void Activate()
@@ -59,7 +82,7 @@ public class Coupon : AggregateRoot, IIsActive
         UsageCount = usageCount;
     }
 
-    public void SetDiscount(Common.Discount discount)
+    public void SetDiscount(Discount discount)
     {
         Guard.Against.Null(discount, nameof(discount));
 

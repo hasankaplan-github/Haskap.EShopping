@@ -2,9 +2,9 @@
 using Haskap.EShopping.Domain.Common;
 using System.Linq.Expressions;
 
-namespace Modules.Discount.Domain.RegularCouponAggregate.Specifications;
+namespace Modules.Discount.Domain.CouponAggregate.Specifications;
 
-public class ValidRegularCouponsForBasketSpecification : Specification<RegularCoupon>
+public class ValidRegularCouponsForBasketSpecification : Specification<Coupon>
 {
     private IList<Guid> _categoryIds;
     private IList<(Guid ProductId, Guid VariantId)> _productVariantIds;
@@ -20,20 +20,21 @@ public class ValidRegularCouponsForBasketSpecification : Specification<RegularCo
         _basketTotalAmount = basketTotalAmount;
     }
 
-    public override Expression<Func<RegularCoupon, bool>> ToExpression()
+    public override Expression<Func<Coupon, bool>> ToExpression()
     {
         var utcNow = DateTime.UtcNow;
 
-        Expression<Func<RegularCoupon, bool>> expression = x =>
+        Expression<Func<Coupon, bool>> expression = x =>
+            x.Code == null &&
             x.UsageCount.Value < x.UsageCount.Limit &&
             utcNow >= x.DateRange.UtcStartDateTime && utcNow <= x.DateRange.UtcEndDateTime &&
             x.BasketMinTotalAmount.Value <= _basketTotalAmount.Value &&
             (x.Categories.Count == 0 || x.Categories.Any(c => _categoryIds.Contains(c.CategoryId)));
 
-        Expression<Func<RegularCoupon, bool>> orExpressionsForSelectedProductVariants = x => x.SelectedProductVariants.Count == 0;
+        Expression<Func<Coupon, bool>> orExpressionsForSelectedProductVariants = x => x.SelectedProductVariants.Count == 0;
         foreach (var productVariantId in _productVariantIds)
         {
-            Expression<Func<RegularCoupon, bool>> otherExpression = x => x.SelectedProductVariants.Any(y => y.ProductId == productVariantId.ProductId && y.VariantId == productVariantId.VariantId);
+            Expression<Func<Coupon, bool>> otherExpression = x => x.SelectedProductVariants.Any(y => y.ProductId == productVariantId.ProductId && y.VariantId == productVariantId.VariantId);
             orExpressionsForSelectedProductVariants = orExpressionsForSelectedProductVariants.Or(otherExpression);
         }
 

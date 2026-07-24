@@ -1,4 +1,5 @@
-﻿using Haskap.DddBase.Application;
+﻿using Ardalis.GuardClauses;
+using Haskap.DddBase.Application;
 using Haskap.EShopping.Application.Mappings;
 using Haskap.EShopping.Domain.Common;
 using Microsoft.EntityFrameworkCore;
@@ -7,10 +8,8 @@ using Modules.Catalog.Application.Dtos;
 using Modules.Discount.Application.Contracts;
 using Modules.Discount.Application.Dtos;
 using Modules.Discount.Domain;
-using Modules.Discount.Domain.Common;
-using Modules.Discount.Domain.RegularCouponAggregate;
-using Modules.Discount.Domain.RegularCouponAggregate.Specifications;
-using Modules.Discount.Domain.SpecialCouponAggregate;
+using Modules.Discount.Domain.CouponAggregate;
+using Modules.Discount.Domain.CouponAggregate.Specifications;
 
 namespace Modules.Discount.Application;
 
@@ -29,7 +28,7 @@ public class DiscountService : UseCaseService, IDiscountService
         var allProductVariantIds = basketOutput.Items.Select(x => (x.ProductId, x.VariantId)).ToList();
         var basketTotalAmount = new Money(basketOutput.Total.Value);
 
-        var possibleRegularCoupons = await _discountDbContext.RegularCoupon
+        var possibleRegularCoupons = await _discountDbContext.Coupon
             .AsNoTracking()
             .Include(x => x.Categories)
             .Include(x => x.SelectedProductVariants)
@@ -37,7 +36,7 @@ public class DiscountService : UseCaseService, IDiscountService
             .Where(new ValidRegularCouponsForBasketSpecification(allCategoryIds, allProductVariantIds, basketTotalAmount))
             .ToListAsync(cancellationToken);
 
-        List<(List<ItemForBasketOutputDto> BasketItems, RegularCoupon PossibleRegularCoupon, Money PossibleDiscountAmount)> discountElements = [];
+        List<(List<ItemForBasketOutputDto> BasketItems, Coupon PossibleRegularCoupon, Money PossibleDiscountAmount)> discountElements = [];
         foreach (var possibleRegularCoupon in possibleRegularCoupons)
         {
             var basketItems = basketOutput.Items
@@ -106,14 +105,14 @@ public class DiscountService : UseCaseService, IDiscountService
     {
         var basketTotalAmount = new Money(basketOutput.Total.Value);
 
-        var possibleSpecialCoupons = await _discountDbContext.SpecialCoupon
+        var possibleSpecialCoupons = await _discountDbContext.Coupon
             .AsNoTracking()
             .Include(x => x.Categories)
             .Include(x => x.SelectedProductVariants)
             .Where(x => basketOutput.AppliedSpecialCouponIds.Contains(x.Id))
             .ToListAsync(cancellationToken);
 
-        List<(List<ItemForBasketOutputDto> BasketItems, SpecialCoupon PossibleSpecialCoupon, Money PossibleDiscountAmount)> discountElements = [];
+        List<(List<ItemForBasketOutputDto> BasketItems, Coupon PossibleSpecialCoupon, Money PossibleDiscountAmount)> discountElements = [];
         foreach (var possibleSpecialCoupon in possibleSpecialCoupons)
         {
             var basketItems = basketOutput.Items
@@ -184,9 +183,11 @@ public class DiscountService : UseCaseService, IDiscountService
 
     public async Task<Guid> GetSpecialCouponIdByCodeAsync(string couponCode, CancellationToken cancellationToken = default)
     {
+        Guard.Against.NullOrWhiteSpace(couponCode);
+
         var utcNow = DateTime.UtcNow;
 
-        var specialCouponId = await _discountDbContext.SpecialCoupon
+        var specialCouponId = await _discountDbContext.Coupon
             .Where(x =>
                 x.Code == couponCode &&
                 x.UsageCount.Value < x.UsageCount.Limit &&
