@@ -15,19 +15,22 @@ public class BasketDomainService : DomainService
     private readonly IAnonymousAccountProvider _anonymousAccountProvider;
     private readonly IStockCheckerService _stockCheckerService;
     private readonly ICustomMessageService _customMessageService;
+    private readonly TimeProvider _timeProvider;
 
     public BasketDomainService(
         ICurrentUserIdProvider currentUserIdProvider,
         IBasketDbContext basketDbContext,
         IAnonymousAccountProvider anonymousAccountProvider,
         IStockCheckerService stockCheckerService,
-        ICustomMessageService customMessageService)
+        ICustomMessageService customMessageService,
+        TimeProvider timeProvider)
     {
         _currentUserIdProvider = currentUserIdProvider;
         _basketDbContext = basketDbContext;
         _anonymousAccountProvider = anonymousAccountProvider;
         _stockCheckerService = stockCheckerService;
         _customMessageService = customMessageService;
+        _timeProvider = timeProvider;
     }
 
     private async Task<Basket?> GetOrCreateAnonymousBasketAsync(CancellationToken cancellationToken = default)
@@ -39,7 +42,7 @@ public class BasketDomainService : DomainService
             .Where(b => b.OwnerAccountId == _anonymousAccountProvider.AccountId)
             .FirstOrDefaultAsync(cancellationToken);
         
-        if (existingBasket is not null && !existingBasket.IsExpired())
+        if (existingBasket is not null && !existingBasket.IsExpired(_timeProvider))
         {
             return existingBasket;
         }
@@ -79,7 +82,7 @@ public class BasketDomainService : DomainService
             .Where(b => b.OwnerAccountId == _currentUserIdProvider.CurrentUserId)
             .FirstOrDefaultAsync(cancellationToken);
 
-        if (existingBasket is not null && !existingBasket.IsExpired())
+        if (existingBasket is not null && !existingBasket.IsExpired(_timeProvider))
         {
             return existingBasket;
         }

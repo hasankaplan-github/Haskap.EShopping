@@ -89,13 +89,13 @@ public class Basket : AggregateRoot, IAuditable
         Touch();
     }
 
-    internal bool IsExpired()
+    internal bool IsExpired(TimeProvider timeProvider)
     {
         var utcLastUpdatedOn = ModifiedOnUtc ?? CreatedOnUtc;
         if (utcLastUpdatedOn is null) return false;
 
         var utcExpirationDate = utcLastUpdatedOn.Value.AddDays(BasketConsts.LifetimeInDays);
-        return DateTime.UtcNow > utcExpirationDate;
+        return timeProvider.GetUtcNow() > utcExpirationDate;
     }
 
     internal void MergeWith(Basket? otherBasket, IStockCheckerService stockCheckerService)

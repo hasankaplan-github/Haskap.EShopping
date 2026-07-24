@@ -23,6 +23,7 @@ builder.Services.AddInfra();
 builder.Services.AddCustomAuthorization();
 builder.Services.AddHostedServices();
 
+builder.Services.AddSingleton(TimeProvider.System);
 
 builder.Services.AddLocalization();
 
