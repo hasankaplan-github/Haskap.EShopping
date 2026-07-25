@@ -1,11 +1,12 @@
-﻿using Haskap.DddBase.Domain.Providers;
+﻿using Haskap.DddBase.Domain.Events;
+using Haskap.DddBase.Domain.Providers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Modules.Account.Domain;
 using Modules.Account.Domain.RoleAggregate.Events;
 
 namespace Modules.Account.Application.Role;
-public class RolePermissionsCacheContentUpdatedEventHandler
+public class RolePermissionsCacheContentUpdatedEventHandler : IEventHandler<RolePermissionsCacheContentUpdatedDomainEvent>
 {
     private readonly IMemoryCache _memoryCache;
     private readonly IBaseCacheKeyProvider _baseCacheKeyProvider;
@@ -21,7 +22,7 @@ public class RolePermissionsCacheContentUpdatedEventHandler
         _accountDbContext = accountDbContext;
     }
 
-    public async Task Handle(RolePermissionsCacheContentUpdatedDomainEvent notification, CancellationToken cancellationToken)
+    public async Task HandleAsync(RolePermissionsCacheContentUpdatedDomainEvent notification, CancellationToken cancellationToken)
     {
         _memoryCache.Remove(_baseCacheKeyProvider.GetRolePermissionsCacheKey(notification.RoleId));
 

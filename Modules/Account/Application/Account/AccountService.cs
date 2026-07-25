@@ -403,8 +403,8 @@ public class AccountService : UseCaseService, IAccountService
     {
         var cachedValue = await _memoryCache.GetOrCreateAsync(_cacheKeyProvider.GetAllPermissionsCacheKey(input.AccountId), async cacheEntry =>
         {
-            //var userCts = _memoryCache.Get<CancellationTokenSource>(_cacheKeyProvider.GetUserCancellationTokenSourceCacheKey(_currentUserIdProvider.CurrentUserId ?? inputDto.UserId));
-            //cacheEntry.AddExpirationToken(new CancellationChangeToken(userCts.Token));
+            var userCts = _memoryCache.Get<CancellationTokenSource>(_cacheKeyProvider.GetUserCancellationTokenSourceCacheKey(input.AccountId));
+            cacheEntry.AddExpirationToken(new CancellationChangeToken(userCts.Token));
             cacheEntry.SlidingExpiration = TimeSpan.FromMinutes(10);
 
             var user = await _accountDbContext.Account
