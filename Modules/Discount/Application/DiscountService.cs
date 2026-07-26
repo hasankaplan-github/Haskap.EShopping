@@ -16,10 +16,14 @@ namespace Modules.Discount.Application;
 public class DiscountService : UseCaseService, IDiscountService
 {
     private readonly IDiscountDbContext _discountDbContext;
+    private readonly TimeProvider _timeProvider;
 
-    public DiscountService(IDiscountDbContext discountDbContext)
+    public DiscountService(
+        IDiscountDbContext discountDbContext,
+        TimeProvider timeProvider)
     {
         _discountDbContext = discountDbContext;
+        _timeProvider = timeProvider;
     }
 
     private async Task ApplyRegularCouponsAsync(BasketOutputDto basketOutput, CancellationToken cancellationToken = default)
@@ -33,14 +37,14 @@ public class DiscountService : UseCaseService, IDiscountService
             .Include(x => x.Categories)
             .Include(x => x.SelectedProductVariants)
             //.Where(x => x.IsValid(allCategoryIds, allProductVariantIds, basketTotalAmount))
-            .Where(new ValidRegularCouponsForBasketSpecification(allCategoryIds, allProductVariantIds, basketTotalAmount))
+            .Where(new ValidRegularCouponsForBasketSpecification(allCategoryIds, allProductVariantIds, basketTotalAmount, _timeProvider))
             .ToListAsync(cancellationToken);
 
         List<(List<ItemForBasketOutputDto> BasketItems, Coupon PossibleRegularCoupon, Money PossibleDiscountAmount)> discountElements = [];
         foreach (var possibleRegularCoupon in possibleRegularCoupons)
         {
             var basketItems = basketOutput.Items
-                .Where(x => possibleRegularCoupon.IsValid(x.CategoryIds, [(x.ProductId, x.VariantId)], basketTotalAmount))
+                .Where(x => possibleRegularCoupon.IsValid(x.CategoryIds, [(x.ProductId, x.VariantId)], basketTotalAmount, _timeProvider))
                 .ToList();
 
             var minPriceValue = basketItems.Select(x => x.Price.Value).Min();
@@ -116,7 +120,7 @@ public class DiscountService : UseCaseService, IDiscountService
         foreach (var possibleSpecialCoupon in possibleSpecialCoupons)
         {
             var basketItems = basketOutput.Items
-                .Where(x => possibleSpecialCoupon.IsValid(x.CategoryIds, [(x.ProductId, x.VariantId)], basketTotalAmount))
+                .Where(x => possibleSpecialCoupon.IsValid(x.CategoryIds, [(x.ProductId, x.VariantId)], basketTotalAmount, _timeProvider))
                 .ToList();
 
             if (basketItems.Count == 0)
@@ -185,7 +189,7 @@ public class DiscountService : UseCaseService, IDiscountService
     {
         Guard.Against.NullOrWhiteSpace(couponCode);
 
-        var utcNow = DateTime.UtcNow;
+        var utcNow = _timeProvider.GetUtcNow();
 
         var specialCouponId = await _discountDbContext.Coupon
             .Where(x =>

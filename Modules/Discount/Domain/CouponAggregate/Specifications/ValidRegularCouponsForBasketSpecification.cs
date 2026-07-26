@@ -9,20 +9,23 @@ public class ValidRegularCouponsForBasketSpecification : Specification<Coupon>
     private IList<Guid> _categoryIds;
     private IList<(Guid ProductId, Guid VariantId)> _productVariantIds;
     private Money _basketTotalAmount;
+    private readonly TimeProvider _timeProvider;
 
     public ValidRegularCouponsForBasketSpecification(
         IList<Guid> categoryIds,
         IList<(Guid ProductId, Guid VariantId)> productVariantIds,
-        Money basketTotalAmount)
+        Money basketTotalAmount,
+        TimeProvider timeProvider)
     {
         _categoryIds = categoryIds;
         _productVariantIds = productVariantIds;
         _basketTotalAmount = basketTotalAmount;
+        _timeProvider = timeProvider;
     }
 
     public override Expression<Func<Coupon, bool>> ToExpression()
     {
-        var utcNow = DateTime.UtcNow;
+        var utcNow = _timeProvider.GetUtcNow();
 
         Expression<Func<Coupon, bool>> expression = x =>
             x.Code == null &&

@@ -39,12 +39,12 @@ public class Coupon : AggregateRoot, IIsActive
         IsActive = isActive;
     }
 
-    public bool IsValid(IList<Guid> categoryIds, IList<(Guid productId, Guid variantId)> productVariantIds, Money basketTotalAmount)
+    public bool IsValid(IList<Guid> categoryIds, IList<(Guid productId, Guid variantId)> productVariantIds, Money basketTotalAmount, TimeProvider timeProvider)
     {
         return
             IsActive &&
             UsageCount.CanIncrement() &&
-            DateRange.IsInRange(DateTime.UtcNow) &&
+            DateRange.IsInRange(timeProvider.GetUtcNow().DateTime) &&
             BasketMinTotalAmount.Value <= basketTotalAmount.Value &&
             (_categories.Count == 0 || _categories.Any(c => categoryIds.Contains(c.CategoryId))) &&
             (_selectedProductVariants.Count == 0 || _selectedProductVariants.Any(p => productVariantIds.Contains((p.ProductId, p.VariantId))));
