@@ -47,7 +47,7 @@ public class DiscountService : UseCaseService, IDiscountService
                 .Where(x => possibleRegularCoupon.IsValid(x.CategoryIds, [(x.ProductId, x.VariantId)], basketTotalAmount, _timeProvider))
                 .ToList();
 
-            var minPriceValue = basketItems.Select(x => x.Price.Value).Min();
+            var minPriceValue = basketItems.Min(x => x.Price.Value);
             var totalQuantity = basketItems.Sum(x => x.Quantity);
             var possibleDiscountAmount = possibleRegularCoupon.Discount.GetDiscountAmount(minPriceValue, totalQuantity);
 
@@ -128,7 +128,7 @@ public class DiscountService : UseCaseService, IDiscountService
                 continue;
             }
 
-            var minPriceValue = basketItems.Select(x => x.Price.Value).Min();
+            var minPriceValue = basketItems.Min(x => x.Price.Value);
             var totalQuantity = basketItems.Sum(x => x.Quantity);
             var possibleDiscountAmount = possibleSpecialCoupon.Discount.GetDiscountAmount(minPriceValue, totalQuantity);
 
