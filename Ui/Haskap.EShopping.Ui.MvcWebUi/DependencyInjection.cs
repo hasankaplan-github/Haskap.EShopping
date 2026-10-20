@@ -30,7 +30,7 @@ public static class DependencyInjection
         services.AddModule<AuditLogModule.Registrar>(configuration, ConnectionStringName, "AuditLogMigrations");
         services.AddModule<GlobalExceptionHandlingModule.Registrar>(configuration, ConnectionStringName, null);
         services.AddModule<AccountModule.Registrar>(configuration, ConnectionStringName, null);
-        services.AddModule<EmailModule.Registrar>(configuration, ConnectionStringName, null);
+       // services.AddModule<EmailModule.Registrar>(configuration, ConnectionStringName, null);
         services.AddModule<CustomMessageModule.Registrar>(configuration, ConnectionStringName, null);
         services.AddModule<CatalogModule.Registrar>(configuration, ConnectionStringName, null);
         services.AddModule<BasketModule.Registrar>(configuration, ConnectionStringName, null);
