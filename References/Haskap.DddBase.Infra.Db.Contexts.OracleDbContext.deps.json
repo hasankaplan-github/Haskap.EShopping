@@ -10,7 +10,7 @@
         "dependencies": {
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "Oracle.EntityFrameworkCore": "10.23.26301"
+          "Oracle.EntityFrameworkCore": "10.23.26400"
         },
         "runtime": {
           "Haskap.DddBase.Infra.Db.Contexts.OracleDbContext.dll": {}
@@ -159,10 +159,10 @@
           }
         }
       },
-      "Oracle.EntityFrameworkCore/10.23.26301": {
+      "Oracle.EntityFrameworkCore/10.23.26400": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "10.0.0",
-          "Oracle.ManagedDataAccess.Core": "23.26.301"
+          "Oracle.ManagedDataAccess.Core": "23.26.400"
         },
         "runtime": {
           "lib/net10.0/Oracle.EntityFrameworkCore.dll": {
@@ -171,7 +171,7 @@
           }
         }
       },
-      "Oracle.ManagedDataAccess.Core/23.26.301": {
+      "Oracle.ManagedDataAccess.Core/23.26.400": {
         "dependencies": {
           "System.Diagnostics.PerformanceCounter": "8.0.0",
           "System.DirectoryServices.Protocols": "8.0.2",
@@ -439,19 +439,19 @@
       "path": "microsoft.extensions.primitives/10.0.13",
       "hashPath": "microsoft.extensions.primitives.10.0.13.nupkg.sha512"
     },
-    "Oracle.EntityFrameworkCore/10.23.26301": {
+    "Oracle.EntityFrameworkCore/10.23.26400": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aX2QPJmfnb2m4gIpJuKuGwXwUhi1xg1F+iU/O7LSbmT5Kk2ICjKVNISDx7pFv0ohfGJz79DwfLswg1Q4aRjZHw==",
-      "path": "oracle.entityframeworkcore/10.23.26301",
-      "hashPath": "oracle.entityframeworkcore.10.23.26301.nupkg.sha512"
+      "sha512": "sha512-+z9CM9suO5B2t88nysbW3Ge3f8xx+rpLycH6p0DgvUKq0c9qITc8lQsLjOqVoGGyH+R2wok1nxiAFN0qYANp4w==",
+      "path": "oracle.entityframeworkcore/10.23.26400",
+      "hashPath": "oracle.entityframeworkcore.10.23.26400.nupkg.sha512"
     },
-    "Oracle.ManagedDataAccess.Core/23.26.301": {
+    "Oracle.ManagedDataAccess.Core/23.26.400": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hhl6m5sam9vWNXt4Xad+bAcB+VBMBxya16/P+R3xRMKzNVl/6ssF6HuNZNeofD+5qDaTRqhWbKjdFn65rD5KYw==",
-      "path": "oracle.manageddataaccess.core/23.26.301",
-      "hashPath": "oracle.manageddataaccess.core.23.26.301.nupkg.sha512"
+      "sha512": "sha512-PWVJunbl2LVcdFBluW5R3678MvrTLlTrQBdXe9wR4YCauISa4zCceJ7fLHVFFiGog8/ZPxo2cY4adpVQCJf+YQ==",
+      "path": "oracle.manageddataaccess.core/23.26.400",
+      "hashPath": "oracle.manageddataaccess.core.23.26.400.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/8.0.0": {
       "type": "package",

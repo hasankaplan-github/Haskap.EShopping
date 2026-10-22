@@ -40,7 +40,7 @@
       },
       "MailKit/4.18.1": {
         "dependencies": {
-          "MimeKit": "4.18.1"
+          "MimeKit": "4.18.2"
         },
         "runtime": {
           "lib/net10.0/MailKit.dll": {
@@ -231,10 +231,10 @@
           }
         }
       },
-      "MimeKit/4.18.1": {
+      "MimeKit/4.18.2": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.7.0",
-          "System.Security.Cryptography.Pkcs": "10.0.0"
+          "System.Security.Cryptography.Pkcs": "10.0.13"
         },
         "runtime": {
           "lib/net10.0/MimeKit.dll": {
@@ -243,11 +243,11 @@
           }
         }
       },
-      "System.Security.Cryptography.Pkcs/10.0.0": {
+      "System.Security.Cryptography.Pkcs/10.0.13": {
         "runtime": {
           "lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.1326.50504"
           }
         },
         "runtimeTargets": {
@@ -255,7 +255,7 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.1326.50504"
           }
         }
       },
@@ -339,7 +339,7 @@
         "dependencies": {
           "Haskap.DddBase.Application.Contracts": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "MimeKit": "4.18.1",
+          "MimeKit": "4.18.2",
           "Modules.Email.Domain.Shared": "1.0.0"
         },
         "runtime": {
@@ -515,19 +515,19 @@
       "path": "microsoft.extensions.primitives/10.0.13",
       "hashPath": "microsoft.extensions.primitives.10.0.13.nupkg.sha512"
     },
-    "MimeKit/4.18.1": {
+    "MimeKit/4.18.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D8AfFVMFVJldWmhQWCziC9nWUN/zayFFBAKpyjVyCeh0tqBiI9jtUVuMrKgWw1EGnCp09msDZldbRvp2jfUehQ==",
-      "path": "mimekit/4.18.1",
-      "hashPath": "mimekit.4.18.1.nupkg.sha512"
+      "sha512": "sha512-aYnwCCq+ZgQIsnHSJd3TMeGqf/Rz/9jYEItXpOoG3E2REOCZtLishwBSDFl2wQ/W2SB5wBsvE38DgHZ0IEyz4Q==",
+      "path": "mimekit/4.18.2",
+      "hashPath": "mimekit.4.18.2.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/10.0.0": {
+    "System.Security.Cryptography.Pkcs/10.0.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UPWqLSygJlFerRi9XNIuM0a1VC8gHUIufyP24xQ0sc+XimqUAEcjpOz9DhKpyDjH+5B/wO3RpC0KpkEeDj/ddg==",
-      "path": "system.security.cryptography.pkcs/10.0.0",
-      "hashPath": "system.security.cryptography.pkcs.10.0.0.nupkg.sha512"
+      "sha512": "sha512-a+EovgC1fBnwdlQ6cn3j4JFBfKqiFaFvoAhjisOoSvazLAcIznaBzPQP0oYnvccmeXfqUH1KebVZOxSeH6rMaw==",
+      "path": "system.security.cryptography.pkcs/10.0.13",
+      "hashPath": "system.security.cryptography.pkcs.10.0.13.nupkg.sha512"
     },
     "Haskap.DddBase.Application/1.0.0": {
       "type": "project",
