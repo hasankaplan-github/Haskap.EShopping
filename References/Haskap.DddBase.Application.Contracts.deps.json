@@ -9,17 +9,17 @@
       "Haskap.DddBase.Application.Contracts/1.0.0": {
         "dependencies": {
           "Haskap.DddBase.Application.Dtos": "1.0.0",
-          "Microsoft.Extensions.Localization.Abstractions": "10.0.13"
+          "Microsoft.Extensions.Localization.Abstractions": "10.0.14"
         },
         "runtime": {
           "Haskap.DddBase.Application.Contracts.dll": {}
         }
       },
-      "Microsoft.Extensions.Localization.Abstractions/10.0.13": {
+      "Microsoft.Extensions.Localization.Abstractions/10.0.14": {
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Localization.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1326.50504"
+            "fileVersion": "10.0.1426.52326"
           }
         }
       },
@@ -39,12 +39,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Localization.Abstractions/10.0.13": {
+    "Microsoft.Extensions.Localization.Abstractions/10.0.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f9/eI5sYNGaDyneg580D4mFzJBe0rRxJtnmRj/W1m8rrEMus3r+NO4Ttld/KCuD7Ex9FPE7zSrD3TDRXJOsnzg==",
-      "path": "microsoft.extensions.localization.abstractions/10.0.13",
-      "hashPath": "microsoft.extensions.localization.abstractions.10.0.13.nupkg.sha512"
+      "sha512": "sha512-JUDYOHB+u3L+NsmefSivlifC07UI7LeYPGUFUGa4OZ+BnT1/Ggg3u9odpeJRPMKCeRb3c/jcpZKD2Ch+vDGqIw==",
+      "path": "microsoft.extensions.localization.abstractions/10.0.14",
+      "hashPath": "microsoft.extensions.localization.abstractions.10.0.14.nupkg.sha512"
     },
     "Haskap.DddBase.Application.Dtos/1.0.0": {
       "type": "project",
