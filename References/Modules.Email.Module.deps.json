@@ -42,14 +42,14 @@
           }
         }
       },
-      "MailKit/4.18.2": {
+      "MailKit/5.0.0": {
         "dependencies": {
-          "MimeKit": "4.18.2"
+          "MimeKit.Core": "5.0.0"
         },
         "runtime": {
           "lib/net10.0/MailKit.dll": {
-            "assemblyVersion": "4.18.0.0",
-            "fileVersion": "4.18.2.0"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
           }
         }
       },
@@ -235,15 +235,30 @@
           }
         }
       },
-      "MimeKit/4.18.2": {
+      "MimeKit/5.0.0": {
+        "dependencies": {
+          "MimeKit.Core": "5.0.0",
+          "MimeKit.Cryptography": "5.0.0"
+        }
+      },
+      "MimeKit.Core/5.0.0": {
+        "runtime": {
+          "lib/net10.0/MimeKit.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "MimeKit.Cryptography/5.0.0": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.7.0",
+          "MimeKit.Core": "5.0.0",
           "System.Security.Cryptography.Pkcs": "10.0.13"
         },
         "runtime": {
-          "lib/net10.0/MimeKit.dll": {
-            "assemblyVersion": "4.18.0.0",
-            "fileVersion": "4.18.1.0"
+          "lib/net10.0/MimeKit.Cryptography.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
           }
         }
       },
@@ -356,7 +371,7 @@
       "Modules.Email.Application/1.0.0": {
         "dependencies": {
           "Haskap.DddBase.Application": "1.0.0",
-          "MailKit": "4.18.2",
+          "MailKit": "5.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "10.0.14",
           "Microsoft.Extensions.Options": "10.0.14",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.14",
@@ -373,7 +388,7 @@
         "dependencies": {
           "Haskap.DddBase.Application.Contracts": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
-          "MimeKit": "4.18.2",
+          "MimeKit": "5.0.0",
           "Modules.Email.Domain.Shared": "1.0.0"
         },
         "runtime": {
@@ -503,12 +518,12 @@
       "path": "bouncycastle.cryptography/2.7.0",
       "hashPath": "bouncycastle.cryptography.2.7.0.nupkg.sha512"
     },
-    "MailKit/4.18.2": {
+    "MailKit/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ofqddpSbdrD00NqTD0ZyVfKvrl/ZZ70VFFEQ+DuR8r8CdbY3U02/sdb0CSQBNUqJifsXfVHIwRe1ToR2MvJJkw==",
-      "path": "mailkit/4.18.2",
-      "hashPath": "mailkit.4.18.2.nupkg.sha512"
+      "sha512": "sha512-PG6hnsklTzd/iK9A6j03OxDOas9mh8zOBkbPzcsLmFOODE8Hw3HTy7HAKiJvVHXNpKc3/KMVG/4QvOAKCBbGhA==",
+      "path": "mailkit/5.0.0",
+      "hashPath": "mailkit.5.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/10.0.14": {
       "type": "package",
@@ -622,12 +637,26 @@
       "path": "microsoft.extensions.primitives/10.0.14",
       "hashPath": "microsoft.extensions.primitives.10.0.14.nupkg.sha512"
     },
-    "MimeKit/4.18.2": {
+    "MimeKit/5.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aYnwCCq+ZgQIsnHSJd3TMeGqf/Rz/9jYEItXpOoG3E2REOCZtLishwBSDFl2wQ/W2SB5wBsvE38DgHZ0IEyz4Q==",
-      "path": "mimekit/4.18.2",
-      "hashPath": "mimekit.4.18.2.nupkg.sha512"
+      "sha512": "sha512-QCtyzzs+0+8sEvEgzOYzCFvWgirNkDjBDiN8+Mjk2bvIzqR2XxUME2qyaRrlG14/s9G2n6+jjokA+MkPip6n1A==",
+      "path": "mimekit/5.0.0",
+      "hashPath": "mimekit.5.0.0.nupkg.sha512"
+    },
+    "MimeKit.Core/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0RLaVyex/BjUGqiw9xtGwzyCMaBcsu33Rth61bDCeVeQaaQK7tjcy4TA+nHKTqwUdp4OGd+gnhuq2fuR+c20qA==",
+      "path": "mimekit.core/5.0.0",
+      "hashPath": "mimekit.core.5.0.0.nupkg.sha512"
+    },
+    "MimeKit.Cryptography/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tN4EhO/djS9GO+ccFJgHTJUixIZqemHEd7VMZNgUfY5DsBL2N9I7ej+nM+yV5OCyEFKMyHBi0onzhUP3C7EcqA==",
+      "path": "mimekit.cryptography/5.0.0",
+      "hashPath": "mimekit.cryptography.5.0.0.nupkg.sha512"
     },
     "System.Security.Cryptography.Pkcs/10.0.13": {
       "type": "package",

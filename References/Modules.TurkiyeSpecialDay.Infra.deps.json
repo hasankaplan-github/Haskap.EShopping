@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Modules.TurkiyeSpecialDay.Infra/1.0.0": {
         "dependencies": {
-          "AngleSharp": "1.10.0",
+          "AngleSharp": "1.10.3",
           "EFCore.NamingConventions": "10.0.1",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
@@ -38,11 +38,11 @@
           "Modules.TurkiyeSpecialDay.Infra.dll": {}
         }
       },
-      "AngleSharp/1.10.0": {
+      "AngleSharp/1.10.3": {
         "runtime": {
           "lib/net10.0/AngleSharp.dll": {
-            "assemblyVersion": "1.10.0.0",
-            "fileVersion": "1.10.0.0"
+            "assemblyVersion": "1.10.3.0",
+            "fileVersion": "1.10.3.0"
           }
         }
       },
@@ -548,12 +548,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AngleSharp/1.10.0": {
+    "AngleSharp/1.10.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jibGB16fKOT+p0T7/eMzsiHj/V43QXg/wGQot4VWHF3zEdH+RGco8rHFNeAbf526CrSOkA8WwILz3DDus+cUUA==",
-      "path": "anglesharp/1.10.0",
-      "hashPath": "anglesharp.1.10.0.nupkg.sha512"
+      "sha512": "sha512-HF2owdhRhy84PJ7dk6e7Olc8D3S8RhU+BSXgCpTcafODrHzUUqUquCUWrM81/PeKHKlFA86LCdZBAQCQRK2y7w==",
+      "path": "anglesharp/1.10.3",
+      "hashPath": "anglesharp.1.10.3.nupkg.sha512"
     },
     "Ardalis.GuardClauses/5.0.0": {
       "type": "package",
