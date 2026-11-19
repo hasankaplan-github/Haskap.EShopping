@@ -13,8 +13,8 @@
           "Haskap.DddBase.Utilities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "10.0.14",
           "Modules.SpecialDayBase.Domain": "1.0.0",
-          "Modules.SpecialDayBase.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Domain.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Application.Dtos.Reference": "0.0.0.0",
+          "Modules.SpecialDayBase.Domain.Reference": "0.0.0.0",
           "Modules.SpecialDayBase.Domain.Shared.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -25,7 +25,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -38,7 +39,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -46,7 +48,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -57,7 +60,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Abstractions.dll"
           }
         }
       },
@@ -72,7 +76,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Memory.dll"
           }
         }
       },
@@ -83,7 +88,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -94,7 +100,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.dll"
           }
         }
       },
@@ -102,7 +109,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -115,7 +123,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.dll"
           }
         }
       },
@@ -126,7 +135,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -138,7 +148,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.dll"
           }
         }
       },
@@ -146,7 +157,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -234,7 +246,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
+      "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -242,7 +254,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
+      "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -385,12 +397,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
+    "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
+    "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

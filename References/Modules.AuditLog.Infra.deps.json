@@ -15,8 +15,8 @@
           "Modules.AuditLog.Domain": "1.0.0",
           "Modules.AuditLog.Domain.Shared": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
-          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
-          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0"
+          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "0.0.0.0"
         },
         "runtime": {
           "Modules.AuditLog.Infra.dll": {}
@@ -26,7 +26,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -39,7 +40,8 @@
         "runtime": {
           "lib/net10.0/EFCore.NamingConventions.dll": {
             "assemblyVersion": "10.0.1.0",
-            "fileVersion": "10.0.1.0"
+            "fileVersion": "10.0.1.0",
+            "localPath": "EFCore.NamingConventions.dll"
           }
         }
       },
@@ -52,7 +54,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -60,7 +63,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -74,7 +78,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Relational.dll"
           }
         }
       },
@@ -85,7 +90,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Abstractions.dll"
           }
         }
       },
@@ -100,7 +106,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Memory.dll"
           }
         }
       },
@@ -111,7 +118,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -122,7 +130,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.dll"
           }
         }
       },
@@ -130,7 +139,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -143,7 +153,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.dll"
           }
         }
       },
@@ -154,7 +165,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -166,7 +178,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.dll"
           }
         }
       },
@@ -174,7 +187,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -185,7 +199,8 @@
         "runtime": {
           "lib/net10.0/Npgsql.dll": {
             "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "fileVersion": "10.0.3.0",
+            "localPath": "Npgsql.dll"
           }
         }
       },
@@ -198,7 +213,8 @@
         "runtime": {
           "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
             "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "fileVersion": "10.0.3.0",
+            "localPath": "Npgsql.EntityFrameworkCore.PostgreSQL.dll"
           }
         }
       },
@@ -319,7 +335,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -327,7 +343,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -500,12 +516,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

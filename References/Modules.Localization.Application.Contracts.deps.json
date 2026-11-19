@@ -13,7 +13,7 @@
           "Microsoft.Extensions.Localization.Abstractions": "10.0.14",
           "Modules.Localization.Application.Dtos": "1.0.0",
           "Modules.Tenants.Application.Dtos": "1.0.0",
-          "Modules.Localization.Application.Dtos.Reference": "1.0.0.0",
+          "Modules.Localization.Application.Dtos.Reference": "0.0.0.0",
           "Modules.Tenants.Application.Dtos.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -27,7 +27,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -35,7 +36,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -43,7 +45,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Localization.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Localization.Abstractions.dll"
           }
         }
       },
@@ -54,7 +57,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -62,7 +66,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -115,7 +120,7 @@
           }
         }
       },
-      "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
+      "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
         "runtime": {
           "Modules.Localization.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -199,7 +204,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
+    "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

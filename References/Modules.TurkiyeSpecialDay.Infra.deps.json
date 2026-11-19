@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Modules.TurkiyeSpecialDay.Infra/1.0.0": {
         "dependencies": {
-          "AngleSharp": "1.10.3",
+          "AngleSharp": "1.10.5",
           "EFCore.NamingConventions": "10.0.1",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
@@ -23,26 +23,27 @@
           "Modules.TurkiyeSpecialDay.Domain": "1.0.0",
           "Modules.TurkiyeSpecialDay.Domain.Shared": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
-          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
-          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0",
-          "Modules.AuditLog.Infra.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "0.0.0.0",
+          "Modules.AuditLog.Infra.Reference": "0.0.0.0",
           "Modules.SpecialDayBase.Application.Contracts.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Domain.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Application.Dtos.Reference": "0.0.0.0",
+          "Modules.SpecialDayBase.Domain.Reference": "0.0.0.0",
           "Modules.SpecialDayBase.Domain.Shared.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Infra.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Infra.Reference": "0.0.0.0",
           "Modules.TurkiyeSpecialDay.Domain.Reference": "1.0.0.0",
-          "Modules.TurkiyeSpecialDay.Domain.Shared.Reference": "1.0.0.0"
+          "Modules.TurkiyeSpecialDay.Domain.Shared.Reference": "0.0.0.0"
         },
         "runtime": {
           "Modules.TurkiyeSpecialDay.Infra.dll": {}
         }
       },
-      "AngleSharp/1.10.3": {
+      "AngleSharp/1.10.5": {
         "runtime": {
           "lib/net10.0/AngleSharp.dll": {
-            "assemblyVersion": "1.10.3.0",
-            "fileVersion": "1.10.3.0"
+            "assemblyVersion": "1.10.5.0",
+            "fileVersion": "1.10.5.0",
+            "localPath": "AngleSharp.dll"
           }
         }
       },
@@ -50,7 +51,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -63,7 +65,8 @@
         "runtime": {
           "lib/net10.0/EFCore.NamingConventions.dll": {
             "assemblyVersion": "10.0.1.0",
-            "fileVersion": "10.0.1.0"
+            "fileVersion": "10.0.1.0",
+            "localPath": "EFCore.NamingConventions.dll"
           }
         }
       },
@@ -76,7 +79,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -84,7 +88,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -98,7 +103,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Relational.dll"
           }
         }
       },
@@ -109,7 +115,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Abstractions.dll"
           }
         }
       },
@@ -124,7 +131,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Memory.dll"
           }
         }
       },
@@ -135,7 +143,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -146,7 +155,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.dll"
           }
         }
       },
@@ -154,7 +164,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -162,7 +173,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Localization.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Localization.Abstractions.dll"
           }
         }
       },
@@ -175,7 +187,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.dll"
           }
         }
       },
@@ -186,7 +199,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -198,7 +212,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.dll"
           }
         }
       },
@@ -206,7 +221,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -217,7 +233,8 @@
         "runtime": {
           "lib/net10.0/Npgsql.dll": {
             "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "fileVersion": "10.0.3.0",
+            "localPath": "Npgsql.dll"
           }
         }
       },
@@ -230,7 +247,8 @@
         "runtime": {
           "lib/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
             "assemblyVersion": "10.0.3.0",
-            "fileVersion": "10.0.3.0"
+            "fileVersion": "10.0.3.0",
+            "localPath": "Npgsql.EntityFrameworkCore.PostgreSQL.dll"
           }
         }
       },
@@ -460,7 +478,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -468,7 +486,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -476,7 +494,7 @@
           }
         }
       },
-      "Modules.AuditLog.Infra.Reference/1.0.0.0": {
+      "Modules.AuditLog.Infra.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -492,7 +510,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
+      "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -500,7 +518,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
+      "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -516,7 +534,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Infra.Reference/1.0.0.0": {
+      "Modules.SpecialDayBase.Infra.Reference/0.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -532,7 +550,7 @@
           }
         }
       },
-      "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/1.0.0.0": {
+      "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/0.0.0.0": {
         "runtime": {
           "Modules.TurkiyeSpecialDay.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -548,12 +566,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AngleSharp/1.10.3": {
+    "AngleSharp/1.10.5": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HF2owdhRhy84PJ7dk6e7Olc8D3S8RhU+BSXgCpTcafODrHzUUqUquCUWrM81/PeKHKlFA86LCdZBAQCQRK2y7w==",
-      "path": "anglesharp/1.10.3",
-      "hashPath": "anglesharp.1.10.3.nupkg.sha512"
+      "sha512": "sha512-+XcQgYnOCjizDLpBImAscxgyje0ypUdWXvP+TDEVowygb50J6frELXN3YD2SjOR/BuJInWUr6tFUwl9WN1l31w==",
+      "path": "anglesharp/1.10.5",
+      "hashPath": "anglesharp.1.10.5.nupkg.sha512"
     },
     "Ardalis.GuardClauses/5.0.0": {
       "type": "package",
@@ -764,17 +782,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Infra.Reference/1.0.0.0": {
+    "Modules.AuditLog.Infra.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -784,12 +802,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
+    "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
+    "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -799,7 +817,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Infra.Reference/1.0.0.0": {
+    "Modules.SpecialDayBase.Infra.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -809,7 +827,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/1.0.0.0": {
+    "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

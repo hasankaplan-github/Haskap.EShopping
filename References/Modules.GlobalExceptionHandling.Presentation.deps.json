@@ -12,7 +12,7 @@
           "Haskap.DddBase.Presentation": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
           "Modules.GlobalExceptionHandling.Domain.Shared": "1.0.0",
-          "Modules.GlobalExceptionHandling.Domain.Shared.Reference": "1.0.0.0"
+          "Modules.GlobalExceptionHandling.Domain.Shared.Reference": "0.0.0.0"
         },
         "runtime": {
           "Modules.GlobalExceptionHandling.Presentation.dll": {}
@@ -22,7 +22,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -33,7 +34,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -41,7 +43,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -138,7 +141,7 @@
           }
         }
       },
-      "Modules.GlobalExceptionHandling.Domain.Shared.Reference/1.0.0.0": {
+      "Modules.GlobalExceptionHandling.Domain.Shared.Reference/0.0.0.0": {
         "runtime": {
           "Modules.GlobalExceptionHandling.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -215,7 +218,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.GlobalExceptionHandling.Domain.Shared.Reference/1.0.0.0": {
+    "Modules.GlobalExceptionHandling.Domain.Shared.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

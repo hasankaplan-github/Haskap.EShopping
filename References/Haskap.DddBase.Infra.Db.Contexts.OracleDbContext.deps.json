@@ -20,7 +20,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -33,7 +34,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -41,7 +43,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -55,7 +58,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
+            "fileVersion": "10.0.25.52411",
+            "localPath": "Microsoft.EntityFrameworkCore.Relational.dll"
           }
         }
       },
@@ -66,7 +70,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Abstractions.dll"
           }
         }
       },
@@ -81,7 +86,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Memory.dll"
           }
         }
       },
@@ -92,7 +98,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -103,7 +110,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.dll"
           }
         }
       },
@@ -111,7 +119,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -124,7 +133,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.dll"
           }
         }
       },
@@ -135,7 +145,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -147,7 +158,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.dll"
           }
         }
       },
@@ -155,7 +167,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -167,7 +180,8 @@
         "runtime": {
           "lib/net10.0/Oracle.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.23.1",
-            "fileVersion": "10.0.23.1"
+            "fileVersion": "10.0.23.1",
+            "localPath": "Oracle.EntityFrameworkCore.dll"
           }
         }
       },
@@ -180,7 +194,8 @@
         "runtime": {
           "lib/net8.0/Oracle.ManagedDataAccess.dll": {
             "assemblyVersion": "23.1.0.0",
-            "fileVersion": "23.1.0.0"
+            "fileVersion": "23.1.0.0",
+            "localPath": "Oracle.ManagedDataAccess.dll"
           }
         }
       },
@@ -192,7 +207,8 @@
         "runtime": {
           "lib/net8.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "System.Configuration.ConfigurationManager.dll"
           }
         }
       },
@@ -200,7 +216,8 @@
         "runtime": {
           "lib/net8.0/System.Diagnostics.EventLog.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "System.Diagnostics.EventLog.dll"
           }
         },
         "runtimeTargets": {
@@ -208,13 +225,15 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "0.0.0.0",
+            "localPath": "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.Messages.dll"
           },
           "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.dll": {
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.dll"
           }
         }
       },
@@ -225,7 +244,8 @@
         "runtime": {
           "lib/net8.0/System.Diagnostics.PerformanceCounter.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "System.Diagnostics.PerformanceCounter.dll"
           }
         },
         "runtimeTargets": {
@@ -233,7 +253,8 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "runtimes/win/lib/net8.0/System.Diagnostics.PerformanceCounter.dll"
           }
         }
       },
@@ -241,7 +262,8 @@
         "runtime": {
           "lib/net8.0/System.DirectoryServices.Protocols.dll": {
             "assemblyVersion": "8.0.0.2",
-            "fileVersion": "8.0.1725.26602"
+            "fileVersion": "8.0.1725.26602",
+            "localPath": "System.DirectoryServices.Protocols.dll"
           }
         },
         "runtimeTargets": {
@@ -249,19 +271,22 @@
             "rid": "linux",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.2",
-            "fileVersion": "8.0.1725.26602"
+            "fileVersion": "8.0.1725.26602",
+            "localPath": "runtimes/linux/lib/net8.0/System.DirectoryServices.Protocols.dll"
           },
           "runtimes/osx/lib/net8.0/System.DirectoryServices.Protocols.dll": {
             "rid": "osx",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.2",
-            "fileVersion": "8.0.1725.26602"
+            "fileVersion": "8.0.1725.26602",
+            "localPath": "runtimes/osx/lib/net8.0/System.DirectoryServices.Protocols.dll"
           },
           "runtimes/win/lib/net8.0/System.DirectoryServices.Protocols.dll": {
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.2",
-            "fileVersion": "8.0.1725.26602"
+            "fileVersion": "8.0.1725.26602",
+            "localPath": "runtimes/win/lib/net8.0/System.DirectoryServices.Protocols.dll"
           }
         }
       },
@@ -269,7 +294,8 @@
         "runtime": {
           "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1024.46610"
+            "fileVersion": "8.0.1024.46610",
+            "localPath": "System.Security.Cryptography.Pkcs.dll"
           }
         },
         "runtimeTargets": {
@@ -277,7 +303,8 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1024.46610"
+            "fileVersion": "8.0.1024.46610",
+            "localPath": "runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll"
           }
         }
       },
@@ -285,7 +312,8 @@
         "runtime": {
           "lib/net8.0/System.Security.Cryptography.ProtectedData.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+            "fileVersion": "8.0.23.53103",
+            "localPath": "System.Security.Cryptography.ProtectedData.dll"
           }
         }
       },

@@ -15,11 +15,11 @@
           "Modules.ModuleManagement.Application.Dtos": "1.0.0",
           "Modules.ModuleManagement.Domain": "1.0.0",
           "Modules.ModuleManagement.IntegrationEvents": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.Application.Contracts.Reference": "0.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.IntegrationEvents.Reference": "1.0.0.0"
+          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.IntegrationEvents.Reference": "0.0.0.0"
         },
         "runtime": {
           "Modules.ModuleManagement.Application.dll": {}
@@ -29,7 +29,8 @@
         "runtime": {
           "lib/net8.0/Ardalis.GuardClauses.dll": {
             "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0"
+            "fileVersion": "5.0.0.0",
+            "localPath": "Ardalis.GuardClauses.dll"
           }
         }
       },
@@ -42,7 +43,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.dll"
           }
         }
       },
@@ -50,7 +52,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Abstractions.dll"
           }
         }
       },
@@ -64,7 +67,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.EntityFrameworkCore.Relational.dll": {
             "assemblyVersion": "10.0.14.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.EntityFrameworkCore.Relational.dll"
           }
         }
       },
@@ -75,7 +79,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Abstractions.dll"
           }
         }
       },
@@ -90,7 +95,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Caching.Memory.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Caching.Memory.dll"
           }
         }
       },
@@ -102,7 +108,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.dll"
           }
         }
       },
@@ -113,7 +120,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Abstractions.dll"
           }
         }
       },
@@ -125,7 +133,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Binder.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Configuration.Binder.dll"
           }
         }
       },
@@ -136,7 +145,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.dll"
           }
         }
       },
@@ -144,7 +154,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.DependencyInjection.Abstractions.dll"
           }
         }
       },
@@ -152,7 +163,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Localization.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Localization.Abstractions.dll"
           }
         }
       },
@@ -165,7 +177,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.dll"
           }
         }
       },
@@ -176,7 +189,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Logging.Abstractions.dll"
           }
         }
       },
@@ -188,7 +202,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.dll"
           }
         }
       },
@@ -203,7 +218,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Options.ConfigurationExtensions.dll"
           }
         }
       },
@@ -211,7 +227,8 @@
         "runtime": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.1426.52326"
+            "fileVersion": "10.0.1426.52326",
+            "localPath": "Microsoft.Extensions.Primitives.dll"
           }
         }
       },
@@ -348,7 +365,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -356,7 +373,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
+      "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -372,7 +389,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -380,7 +397,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
+      "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.IntegrationEvents.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -570,12 +587,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
+    "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -585,12 +602,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
+    "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
