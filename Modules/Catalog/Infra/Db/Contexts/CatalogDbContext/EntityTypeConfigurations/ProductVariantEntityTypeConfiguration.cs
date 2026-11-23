@@ -1,5 +1,4 @@
 ﻿using Haskap.DddBase.Infra.Db.Contexts.EfCoreContext.EntityTypeConfigurations;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Modules.Catalog.Domain.ProductAggregate;
 
@@ -31,12 +30,12 @@ public class ProductVariantEntityTypeConfiguration : BaseEntityTypeConfiguration
 
             attributesBuilder.Property(y => y.AttributeType).HasConversion<string>();
 
-            attributesBuilder.Property(b => b.SearchVectorTurkish)
-                .HasComputedColumnSql(
-                    @"to_tsvector('turkish', display_name || ' ' || value || ' ' || COALESCE(description, ''))",
-                    stored: true);
-            attributesBuilder.HasIndex(b => b.SearchVectorTurkish)
-                .HasMethod("GIN");
+            //attributesBuilder.Property(b => b.SearchVectorTurkish)
+            //    .HasComputedColumnSql(
+            //        @"to_tsvector('turkish', display_name || ' ' || value || ' ' || COALESCE(description, ''))",
+            //        stored: true);
+            //attributesBuilder.HasIndex(b => b.SearchVectorTurkish)
+            //    .HasMethod("GIN");
         });
 
         builder.OwnsMany(x => x.Pictures, picturesBuilder =>
@@ -61,13 +60,13 @@ public class ProductVariantEntityTypeConfiguration : BaseEntityTypeConfiguration
         });
         builder.OwnsOne(x => x.StockQuantity);
 
-        builder.Property(b => b.SearchVectorTurkish)
-            .HasComputedColumnSql(
-                @"to_tsvector('turkish', ""sku_value"")",
-                stored: true);
+        //builder.Property(b => b.SearchVectorTurkish)
+        //    .HasComputedColumnSql(
+        //        @"to_tsvector('turkish', ""sku_value"")",
+        //        stored: true);
 
-        builder.HasIndex(b => b.SearchVectorTurkish)
-            .HasMethod("GIN");
+        //builder.HasIndex(b => b.SearchVectorTurkish)
+        //    .HasMethod("GIN");
 
         //builder.HasGeneratedTsVectorColumn(
         //    p => p.SearchVectorTurkish,

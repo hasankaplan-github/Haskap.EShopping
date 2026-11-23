@@ -19,7 +19,6 @@ public class Product : AggregateRoot, IAuditable, ISoftDeletable, IIsActive
     public IReadOnlyList<ProductAttributeTypeForDetails> AttributeTypePairForDetails => _attributeTypePairForDetails.AsReadOnly();
     private List<ProductAttributeTypeForDetails> _attributeTypePairForDetails = [];
     public bool IsActive { get; set; }
-    public NpgsqlTsVector SearchVectorTurkish { get; set; }
     public Guid? CreatedUserId { get; set; }
     public DateTime? CreatedOnUtc { get; set; }
     public Guid? ModifiedUserId { get; set; }

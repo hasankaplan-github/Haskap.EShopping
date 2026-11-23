@@ -1,7 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using Haskap.DddBase.Domain;
 using Haskap.EShopping.Domain.Common;
-using NpgsqlTypes;
 
 namespace Modules.Catalog.Domain.ProductAggregate;
 
@@ -23,7 +22,6 @@ public class ProductVariant : Entity, IAuditable, ISoftDeletable, IIsActive
     public bool IsActive { get; set; }
     public StockQuantity StockQuantity { get; private set; }
     public bool IsInStock => StockQuantity.Value > 0;
-    public NpgsqlTsVector SearchVectorTurkish { get; set; }
     public Guid? CreatedUserId { get; set; }
     public DateTime? CreatedOnUtc { get; set; }
     public Guid? ModifiedUserId { get; set; }

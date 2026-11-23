@@ -34,12 +34,12 @@ public class ProductEntityTypeConfiguration : BaseEntityTypeConfiguration<Produc
             .HasForeignKey(x => x.ProductId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.Property(b => b.SearchVectorTurkish)
-            .HasComputedColumnSql(
-                @"to_tsvector('turkish', ""name"" || ' ' || ""description"" || ' ' || ""sku_value"")",
-                stored: true);
+        //builder.Property(b => b.SearchVectorTurkish)
+        //    .HasComputedColumnSql(
+        //        @"to_tsvector('turkish', ""name"" || ' ' || ""description"" || ' ' || ""sku_value"")",
+        //        stored: true);
 
-        builder.HasIndex(b => b.SearchVectorTurkish)
-            .HasMethod("GIN");
+        //builder.HasIndex(b => b.SearchVectorTurkish)
+        //    .HasMethod("GIN");
     }
 }

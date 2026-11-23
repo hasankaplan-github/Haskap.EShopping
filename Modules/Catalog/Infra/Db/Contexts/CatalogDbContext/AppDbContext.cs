@@ -31,6 +31,7 @@ public class AppDbContext : BaseEfCoreNpgsqlDbContext, ICatalogDbContext
     }
 
     public DbSet<Product> Product { get; set; }
+    public DbSet<ProductSearchView> ProductSearchView { get; set; }
     public DbSet<Category> Category { get; set; }
     public DbSet<ProductCategory> ProductCategory { get; set; }
     public DbSet<ProductVariant> ProductVariant { get; set; }

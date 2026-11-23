@@ -102,12 +102,21 @@ public class ProductService : UseCaseService, IProductService
         {
             filtered = true;
 
-            query = query.Where(x =>
-                x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)) ||
-                x.Variants.Any(v =>
-                    v.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)) ||
-                    v.Attributes.Any(a => a.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)))) ||
-                x.Sku.Value.Contains(input.SearchTerm.ToUpper()));
+            var matchingProductIds = await _catalogDbContext.ProductSearchView
+                .AsNoTracking()
+                .Where(x => x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)))
+                .Select(x => x.ProductId)
+                .Distinct()
+                .ToListAsync(cancellationToken);
+
+            query = query.Where(x => matchingProductIds.Any(y => y == x.Id));
+
+            //query = query.Where(x =>
+            //    x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)) ||
+            //    x.Variants.Any(v =>
+            //        v.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)) ||
+            //        v.Attributes.Any(a => a.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", input.SearchTerm)))) ||
+            //    x.Sku.Value.Contains(input.SearchTerm.ToUpper()));
         }
 
         if(input.CategoryIds?.Any() == true)

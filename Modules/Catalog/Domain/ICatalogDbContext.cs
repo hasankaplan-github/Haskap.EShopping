@@ -10,6 +10,7 @@ namespace Modules.Catalog.Domain;
 public interface ICatalogDbContext : IUnitOfWork //IBpmDbContext
 {
     DbSet<Product> Product { get; set; }
+    DbSet<ProductSearchView> ProductSearchView { get; set; }
     DbSet<Category> Category { get; set; }
     DbSet<ProductCategory> ProductCategory { get; set; }
     DbSet<ProductVariant> ProductVariant { get; set; }

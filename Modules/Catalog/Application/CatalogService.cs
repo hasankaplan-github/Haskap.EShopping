@@ -7,7 +7,6 @@ using Modules.Catalog.Application.Mappings;
 using Modules.Catalog.Domain;
 using Modules.Catalog.Domain.ProductAggregate.Specifications;
 using Modules.Catalog.Domain.Shared.Enums;
-using System.Xml;
 
 namespace Modules.Catalog.Application;
 
@@ -68,11 +67,32 @@ public class CatalogService : UseCaseService, ICatalogService
         {
             filtered = true;
 
-            query = query.Where(x =>
-                x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)) ||
-                x.Variants.Any(v => 
-                    v.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)) ||
-                    v.Attributes.Any(a => a.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)))));
+            var matchingProductIds = await _catalogDbContext.ProductSearchView
+                .AsNoTracking()
+                .Where(x => x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)))
+                .Select(x => x.ProductId)
+                .Distinct()
+                .ToListAsync(cancellationToken);
+
+            query = query.Where(x => matchingProductIds.Any(y => y == x.Id));
+
+            //query = query.Join(
+            //    _catalogDbContext.ProductSearchView
+            //        .AsNoTracking()
+            //        .Where(x => x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)))
+            //        //.Select(x => x.ProductId)
+            //        //.DistinctBy(x => x.ProductId)
+            //        .ToList(),
+            //    product => product.Id,
+            //    searchViewProductId => searchViewProductId.ProductId,
+            //    (product, searchView) => product
+            //);
+
+            //query = query.Where(x =>
+            //    x.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)) ||
+            //    x.Variants.Any(v => 
+            //        v.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)) ||
+            //        v.Attributes.Any(a => a.SearchVectorTurkish.Matches(EF.Functions.WebSearchToTsQuery("turkish", searchInput.SearchTerm)))));
         }
 
         if (!string.IsNullOrWhiteSpace(searchInput.CategorySlug))

@@ -19,7 +19,7 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("catalog")
-                .HasAnnotation("ProductVersion", "10.0.9")
+                .HasAnnotation("ProductVersion", "10.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -199,13 +199,6 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
                         .HasColumnType("text")
                         .HasColumnName("name");
 
-                    b.Property<NpgsqlTsVector>("SearchVectorTurkish")
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("tsvector")
-                        .HasColumnName("search_vector_turkish")
-                        .HasComputedColumnSql("to_tsvector('turkish', \"name\" || ' ' || \"description\" || ' ' || \"sku_value\")", true);
-
                     b.HasKey("Id")
                         .HasName("pk_product");
 
@@ -213,12 +206,23 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
                         .IsUnique()
                         .HasDatabaseName("ix_product_name");
 
-                    b.HasIndex("SearchVectorTurkish")
-                        .HasDatabaseName("ix_product_search_vector_turkish");
-
-                    NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex("SearchVectorTurkish"), "GIN");
-
                     b.ToTable("product", "catalog");
+                });
+
+            modelBuilder.Entity("Modules.Catalog.Domain.ProductAggregate.ProductSearchView", b =>
+                {
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("product_id");
+
+                    b.Property<NpgsqlTsVector>("SearchVectorTurkish")
+                        .IsRequired()
+                        .HasColumnType("tsvector")
+                        .HasColumnName("search_vector_turkish");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("product_search_view", "catalog");
                 });
 
             modelBuilder.Entity("Modules.Catalog.Domain.ProductAggregate.ProductVariant", b =>
@@ -259,23 +263,11 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("product_id");
 
-                    b.Property<NpgsqlTsVector>("SearchVectorTurkish")
-                        .IsRequired()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("tsvector")
-                        .HasColumnName("search_vector_turkish")
-                        .HasComputedColumnSql("to_tsvector('turkish', \"sku_value\")", true);
-
                     b.HasKey("Id")
                         .HasName("pk_product_variant");
 
                     b.HasIndex("ProductId")
                         .HasDatabaseName("ix_product_variant_product_id");
-
-                    b.HasIndex("SearchVectorTurkish")
-                        .HasDatabaseName("ix_product_variant_search_vector_turkish");
-
-                    NpgsqlIndexBuilderExtensions.HasMethod(b.HasIndex("SearchVectorTurkish"), "GIN");
 
                     b.ToTable("product_variant", "catalog");
                 });
@@ -442,13 +434,6 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
                                 .HasColumnType("uuid")
                                 .HasColumnName("product_variant_id");
 
-                            b1.Property<NpgsqlTsVector>("SearchVectorTurkish")
-                                .IsRequired()
-                                .ValueGeneratedOnAddOrUpdate()
-                                .HasColumnType("tsvector")
-                                .HasColumnName("search_vector_turkish")
-                                .HasComputedColumnSql("to_tsvector('turkish', display_name || ' ' || value || ' ' || COALESCE(description, ''))", true);
-
                             b1.Property<string>("Value")
                                 .IsRequired()
                                 .HasColumnType("text")
@@ -459,11 +444,6 @@ namespace Modules.Catalog.Infra.Db.Contexts.CatalogDbContext.Migrations
 
                             b1.HasIndex("ProductVariantId")
                                 .HasDatabaseName("ix_product_attribute_product_variant_id");
-
-                            b1.HasIndex("SearchVectorTurkish")
-                                .HasDatabaseName("ix_product_attribute_search_vector_turkish");
-
-                            NpgsqlIndexBuilderExtensions.HasMethod(b1.HasIndex("SearchVectorTurkish"), "GIN");
 
                             b1.ToTable("product_attribute", "catalog");
 

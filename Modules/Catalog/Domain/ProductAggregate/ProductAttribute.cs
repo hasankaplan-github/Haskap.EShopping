@@ -12,7 +12,6 @@ public class ProductAttribute : ValueObject
     public string DisplayName { get; private set; }
     public string Value { get; private set; }
     public string? Description { get; private set; }
-    public NpgsqlTsVector SearchVectorTurkish { get; set; }
 
     private ProductAttribute()
     {}
