@@ -16,20 +16,20 @@
           "Modules.Localization.Infra": "1.0.0",
           "Modules.Localization.Presentation": "1.0.0",
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
-          "Modules.AuditLog.Domain.Shared.Reference": "0.0.0.0",
-          "Modules.AuditLog.Infra.Reference": "0.0.0.0",
-          "Modules.Localization.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0",
+          "Modules.AuditLog.Infra.Reference": "1.0.0.0",
+          "Modules.Localization.Application.Contracts.Reference": "1.0.0.0",
           "Modules.Localization.Application.Reference": "1.0.0.0",
-          "Modules.Localization.Application.Dtos.Reference": "0.0.0.0",
-          "Modules.Localization.Domain.Reference": "0.0.0.0",
-          "Modules.Localization.Domain.Shared.Reference": "0.0.0.0",
-          "Modules.Localization.Infra.Reference": "0.0.0.0",
+          "Modules.Localization.Application.Dtos.Reference": "1.0.0.0",
+          "Modules.Localization.Domain.Reference": "1.0.0.0",
+          "Modules.Localization.Domain.Shared.Reference": "1.0.0.0",
+          "Modules.Localization.Infra.Reference": "1.0.0.0",
           "Modules.Localization.Presentation.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
-          "Modules.ModuleManagement.IntegrationEvents.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
+          "Modules.ModuleManagement.IntegrationEvents.Reference": "1.0.0.0",
           "Modules.Tenants.Application.Dtos.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -426,7 +426,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -434,7 +434,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -442,7 +442,7 @@
           }
         }
       },
-      "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+      "Modules.AuditLog.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -450,7 +450,7 @@
           }
         }
       },
-      "Modules.Localization.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.Localization.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -466,7 +466,7 @@
           }
         }
       },
-      "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
+      "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -474,7 +474,7 @@
           }
         }
       },
-      "Modules.Localization.Domain.Reference/0.0.0.0": {
+      "Modules.Localization.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -482,7 +482,7 @@
           }
         }
       },
-      "Modules.Localization.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.Localization.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -490,7 +490,7 @@
           }
         }
       },
-      "Modules.Localization.Infra.Reference/0.0.0.0": {
+      "Modules.Localization.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -522,7 +522,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -530,7 +530,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.IntegrationEvents.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -728,22 +728,22 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+    "Modules.AuditLog.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.Localization.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -753,22 +753,22 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
+    "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Domain.Reference/0.0.0.0": {
+    "Modules.Localization.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.Localization.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Infra.Reference/0.0.0.0": {
+    "Modules.Localization.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -788,12 +788,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

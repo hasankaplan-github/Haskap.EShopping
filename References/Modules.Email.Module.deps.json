@@ -14,13 +14,13 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.14",
           "Modules.Email.Application": "1.0.0",
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
-          "Modules.Email.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.Email.Application.Contracts.Reference": "1.0.0.0",
           "Modules.Email.Application.Reference": "1.0.0.0",
           "Modules.Email.Domain.Shared.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0"
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.Email.Module.dll": {}
@@ -463,7 +463,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -471,7 +471,7 @@
           }
         }
       },
-      "Modules.Email.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.Email.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Email.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -511,7 +511,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -753,12 +753,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Email.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.Email.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -783,7 +783,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

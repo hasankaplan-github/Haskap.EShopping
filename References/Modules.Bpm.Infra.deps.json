@@ -15,7 +15,7 @@
           "Microsoft.EntityFrameworkCore.Relational": "10.0.14",
           "Modules.Bpm.Domain": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.3",
-          "Modules.Bpm.Domain.Reference": "0.0.0.0",
+          "Modules.Bpm.Domain.Reference": "1.0.0.0",
           "Modules.Bpm.Domain.Shared.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -329,7 +329,7 @@
           }
         }
       },
-      "Modules.Bpm.Domain.Reference/0.0.0.0": {
+      "Modules.Bpm.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Bpm.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -510,7 +510,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Bpm.Domain.Reference/0.0.0.0": {
+    "Modules.Bpm.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

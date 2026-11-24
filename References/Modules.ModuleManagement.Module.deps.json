@@ -12,16 +12,16 @@
           "Modules.ModuleManagement.Application": "1.0.0",
           "Modules.ModuleManagement.Domain.Shared": "1.0.0",
           "Modules.ModuleManagement.Infra": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
-          "Modules.AuditLog.Domain.Shared.Reference": "0.0.0.0",
-          "Modules.AuditLog.Infra.Reference": "0.0.0.0",
-          "Modules.ModuleManagement.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0",
+          "Modules.AuditLog.Infra.Reference": "1.0.0.0",
+          "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
-          "Modules.ModuleManagement.Domain.Shared.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
+          "Modules.ModuleManagement.Domain.Shared.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Infra.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.IntegrationEvents.Reference": "0.0.0.0"
+          "Modules.ModuleManagement.IntegrationEvents.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.ModuleManagement.Module.dll": {}
@@ -521,7 +521,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -529,7 +529,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -537,7 +537,7 @@
           }
         }
       },
-      "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+      "Modules.AuditLog.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -545,7 +545,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -569,7 +569,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -577,7 +577,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -593,7 +593,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.IntegrationEvents.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -844,22 +844,22 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+    "Modules.AuditLog.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -874,12 +874,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -889,7 +889,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

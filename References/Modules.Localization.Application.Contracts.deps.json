@@ -13,7 +13,7 @@
           "Microsoft.Extensions.Localization.Abstractions": "10.0.14",
           "Modules.Localization.Application.Dtos": "1.0.0",
           "Modules.Tenants.Application.Dtos": "1.0.0",
-          "Modules.Localization.Application.Dtos.Reference": "0.0.0.0",
+          "Modules.Localization.Application.Dtos.Reference": "1.0.0.0",
           "Modules.Tenants.Application.Dtos.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -120,7 +120,7 @@
           }
         }
       },
-      "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
+      "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Localization.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -204,7 +204,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Localization.Application.Dtos.Reference/0.0.0.0": {
+    "Modules.Localization.Application.Dtos.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

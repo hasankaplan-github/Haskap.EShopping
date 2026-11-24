@@ -14,10 +14,10 @@
           "Modules.Tenants.Application.Dtos": "1.0.0",
           "Modules.Tenants.Domain": "1.0.0",
           "Modules.Tenants.IntegrationEvents": "1.0.0",
-          "Modules.Tenants.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.Tenants.Application.Contracts.Reference": "1.0.0.0",
           "Modules.Tenants.Application.Dtos.Reference": "1.0.0.0",
           "Modules.Tenants.Domain.Reference": "1.0.0.0",
-          "Modules.Tenants.IntegrationEvents.Reference": "0.0.0.0"
+          "Modules.Tenants.IntegrationEvents.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.Tenants.Application.dll": {}
@@ -309,7 +309,7 @@
           }
         }
       },
-      "Modules.Tenants.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.Tenants.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Tenants.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -333,7 +333,7 @@
           }
         }
       },
-      "Modules.Tenants.IntegrationEvents.Reference/0.0.0.0": {
+      "Modules.Tenants.IntegrationEvents.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Tenants.IntegrationEvents.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -497,7 +497,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Tenants.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.Tenants.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -512,7 +512,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Tenants.IntegrationEvents.Reference/0.0.0.0": {
+    "Modules.Tenants.IntegrationEvents.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

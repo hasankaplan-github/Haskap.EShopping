@@ -12,16 +12,16 @@
           "Modules.CustomMessage.Application.Contracts": "1.0.0",
           "Modules.CustomMessage.Presentation": "1.0.0",
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
           "Modules.CustomMessage.Application.Contracts.Reference": "1.0.0.0",
-          "Modules.CustomMessage.Application.Reference": "0.0.0.0",
+          "Modules.CustomMessage.Application.Reference": "1.0.0.0",
           "Modules.CustomMessage.Application.Dtos.Reference": "1.0.0.0",
           "Modules.CustomMessage.Domain.Reference": "1.0.0.0",
           "Modules.CustomMessage.Domain.Shared.Reference": "1.0.0.0",
-          "Modules.CustomMessage.Presentation.Reference": "0.0.0.0",
+          "Modules.CustomMessage.Presentation.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0"
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.CustomMessage.Module.dll": {}
@@ -278,7 +278,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -294,7 +294,7 @@
           }
         }
       },
-      "Modules.CustomMessage.Application.Reference/0.0.0.0": {
+      "Modules.CustomMessage.Application.Reference/1.0.0.0": {
         "runtime": {
           "Modules.CustomMessage.Application.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -326,7 +326,7 @@
           }
         }
       },
-      "Modules.CustomMessage.Presentation.Reference/0.0.0.0": {
+      "Modules.CustomMessage.Presentation.Reference/1.0.0.0": {
         "runtime": {
           "Modules.CustomMessage.Presentation.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -350,7 +350,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -484,7 +484,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -494,7 +494,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.CustomMessage.Application.Reference/0.0.0.0": {
+    "Modules.CustomMessage.Application.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -514,7 +514,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.CustomMessage.Presentation.Reference/0.0.0.0": {
+    "Modules.CustomMessage.Presentation.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -529,7 +529,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

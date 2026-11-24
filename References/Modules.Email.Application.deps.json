@@ -15,7 +15,7 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.14",
           "Modules.Email.Application.Contracts": "1.0.0",
           "Modules.Email.Domain.Shared": "1.0.0",
-          "Modules.Email.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.Email.Application.Contracts.Reference": "1.0.0.0",
           "Modules.Email.Domain.Shared.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -396,7 +396,7 @@
           }
         }
       },
-      "Modules.Email.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.Email.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.Email.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -621,7 +621,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.Email.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.Email.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

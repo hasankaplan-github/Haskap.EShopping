@@ -15,11 +15,11 @@
           "Modules.ModuleManagement.Application.Dtos": "1.0.0",
           "Modules.ModuleManagement.Domain": "1.0.0",
           "Modules.ModuleManagement.IntegrationEvents": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
-          "Modules.ModuleManagement.Application.Contracts.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
-          "Modules.ModuleManagement.IntegrationEvents.Reference": "0.0.0.0"
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
+          "Modules.ModuleManagement.IntegrationEvents.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.ModuleManagement.Application.dll": {}
@@ -365,7 +365,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -373,7 +373,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Application.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -389,7 +389,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -397,7 +397,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.IntegrationEvents.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -587,12 +587,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Application.Contracts.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Application.Contracts.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -602,12 +602,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.IntegrationEvents.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.IntegrationEvents.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

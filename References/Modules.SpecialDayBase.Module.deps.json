@@ -11,14 +11,14 @@
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
           "Modules.SpecialDayBase.Application": "1.0.0",
           "Modules.SpecialDayBase.Application.Contracts": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
           "Modules.SpecialDayBase.Application.Contracts.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Application.Reference": "0.0.0.0",
-          "Modules.SpecialDayBase.Application.Dtos.Reference": "0.0.0.0",
-          "Modules.SpecialDayBase.Domain.Reference": "0.0.0.0",
+          "Modules.SpecialDayBase.Application.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Application.Dtos.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Domain.Reference": "1.0.0.0",
           "Modules.SpecialDayBase.Domain.Shared.Reference": "1.0.0.0"
         },
         "runtime": {
@@ -374,7 +374,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -398,7 +398,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -414,7 +414,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Application.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Application.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Application.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -422,7 +422,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -430,7 +430,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -627,7 +627,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -642,7 +642,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -652,17 +652,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Application.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Application.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

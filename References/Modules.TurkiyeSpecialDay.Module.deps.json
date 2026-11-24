@@ -13,20 +13,20 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.14",
           "Modules.ModuleManagement.Application.Contracts": "1.0.0",
           "Modules.TurkiyeSpecialDay.Infra": "1.0.0",
-          "Modules.AuditLog.Domain.Reference": "0.0.0.0",
-          "Modules.AuditLog.Domain.Shared.Reference": "0.0.0.0",
-          "Modules.AuditLog.Infra.Reference": "0.0.0.0",
+          "Modules.AuditLog.Domain.Reference": "1.0.0.0",
+          "Modules.AuditLog.Domain.Shared.Reference": "1.0.0.0",
+          "Modules.AuditLog.Infra.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Contracts.Reference": "1.0.0.0",
           "Modules.ModuleManagement.Application.Dtos.Reference": "1.0.0.0",
-          "Modules.ModuleManagement.Domain.Reference": "0.0.0.0",
+          "Modules.ModuleManagement.Domain.Reference": "1.0.0.0",
           "Modules.SpecialDayBase.Application.Contracts.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Application.Dtos.Reference": "0.0.0.0",
-          "Modules.SpecialDayBase.Domain.Reference": "0.0.0.0",
+          "Modules.SpecialDayBase.Application.Dtos.Reference": "1.0.0.0",
+          "Modules.SpecialDayBase.Domain.Reference": "1.0.0.0",
           "Modules.SpecialDayBase.Domain.Shared.Reference": "1.0.0.0",
-          "Modules.SpecialDayBase.Infra.Reference": "0.0.0.0",
+          "Modules.SpecialDayBase.Infra.Reference": "1.0.0.0",
           "Modules.TurkiyeSpecialDay.Domain.Reference": "1.0.0.0",
-          "Modules.TurkiyeSpecialDay.Domain.Shared.Reference": "0.0.0.0",
-          "Modules.TurkiyeSpecialDay.Infra.Reference": "0.0.0.0"
+          "Modules.TurkiyeSpecialDay.Domain.Shared.Reference": "1.0.0.0",
+          "Modules.TurkiyeSpecialDay.Infra.Reference": "1.0.0.0"
         },
         "runtime": {
           "Modules.TurkiyeSpecialDay.Module.dll": {}
@@ -529,7 +529,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -537,7 +537,7 @@
           }
         }
       },
-      "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -545,7 +545,7 @@
           }
         }
       },
-      "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+      "Modules.AuditLog.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.AuditLog.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -569,7 +569,7 @@
           }
         }
       },
-      "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+      "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.ModuleManagement.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -585,7 +585,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -593,7 +593,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Domain.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -609,7 +609,7 @@
           }
         }
       },
-      "Modules.SpecialDayBase.Infra.Reference/0.0.0.0": {
+      "Modules.SpecialDayBase.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.SpecialDayBase.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -625,7 +625,7 @@
           }
         }
       },
-      "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/0.0.0.0": {
+      "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/1.0.0.0": {
         "runtime": {
           "Modules.TurkiyeSpecialDay.Domain.Shared.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -633,7 +633,7 @@
           }
         }
       },
-      "Modules.TurkiyeSpecialDay.Infra.Reference/0.0.0.0": {
+      "Modules.TurkiyeSpecialDay.Infra.Reference/1.0.0.0": {
         "runtime": {
           "Modules.TurkiyeSpecialDay.Infra.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -885,17 +885,17 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.AuditLog.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.AuditLog.Infra.Reference/0.0.0.0": {
+    "Modules.AuditLog.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -910,7 +910,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.ModuleManagement.Domain.Reference/0.0.0.0": {
+    "Modules.ModuleManagement.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -920,12 +920,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Application.Dtos.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Application.Dtos.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Domain.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Domain.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -935,7 +935,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.SpecialDayBase.Infra.Reference/0.0.0.0": {
+    "Modules.SpecialDayBase.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -945,12 +945,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/0.0.0.0": {
+    "Modules.TurkiyeSpecialDay.Domain.Shared.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
-    "Modules.TurkiyeSpecialDay.Infra.Reference/0.0.0.0": {
+    "Modules.TurkiyeSpecialDay.Infra.Reference/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
