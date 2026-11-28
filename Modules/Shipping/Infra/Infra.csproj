@@ -22,6 +22,9 @@
     <Reference Include="Haskap.DddBase.Domain">
       <HintPath>..\..\..\References\Haskap.DddBase.Domain.dll</HintPath>
     </Reference>
+    <Reference Include="Haskap.DddBase.Domain.Shared">
+      <HintPath>..\..\..\References\Haskap.DddBase.Domain.Shared.dll</HintPath>
+    </Reference>
     <Reference Include="Haskap.DddBase.Infra">
       <HintPath>..\..\..\References\Haskap.DddBase.Infra.dll</HintPath>
     </Reference>

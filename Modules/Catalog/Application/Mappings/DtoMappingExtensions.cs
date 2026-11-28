@@ -1,11 +1,10 @@
 ﻿using Haskap.DddBase.Application.Mappings;
-using Haskap.EShopping.Application.Mappings;
-using Haskap.EShopping.Domain.Common;
+using Haskap.DddBase.Domain.Common;
 using Modules.Catalog.Application.Dtos;
-using Modules.Catalog.Domain.ProductAggregate;
 using Modules.Catalog.Domain.ColorAttributeAggregate;
-using Modules.Catalog.Domain.SizeAttributeAggregate;
+using Modules.Catalog.Domain.ProductAggregate;
 using Modules.Catalog.Domain.Shared.Enums;
+using Modules.Catalog.Domain.SizeAttributeAggregate;
 
 namespace Modules.Catalog.Application.Mappings;
 
@@ -136,7 +135,8 @@ public static class DtoMappingExtensions
                     DisplayName = attrTemp[1],
                     Value = attrTemp[2]
                 };
-            }).OfType<ProductAttributeOutputDto>()
+            })
+            .OfType<ProductAttributeOutputDto>()
             .ToList() ?? [];
 
             return attributes;

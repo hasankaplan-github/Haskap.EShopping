@@ -1,4 +1,4 @@
-﻿using Haskap.EShopping.Application.Dtos.Common;
+﻿using Haskap.DddBase.Application.Dtos;
 
 namespace Modules.Catalog.Application.Dtos;
 

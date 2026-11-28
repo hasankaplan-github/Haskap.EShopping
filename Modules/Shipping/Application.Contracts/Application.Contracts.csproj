@@ -17,6 +17,9 @@
     <Reference Include="Haskap.DddBase.Application.Contracts">
       <HintPath>..\..\..\References\Haskap.DddBase.Application.Contracts.dll</HintPath>
     </Reference>
+    <Reference Include="Haskap.DddBase.Application.Dtos">
+      <HintPath>..\..\..\References\Haskap.DddBase.Application.Dtos.dll</HintPath>
+    </Reference>
     <Reference Include="Haskap.DddBase.Utilities">
       <HintPath>..\..\..\References\Haskap.DddBase.Utilities.dll</HintPath>
     </Reference>

@@ -26,8 +26,14 @@
     <Reference Include="Haskap.DddBase.Application.Contracts">
       <HintPath>..\..\..\References\Haskap.DddBase.Application.Contracts.dll</HintPath>
     </Reference>
+    <Reference Include="Haskap.DddBase.Application.Dtos">
+      <HintPath>..\..\..\References\Haskap.DddBase.Application.Dtos.dll</HintPath>
+    </Reference>
     <Reference Include="Haskap.DddBase.Domain">
       <HintPath>..\..\..\References\Haskap.DddBase.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Haskap.DddBase.Domain.Shared">
+      <HintPath>..\..\..\References\Haskap.DddBase.Domain.Shared.dll</HintPath>
     </Reference>
   </ItemGroup>
 

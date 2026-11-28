@@ -1,5 +1,5 @@
 ﻿using Haskap.DddBase.Application.Contracts;
-using Haskap.EShopping.Application.Dtos.Common;
+using Haskap.DddBase.Application.Dtos;
 using Modules.Basket.Application.Dtos;
 using Modules.Shipping.Application.Dtos;
 

@@ -12,6 +12,7 @@ internal class AppliedCouponEntityTypeConfiguration : BaseEntityTypeConfiguratio
 
         builder.OwnsOne(x => x.DiscountAmount, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
     }

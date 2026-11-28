@@ -1,6 +1,5 @@
 ﻿using Haskap.DddBase.Application.Mappings;
-using Haskap.EShopping.Application.Mappings;
-using Haskap.EShopping.Domain.Common;
+using Haskap.DddBase.Domain.Common;
 using Modules.Catalog.Domain.CategoryAggregate;
 using Modules.Catalog.Domain.ColorAttributeAggregate;
 using Modules.Catalog.Domain.ProductAggregate;

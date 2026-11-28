@@ -1,7 +1,7 @@
 ﻿using Haskap.DddBase.Application;
+using Haskap.DddBase.Application.Mappings;
+using Haskap.DddBase.Domain.Common;
 using Haskap.DddBase.Domain.Providers;
-using Haskap.EShopping.Application.Mappings;
-using Haskap.EShopping.Domain.Common;
 using Modules.Basket.Application.Contracts;
 using Modules.Basket.Application.Dtos;
 using Modules.Basket.Domain;

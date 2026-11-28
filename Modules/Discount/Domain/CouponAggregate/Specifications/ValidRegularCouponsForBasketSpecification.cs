@@ -1,5 +1,5 @@
-﻿using Haskap.DddBase.Domain.Specifications;
-using Haskap.EShopping.Domain.Common;
+﻿using Haskap.DddBase.Domain.Common;
+using Haskap.DddBase.Domain.Specifications;
 using System.Linq.Expressions;
 
 namespace Modules.Discount.Domain.CouponAggregate.Specifications;

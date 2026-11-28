@@ -23,6 +23,7 @@ public class CouponEntityTypeConfiguration : BaseEntityTypeConfiguration<Coupon>
 
         builder.OwnsOne(x => x.BasketMinTotalAmount, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
 

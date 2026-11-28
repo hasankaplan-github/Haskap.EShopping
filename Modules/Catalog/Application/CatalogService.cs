@@ -1,5 +1,5 @@
 ﻿using Haskap.DddBase.Application;
-using Haskap.EShopping.Application.Mappings;
+using Haskap.DddBase.Application.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Modules.Catalog.Application.Contracts;
 using Modules.Catalog.Application.Dtos;

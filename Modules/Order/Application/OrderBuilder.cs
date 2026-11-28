@@ -1,6 +1,6 @@
-﻿using Haskap.DddBase.Domain.Providers;
+﻿using Haskap.DddBase.Domain.Common;
+using Haskap.DddBase.Domain.Providers;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Modules.Account.Application.Contracts.Account;
 using Modules.Basket.Application.Contracts;

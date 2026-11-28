@@ -12,16 +12,19 @@ internal class ItemEntityTypeConfiguration : BaseEntityTypeConfiguration<Item>
 
         builder.OwnsOne(x => x.Price, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
 
         builder.OwnsOne(x => x.Total, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
 
         builder.OwnsOne(x => x.TotalWithDiscount, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
     }

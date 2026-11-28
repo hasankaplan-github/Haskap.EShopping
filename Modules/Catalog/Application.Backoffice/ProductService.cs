@@ -1,9 +1,9 @@
 ﻿using Haskap.DddBase.Application;
 using Haskap.DddBase.Application.Dtos.Common.DataTable;
+using Haskap.DddBase.Domain.Common;
 using Haskap.DddBase.Domain.Events;
 using Haskap.DddBase.Domain.Providers;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Modules.Catalog.Application.Backoffice.Contracts;
 using Modules.Catalog.Application.Backoffice.Dtos.Product;

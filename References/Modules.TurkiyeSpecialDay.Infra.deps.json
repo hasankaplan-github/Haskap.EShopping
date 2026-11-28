@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "Modules.TurkiyeSpecialDay.Infra/1.0.0": {
         "dependencies": {
-          "AngleSharp": "1.10.5",
+          "AngleSharp": "1.11.0",
           "EFCore.NamingConventions": "10.0.1",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
@@ -38,20 +38,20 @@
           "Modules.TurkiyeSpecialDay.Infra.dll": {}
         }
       },
-      "AngleSharp/1.10.5": {
+      "AngleSharp/1.11.0": {
         "runtime": {
           "lib/net10.0/AngleSharp.dll": {
-            "assemblyVersion": "1.10.5.0",
-            "fileVersion": "1.10.5.0",
+            "assemblyVersion": "1.11.0.0",
+            "fileVersion": "1.11.0.0",
             "localPath": "AngleSharp.dll"
           }
         }
       },
-      "Ardalis.GuardClauses/5.0.0": {
+      "Ardalis.GuardClauses/6.0.0": {
         "runtime": {
-          "lib/net8.0/Ardalis.GuardClauses.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0",
+          "lib/net10.0/Ardalis.GuardClauses.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0",
             "localPath": "Ardalis.GuardClauses.dll"
           }
         }
@@ -265,6 +265,9 @@
         }
       },
       "Haskap.DddBase.Application.Dtos/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Domain.Shared": "1.0.0"
+        },
         "runtime": {
           "Haskap.DddBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -274,7 +277,7 @@
       },
       "Haskap.DddBase.Domain/1.0.0": {
         "dependencies": {
-          "Ardalis.GuardClauses": "5.0.0",
+          "Ardalis.GuardClauses": "6.0.0",
           "Haskap.DddBase.Application.Dtos": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
@@ -359,7 +362,7 @@
       },
       "Modules.AuditLog.Domain/1.0.0": {
         "dependencies": {
-          "Ardalis.GuardClauses": "5.0.0",
+          "Ardalis.GuardClauses": "6.0.0",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
@@ -566,19 +569,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AngleSharp/1.10.5": {
+    "AngleSharp/1.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+XcQgYnOCjizDLpBImAscxgyje0ypUdWXvP+TDEVowygb50J6frELXN3YD2SjOR/BuJInWUr6tFUwl9WN1l31w==",
-      "path": "anglesharp/1.10.5",
-      "hashPath": "anglesharp.1.10.5.nupkg.sha512"
+      "sha512": "sha512-1wEWfvt74q9RNAgWYLC9lfS1rT/CNfFw2rvjLJTaZEKRJ3qf35iTbwjH15VTQDwv48CjekHQIcVbxuD/GSiWcQ==",
+      "path": "anglesharp/1.11.0",
+      "hashPath": "anglesharp.1.11.0.nupkg.sha512"
     },
-    "Ardalis.GuardClauses/5.0.0": {
+    "Ardalis.GuardClauses/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jVPRvLw0xIUFto2cMrKgRYADWIHbEEfzZHGiU/swwNgl1zo28Q1zfSa3VUC3C0s9DyhFDPSaF4dEDQRyTZUcyQ==",
-      "path": "ardalis.guardclauses/5.0.0",
-      "hashPath": "ardalis.guardclauses.5.0.0.nupkg.sha512"
+      "sha512": "sha512-VPCr46YYHjcnunQpixMP/LDH56s85oTvu+wJ4zXu4JNYOm76VD0veDX3gneMV8w1XPnwJWUHrWJXrhaPAJM6QA==",
+      "path": "ardalis.guardclauses/6.0.0",
+      "hashPath": "ardalis.guardclauses.6.0.0.nupkg.sha512"
     },
     "EFCore.NamingConventions/10.0.1": {
       "type": "package",

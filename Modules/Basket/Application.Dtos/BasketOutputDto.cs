@@ -1,6 +1,5 @@
-﻿using Haskap.EShopping.Application.Dtos.Common;
-using Haskap.EShopping.Application.Mappings;
-using Haskap.EShopping.Domain.Common;
+﻿using Haskap.DddBase.Application.Dtos;
+using Haskap.DddBase.Domain.Common;
 using Modules.Catalog.Application.Dtos;
 using Modules.Discount.Application.Dtos;
 
@@ -14,19 +13,31 @@ public class BasketOutputDto
     public List<Guid> RemovedRegularCouponIds { get; set; }
     public List<CouponForBasketOutputDto> AllPossibleCoupons { get; set; } = [];
     public bool HasFreeShippingCoupon { get; set; }
-    public MoneyOutputDto ShippingFee { get; set; } = Money.Zero.ToMoneyOutputDto();
+    public MoneyOutputDto ShippingFee { get; set; } = new() { Currency = Money.Zero.Currency, Value = Money.Zero.Value, StringRepresentation = Money.Zero.ToString() };
     public MoneyOutputDto Total
     {
         get
         {
-            return new Money(Items.Sum(i => i.Total.Value)).ToMoneyOutputDto();
+            var total = new Money(Items.Sum(i => i.Total.Value));
+            return new()
+            {
+                Currency = total.Currency,
+                Value = total.Value,
+                StringRepresentation = total.ToString()
+            };
         }
     }
     public MoneyOutputDto TotalWithDiscount
     {
         get
         {
-            return new Money(Items.Sum(x => x.TotalWithDiscount.Value)).ToMoneyOutputDto();
+            var totalWithDiscount = new Money(Items.Sum(x => x.TotalWithDiscount.Value));
+            return new()
+            {
+                Currency = totalWithDiscount.Currency,
+                Value = totalWithDiscount.Value,
+                StringRepresentation = totalWithDiscount.ToString()
+            };
         }
     }
 }

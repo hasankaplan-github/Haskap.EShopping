@@ -1,10 +1,10 @@
 ﻿using Ardalis.GuardClauses;
 using Haskap.DddBase.Application;
+using Haskap.DddBase.Application.Dtos;
+using Haskap.DddBase.Application.Mappings;
+using Haskap.DddBase.Domain.Common;
 using Haskap.DddBase.Domain.Providers;
 using Haskap.DddBase.Utilities.Guids;
-using Haskap.EShopping.Application.Dtos.Common;
-using Haskap.EShopping.Application.Mappings;
-using Haskap.EShopping.Domain.Common;
 using Haskap.EShopping.Domain.Providers;
 using Microsoft.EntityFrameworkCore;
 using Modules.Basket.Application.Dtos;

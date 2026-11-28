@@ -23,11 +23,11 @@
           "Modules.Tenants.Application.dll": {}
         }
       },
-      "Ardalis.GuardClauses/5.0.0": {
+      "Ardalis.GuardClauses/6.0.0": {
         "runtime": {
-          "lib/net8.0/Ardalis.GuardClauses.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.0",
+          "lib/net10.0/Ardalis.GuardClauses.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0",
             "localPath": "Ardalis.GuardClauses.dll"
           }
         }
@@ -214,6 +214,9 @@
         }
       },
       "Haskap.DddBase.Application.Dtos/1.0.0": {
+        "dependencies": {
+          "Haskap.DddBase.Domain.Shared": "1.0.0"
+        },
         "runtime": {
           "Haskap.DddBase.Application.Dtos.dll": {
             "assemblyVersion": "1.0.0.0",
@@ -223,7 +226,7 @@
       },
       "Haskap.DddBase.Domain/1.0.0": {
         "dependencies": {
-          "Ardalis.GuardClauses": "5.0.0",
+          "Ardalis.GuardClauses": "6.0.0",
           "Haskap.DddBase.Application.Dtos": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
@@ -286,7 +289,7 @@
       },
       "Modules.Tenants.Domain/1.0.0": {
         "dependencies": {
-          "Ardalis.GuardClauses": "5.0.0",
+          "Ardalis.GuardClauses": "6.0.0",
           "Haskap.DddBase.Domain": "1.0.0",
           "Haskap.DddBase.Domain.Shared": "1.0.0",
           "Haskap.DddBase.Utilities": "1.0.0",
@@ -349,12 +352,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Ardalis.GuardClauses/5.0.0": {
+    "Ardalis.GuardClauses/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jVPRvLw0xIUFto2cMrKgRYADWIHbEEfzZHGiU/swwNgl1zo28Q1zfSa3VUC3C0s9DyhFDPSaF4dEDQRyTZUcyQ==",
-      "path": "ardalis.guardclauses/5.0.0",
-      "hashPath": "ardalis.guardclauses.5.0.0.nupkg.sha512"
+      "sha512": "sha512-VPCr46YYHjcnunQpixMP/LDH56s85oTvu+wJ4zXu4JNYOm76VD0veDX3gneMV8w1XPnwJWUHrWJXrhaPAJM6QA==",
+      "path": "ardalis.guardclauses/6.0.0",
+      "hashPath": "ardalis.guardclauses.6.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/10.0.14": {
       "type": "package",

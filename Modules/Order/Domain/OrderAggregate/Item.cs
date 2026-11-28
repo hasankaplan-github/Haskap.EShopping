@@ -1,5 +1,5 @@
 ﻿using Haskap.DddBase.Domain;
-using Haskap.EShopping.Domain.Common;
+using Haskap.DddBase.Domain.Common;
 
 namespace Modules.Order.Domain.OrderAggregate;
 

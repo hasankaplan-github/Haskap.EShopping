@@ -52,10 +52,12 @@ public class ProductVariantEntityTypeConfiguration : BaseEntityTypeConfiguration
 
         builder.OwnsOne(x => x.OldPrice, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
         builder.OwnsOne(x => x.Price, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
         builder.OwnsOne(x => x.StockQuantity);

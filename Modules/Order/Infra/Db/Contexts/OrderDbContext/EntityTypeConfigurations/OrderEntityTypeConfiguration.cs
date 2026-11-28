@@ -28,16 +28,19 @@ internal class OrderEntityTypeConfiguration : BaseEntityTypeConfiguration<Domain
 
         builder.OwnsOne(x => x.ShippingFee, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
 
         builder.OwnsOne(x => x.Total, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
 
         builder.OwnsOne(x => x.TotalWithDiscount, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
     }

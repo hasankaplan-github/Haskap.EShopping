@@ -12,6 +12,7 @@ public class ShippingFeeEntityTypeConfiguration : BaseEntityTypeConfiguration<Sh
 
         builder.OwnsOne(x => x.Price, x =>
         {
+            x.Ignore(y => y.Id);
             x.Property(y => y.Currency).HasConversion<string>();
         });
     }
